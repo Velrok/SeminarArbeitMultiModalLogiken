@@ -6,42 +6,42 @@
 
 \subsection{Syntax} % (fold)
 \label{sec:syntax}
-Die Syntax der Modal Logik ist wie die der Aussagenlogik mit den Erweiterungen $\square$ und $\diamond$. 
+Die Syntax der Modal Logik ist wie die der Aussagenlogik mit den Erweiterungen $\square$ und $\Diamond$. 
 Wie die Negation sind diese unär, das heißt sie beziehen sich nur auf die ihr folgende Formel. Im Folgenden werden die Zeichen $p, q, r, p_3$ für atomare Formeln verwendet.\cite[S.307f]{huth2004logic}\\
 \\
 Die folgende BNF (Backus Naur Form) beschreibt die Syntax der möglichen multi modal Formeln $\phi$.
 
 \begin{equation}
 	\phi ::= \bot|\top|p|(\neg\phi)|(\phi\wedge\phi)|(\phi\vee\phi)|(\phi\rightarrow\phi)|
-	(\phi\leftrightarrow\phi)|(\square\phi)|(\diamond\phi)
+	(\phi\leftrightarrow\phi)|(\square\phi)|(\Diamond\phi)
 \end{equation}
 
 \begin{figure}[ht]
 	\begin{center}
   	\includegraphics[width=0.4\textwidth]{./Images/mmFormel01.png}
 		\includegraphics[width=0.4\textwidth]{./Images/mmFormel02.png}
-  	\caption{Parse-Tree für $(p \wedge \diamond(p \rightarrow \square \neg r))$ und 
-		$\square((\diamond q \wedge \neg r) \rightarrow \square p )$}
+  	\caption{Parse-Tree für $(p \wedge \Diamond(p \rightarrow \square \neg r))$ und 
+		$\square((\Diamond q \wedge \neg r) \rightarrow \square p )$}
 		\label{fig:mmFormel01}
 	\end{center}
 \end{figure}
 
 
-Die Formeln $(p \wedge \diamond(p \rightarrow \square \neg r))$ und 
-$\square((\diamond q \wedge \neg r) \rightarrow \square p )$ sind Beispiele für syntaktisch korrekte Multi-Modal-Logik Formeln. Ihre Parse-Trees sind abgebildet in Abbildung~\ref{fig:mmFormel01}.\\
+Die Formeln $(p \wedge \Diamond(p \rightarrow \square \neg r))$ und 
+$\square((\Diamond q \wedge \neg r) \rightarrow \square p )$ sind Beispiele für syntaktisch korrekte Multi-Modal-Logik Formeln. Ihre Parse-Trees sind abgebildet in Abbildung~\ref{fig:mmFormel01}.\\
 \\
 Wie auch bei der Aussagenlogik binden die unären Operatoren stärker als die Binären.
 Sodass unnötige Klammern weggelassen werden können um die Leserlichkeit zu verbessern.\\
 \\
 Die folgende Liste sortieren die Operatoren nach ihrer Bindungsstärke. Beginnend mit den am stärksten bindenden.\\
 \begin{itemize}
-	\item $\neg, \square, \diamond$
+	\item $\neg, \square, \Diamond$
 	\item $\wedge, \vee$
 	\item $\rightarrow, \leftrightarrow$
 \end{itemize}
 
-Im allgemeinen werden die Symbole $\square$ und $\diamond$ als Box und Raute gelesen. 
-Spezifiziert man eine konkrete Logik so werden diese entsprechend ihrer interpretation gelesen. In der Logik für Notwendigkeit wird $\square$ als notwendig und $\diamond$ als möglich gelesen. In Logik für über das Wissen eines Agenten Q, wird $\square$ als Q weis und $\diamond$ als soweit Q weis, gelesen.
+Im allgemeinen werden die Symbole $\square$ und $\Diamond$ als Box und Raute gelesen. 
+Spezifiziert man eine konkrete Logik so werden diese entsprechend ihrer interpretation gelesen. In der Logik für Notwendigkeit wird $\square$ als notwendig und $\Diamond$ als möglich gelesen. In Logik für über das Wissen eines Agenten Q, wird $\square$ als Q weis und $\Diamond$ als soweit Q weis, gelesen.
 
 
 % section syntax (end)
@@ -52,7 +52,7 @@ Spezifiziert man eine konkrete Logik so werden diese entsprechend ihrer interpre
 Dieses Kapitel beschreibt die Semantik von Modal-Logik-Aussagen. 
 Die Semantik wird dabei formal beschrieben. Die grundlegende Frage ist wann evaluiert eine Modal-Logik-Formel zu \emph{wahr} bzw. \emph{falsch}.
 
-In der Aussagenlogik ist eine Interpretation eine mögliche Belegung der Variablen mit den Wahrheitswerten \emph{Wahr} oder \emph{Falsch}. Dabei muss jeder der Variablen einen dieser Werte annehmen. Die Formel $a \wedge b$ hat $2_2 = 4$ mögliche Interpretationen. 
+Zur Erinnerung: In der Aussagenlogik ist eine Interpretation eine mögliche Belegung der Variablen mit den Wahrheitswerten \emph{Wahr} oder \emph{Falsch}. Dabei muss jeder der Variablen einen dieser Werte annehmen. Die Formel $a \wedge b$ hat $2_2 = 4$ mögliche Interpretationen. 
 \begin{figure}[ht]
 	\begin{center}
 		\begin{tabular}{cccc}
@@ -77,7 +77,8 @@ Siehe Abbildung~\ref{tab:AussagenlogikInterpretation}
 
 Die Modal-Logik erfordert ein komplexeres Model für die Auswertung von Formeln, da verschiedene Arten von Wahr modelliert werden können.\cite[S.308f]{huth2004logic}
 
-Ein Model in Modal-Logik wird deswegen durch eine Kripkestruktur beschrieben. Eine Kripkestruktur besteht aus einer Menge von Welten $W$, einer Relation $R:(WxW)$ auf diesen Welten, die angibt welche Welten $w'$ von einer Welt $w$ erreichbar sind und einer Label-Funktion $L: W \rightarrow P$. 
+Ein Model in Modal-Logik wird deswegen durch eine Kripkestruktur beschrieben. 
+Eine Kripkestruktur besteht aus einer Menge von Welten $W$, einer Relation $R:(WxW)$ auf diesen Welten, die angibt welche Welten $w'$ von einer Welt $w$ erreichbar sind und einer Label-Funktion $L: W \rightarrow P$. 
 Die Label-Funktion weist jeder Welt $w$ eine Menge von Atomen $P$ zu und definiert damit die Wissensbasis. 
 
 Nehmen wir an die Menge der Welten $W$ sei 
@@ -110,23 +111,24 @@ dann ist Abbildung~\ref{fig:mmKripke01} die graphische Darstellung der beschrieb
 \end{figure}
 
 
-
-	
+Die Formeln \eqref{eqn:semanticTrue} bis \eqref{eqn:semanticLast} beschreiben formal unter welchen Gegebenheiten sich etwas folgern lässt.
 
 \begin{align}
 %	\begin{split}
-	x &\vDash \top\\
-	x &\nVDash \bot\\
+	x &\vDash \top\label{eqn:semanticTrue}\\
+	x &\nVDash \bot\label{eqn:semanticFalse}\\
 	x &\vDash p\text{ gdw. }p \in L(x)\\
 	x &\vDash \neg \phi\text{ gdw. }x \nVDash \phi\\
 	x &\vDash \phi \wedge \psi\text{ gdw. }x \vDash \phi\text{ und } x \vDash \psi\\
 	x &\vDash \phi \vee \psi\text{ gdw. }x \vDash \phi \text{, oder } x \vDash \psi\\
 	x &\vDash \phi \rightarrow \psi\text{ gdw. }x \vDash \psi\text{, immer wenn gilt }x \vDash \phi\\
 	x &\vDash \phi \leftrightarrow \psi\text{ gdw. }( x \vDash \phi\text{ gdw. }x \vDash \psi)\\
-	x &\vDash \box \psi\text{ gdw. }\forall y \in W \text{ gilt } R(x,y)\text{, und } y \vDash \psi\\
-	x &\vDash \diamond \psi\text{ gdw. }\exists y \in W \text{ sodass }R(x,y)\text{ und }y \vDash \psi\\
+	x &\vDash \Box \psi \text{ gdw. }\forall y \in W \text{ gilt } R(x,y)\text{, und } y \vDash \psi\\
+	x &\vDash \Diamond \psi\text{ gdw. }\exists y \in W \text{ sodass }R(x,y)\text{ und }y \vDash \psi\label{eqn:semanticLast}
 %	\end{split}
 \end{align}
+
+
 
 
 % section semantik (end)
