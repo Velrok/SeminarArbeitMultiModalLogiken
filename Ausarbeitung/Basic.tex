@@ -111,24 +111,22 @@ dann ist Abbildung~\ref{fig:mmKripke01} die graphische Darstellung der beschrieb
 
 
 
-\begin{displaymath}
 	
 
-%\begin{flushleft}
-	$x \vDash \top$\\
-	$x \nVDash \bot$\\
-	$x \vDash p$ gdw. $p \in L(x)$\\
-	$x \vDash \neg \phi$ gdw. $x \nVDash \phi$\\
-	$x \vDash \phi \wedge \psi$ gdw. $x \vDash \phi$ und $x \vDash \psi$\\
-	$x \vDash \phi \vee \psi$ gdw. $x \vDash \phi$, oder $x \vDash \psi$\\
-	$x \vDash \phi \rightarrow \psi$ gdw. $x \vDash \psi$, immer wenn gilt $x \vDash \phi$\\
-	$x \vDash \phi \leftrightarrow \psi$ gdw. $( x \vDash \phi$ gdw. $x \vDash \psi)$\\
-	$x \vDash \box \psi$ gdw. $\forall y \in W$ gilt $R(x,y)$, und $y \vDash \psi$\\
-	$x \vDash \diamond \psi$ gdw. $\exists y \in W$ sodass $R(x,y)$ and $y \vDash \psi$\\
-%\end{flushleft}
-
-\end{displaymath}
-
+\begin{align}
+%	\begin{split}
+	x &\vDash \top\\
+	x &\nVDash \bot\\
+	x &\vDash p\text{ gdw. }p \in L(x)\\
+	x &\vDash \neg \phi\text{ gdw. }x \nVDash \phi\\
+	x &\vDash \phi \wedge \psi\text{ gdw. }x \vDash \phi\text{ und } x \vDash \psi\\
+	x &\vDash \phi \vee \psi\text{ gdw. }x \vDash \phi \text{, oder } x \vDash \psi\\
+	x &\vDash \phi \rightarrow \psi\text{ gdw. }x \vDash \psi\text{, immer wenn gilt }x \vDash \phi\\
+	x &\vDash \phi \leftrightarrow \psi\text{ gdw. }( x \vDash \phi\text{ gdw. }x \vDash \psi)\\
+	x &\vDash \box \psi\text{ gdw. }\forall y \in W \text{ gilt } R(x,y)\text{, und } y \vDash \psi\\
+	x &\vDash \diamond \psi\text{ gdw. }\exists y \in W \text{ sodass }R(x,y)\text{ und }y \vDash \psi\\
+%	\end{split}
+\end{align}
 
 
 % section semantik (end)
