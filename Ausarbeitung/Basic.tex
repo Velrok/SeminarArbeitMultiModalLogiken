@@ -1,0 +1,143 @@
+%!TEX root = /Users/velrok/Dropbox/TheoInf Seminar/Ausarbeitung/Main.tex
+
+
+\section{Basic modal logic ($K$)} % (fold)
+\label{sec:basic_modal_logic}
+
+\subsection{Syntax} % (fold)
+\label{sec:syntax}
+Die Syntax der Modal Logik ist wie die der Aussagenlogik mit den Erweiterungen $\square$ und $\diamond$. 
+Wie die Negation sind diese unär, das heißt sie beziehen sich nur auf die ihr folgende Formel. Im Folgenden werden die Zeichen $p, q, r, p_3$ für atomare Formeln verwendet.\cite[S.307f]{huth2004logic}\\
+\\
+Die folgende BNF (Backus Naur Form) beschreibt die Syntax der möglichen multi modal Formeln $\phi$.
+
+\begin{equation}
+	\phi ::= \bot|\top|p|(\neg\phi)|(\phi\wedge\phi)|(\phi\vee\phi)|(\phi\rightarrow\phi)|
+	(\phi\leftrightarrow\phi)|(\square\phi)|(\diamond\phi)
+\end{equation}
+
+\begin{figure}[ht]
+	\begin{center}
+  	\includegraphics[width=0.4\textwidth]{./Images/mmFormel01.png}
+		\includegraphics[width=0.4\textwidth]{./Images/mmFormel02.png}
+  	\caption{Parse-Tree für $(p \wedge \diamond(p \rightarrow \square \neg r))$ und 
+		$\square((\diamond q \wedge \neg r) \rightarrow \square p )$}
+		\label{fig:mmFormel01}
+	\end{center}
+\end{figure}
+
+
+Die Formeln $(p \wedge \diamond(p \rightarrow \square \neg r))$ und 
+$\square((\diamond q \wedge \neg r) \rightarrow \square p )$ sind Beispiele für syntaktisch korrekte Multi-Modal-Logik Formeln. Ihre Parse-Trees sind abgebildet in Abbildung~\ref{fig:mmFormel01}.\\
+\\
+Wie auch bei der Aussagenlogik binden die unären Operatoren stärker als die Binären.
+Sodass unnötige Klammern weggelassen werden können um die Leserlichkeit zu verbessern.\\
+\\
+Die folgende Liste sortieren die Operatoren nach ihrer Bindungsstärke. Beginnend mit den am stärksten bindenden.\\
+\begin{itemize}
+	\item $\neg, \square, \diamond$
+	\item $\wedge, \vee$
+	\item $\rightarrow, \leftrightarrow$
+\end{itemize}
+
+Im allgemeinen werden die Symbole $\square$ und $\diamond$ als Box und Raute gelesen. 
+Spezifiziert man eine konkrete Logik so werden diese entsprechend ihrer interpretation gelesen. In der Logik für Notwendigkeit wird $\square$ als notwendig und $\diamond$ als möglich gelesen. In Logik für über das Wissen eines Agenten Q, wird $\square$ als Q weis und $\diamond$ als soweit Q weis, gelesen.
+
+
+% section syntax (end)
+
+\subsection{Semantik} % (fold)
+\label{sec:semantik}
+
+Dieses Kapitel beschreibt die Semantik von Modal-Logik-Aussagen. 
+Die Semantik wird dabei formal beschrieben. Die grundlegende Frage ist wann evaluiert eine Modal-Logik-Formel zu \emph{wahr} bzw. \emph{falsch}.
+
+In der Aussagenlogik ist eine Interpretation eine mögliche Belegung der Variablen mit den Wahrheitswerten \emph{Wahr} oder \emph{Falsch}. Dabei muss jeder der Variablen einen dieser Werte annehmen. Die Formel $a \wedge b$ hat $2_2 = 4$ mögliche Interpretationen. 
+\begin{figure}[ht]
+	\begin{center}
+		\begin{tabular}{cccc}
+		\hline
+		a & b & $a \wedge b$\\
+		\hline
+		1 & 1 & Wahr\\
+		\hline
+		1 & 0 & Falsch\\
+		\hline
+		0 & 1 & Falsch\\
+		\hline
+		0 & 0 & Falsch\\
+		\hline
+		\end{tabular}
+		\caption{Alle möglichen Interpretationen der Aussagenlogik-Formel $a \wedge b$}
+		\label{tab:AussagenlogikInterpretation}
+	\end{center}
+\end{figure}
+Siehe Abbildung~\ref{tab:AussagenlogikInterpretation}
+\cite{hunter1973metalogic}% wikipedia: Was ist eine Interpretation http://en.wikipedia.org/wiki/First-order_logic#Evaluation_of_truth_values
+
+Die Modal-Logik erfordert ein komplexeres Model für die Auswertung von Formeln, da verschiedene Arten von Wahr modelliert werden können.\cite[S.308f]{huth2004logic}
+
+Ein Model in Modal-Logik wird deswegen durch eine Kripkestruktur beschrieben. Eine Kripkestruktur besteht aus einer Menge von Welten $W$, einer Relation $R:(WxW)$ auf diesen Welten, die angibt welche Welten $w'$ von einer Welt $w$ erreichbar sind und einer Label-Funktion $L: W \rightarrow P$. 
+Die Label-Funktion weist jeder Welt $w$ eine Menge von Atomen $P$ zu und definiert damit die Wissensbasis. 
+
+Nehmen wir an die Menge der Welten $W$ sei 
+\begin{center}
+	$\{ x_1, x_2, x_3, x_4, x_5, x_6 \}$
+\end{center}
+ 
+die Relation $R$ sei definiert als 
+\begin{center}
+	$\{(x_1, x_2), (x_1, x_3), (x_2, x_3), (x_3, x_2), (x_2, x_2), (x_4, x_5), (x_5, x_4), (x_5, x_6)\}$ 
+\end{center}
+
+und die Labelfunktion $L$ liefere,
+\begin{center}
+	\begin{tabular}{c|cccccc}
+		$x$ & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$\\
+		\hline
+		$L(x)$ & $\{q\}$ & $\{p,q\}$ & $\{p\}$ & $\{q\}$ & $\{\}$ & $\{p\}$
+	\end{tabular}
+\end{center}
+
+dann ist Abbildung~\ref{fig:mmKripke01} die graphische Darstellung der beschriebenen Kripke-Struktur.
+
+\begin{figure}[ht]
+	\begin{center}
+  	\includegraphics[width=0.65\textwidth]{./Images/Kripke01.png}
+  	\caption{Beispiel einer Kripke-Struktur}
+		\label{fig:mmKripke01}
+	\end{center}
+\end{figure}
+
+
+
+\begin{displaymath}
+	
+
+%\begin{flushleft}
+	$x \vDash \top$\\
+	$x \nVDash \bot$\\
+	$x \vDash p$ gdw. $p \in L(x)$\\
+	$x \vDash \neg \phi$ gdw. $x \nVDash \phi$\\
+	$x \vDash \phi \wedge \psi$ gdw. $x \vDash \phi$ und $x \vDash \psi$\\
+	$x \vDash \phi \vee \psi$ gdw. $x \vDash \phi$, oder $x \vDash \psi$\\
+	$x \vDash \phi \rightarrow \psi$ gdw. $x \vDash \psi$, immer wenn gilt $x \vDash \phi$\\
+	$x \vDash \phi \leftrightarrow \psi$ gdw. $( x \vDash \phi$ gdw. $x \vDash \psi)$\\
+	$x \vDash \box \psi$ gdw. $\forall y \in W$ gilt $R(x,y)$, und $y \vDash \psi$\\
+	$x \vDash \diamond \psi$ gdw. $\exists y \in W$ sodass $R(x,y)$ and $y \vDash \psi$\\
+%\end{flushleft}
+
+\end{displaymath}
+
+
+
+% section semantik (end)
+
+\subsection{Design neuer Logiken für eine bestimmte Modalität} % (fold)
+\label{sub:design_neuer_logiken_fuer_eine_bestimmte_modalitaet}
+
+\subsubsection{Ähnlichkeits Theorie}
+
+% subsection design_neuer_logiken_für_eine_bestimmte_modalität (end)
+
+% section basic_modal_logic (end)

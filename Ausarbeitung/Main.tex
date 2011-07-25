@@ -1,0 +1,210 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+%\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+\documentclass[a4paper]{article}
+%           \documentclass[final,narroweqnarray,inline]{ieee}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+
+%------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Basic Latex Einf\UTF{00B8}hrung
+%http://www.thomastaubert.de/htm/latex.htm
+%http://www.uni-koeln.de/rrzk/kurse/unterlagen/latex/ergaenzungen/pdftex.pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+
+%------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+
+
+% umlaute
+\usepackage[utf8]{inputenc}
+%\usepackage{ngerman}
+
+
+%Package for figures
+\usepackage{graphicx}
+\usepackage{subfigure}
+%Caption: kleinere Schriftgr\UTF{00F6}sse f\UTF{00FC}r die Bildbeschreibung
+\usepackage[hang,nooneline,footnotesize,bf]{caption}
+
+%Package for formating SI Units
+\usepackage{sistyle}
+
+%Package um die Zitate zu sortieren 
+%Anstelle von "`ich zitiere hier \cite[a],\cite[b] und \cite[c]"'
+%einfach nur schreiben "`ich zitiere hier \cite[a,b,c]"' 
+\usepackage{cite}
+
+%Zum \UTF{00B8}berladen von LaTex Befehlen
+\usepackage{ifthen}
+
+%Package f\UTF{00B8}r Source-Code Darstellung
+\usepackage{listings}
+
+% Longtable: \UTF{00B8}berlange Tabellen automatisch umbrechen
+\usepackage{longtable}
+
+% this is for layout testing
+\usepackage{layout}
+
+% Packag Hyperref erlaubt die Eigenschaften und links von PDFs zu aktivieren
+% Look at http://en.wikibooks.org/wiki/LaTeX/Packages/Hyperref
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+    %bookmarks=true,         % show bookmarks bar?
+    unicode=true,          % non-Latin characters in Acrobat\UTF{00ED}s bookmarks
+    pdftoolbar=true,        % show Acrobat\UTF{00ED}s toolbar?
+    pdfmenubar=true,        % show Acrobat\UTF{00ED}s menu?
+    pdffitwindow=true,      % page fit to window when opened
+    pdftitle={Titel der Arbeit},    % title
+    pdfauthor={},     % author
+    pdfsubject={Kurzbeschreiubung},   % subject of the document
+    pdfnewwindow=true,      % links in new window
+    pdfkeywords={leer}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links
+    citecolor=black,        % color of links to bibliography
+    filecolor=black,      % color of file links
+    urlcolor=black,           % color of external links
+    hypertexnames=false	% solves Problems with Links
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Shortcuts f\UTF{00B8}r Copyright, Trademark und Registered
+\def\TReg{\textsuperscript{\textregistered}} %use \TReg for Registered
+\def\TCop{\textsuperscript{\textcopyright}}  %use \TCop for Copyright
+\def\TTra{\textsuperscript{\texttrademark}}  %use \TTra for Trademark
+
+
+%% Nummerierung der \UTF{00DC}erschriften
+%\renewcommand \thechapter {\Roman{chapter}.}
+%\renewcommand \thesection {\Alph{section})}
+%\renewcommand \thesubsection {\arabic{subsection}.}
+%\renewcommand \thesubsubsection {\alph{subsubsection})}
+%\renewcommand \theparagraph {}     % oder: {(\arabic{paragraph})}
+%%Alternative: Paket "alnumsec" / s.u.
+
+
+% erstellt eine Fu\UTF{FB02}note mit Vgl. und dahinter die zitierte Stelle
+% \vgl{Quelle05} -> vgl. Quelle 2005
+% \vgl[S. 123]{Quelle05} -> vgl. Quelle 2005, S. 123
+
+%
+% erstellt eine Fu\UTF{FB02}note mit der zitierten Stelle
+% \zitat{Quelle05} -> Quelle 2005
+% \zitat[S. 123]{Quelle05} -> Quelle 2005, S. 123
+\newcommand{\zitat}[2][]{\footnote{\cite{#2}\ifthenelse{\equal{#1}{}}{}{, #1}}}
+
+%f\UTF{00B8}gt eine Fu\UTF{FB02}note mit Verweis und Seitenzahl des angegebenen Label ein.
+\newcommand{\vglFuss}[1]{\footnote{vgl. Kapitel \ref{#1} auf Seite \pageref{#1}}}
+
+%Erlaubt r\UTF{00F6}mische Ziffern zu nutzen
+\newcommand{\RMDOT}[1]{\MakeUppercase{\romannumeral #1{.}}}
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+
+
+%------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+
+%BEGIN DES EIGENTLICHEN DOKUMENTES
+
+%------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	\begin{huge}
+		Multi Modal Logiken
+	\end{huge}
+	
+	\begin{large}
+		Waldemar Schwan
+	\end{large}
+	
+%\layout
+%\include{Titelseite}
+%	\renewcommand{\baselinestretch}{1.1}\normalsize
+
+\tableofcontents
+\newpage
+
+%\listoftables
+%\listoffigures
+%\newpage
+
+
+\include{Content}
+
+
+%Zitate/Referenzen einf\UTF{00FC}gen
+\begin{small}
+	\renewcommand{\baselinestretch}{0.9}\normalsize
+	%\bibliographystyle{IEEE}
+	\bibliographystyle{alpha}
+	\bibliography{sources}
+	%\nocite{*}
+\end{small}
+
+\renewcommand{\baselinestretch}{1.1}\normalsize
+\include{Appendix}
+
+\end{document}
