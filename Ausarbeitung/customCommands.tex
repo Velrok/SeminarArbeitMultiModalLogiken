@@ -18,7 +18,12 @@
 \newcommand{\NML}{normale \ML}
 \newcommand{\NNML}{nicht-normale \ML}
 
-\newcommand{\KFormel}{$\Box(\psi \rightarrow \phi) \rightarrow (\Box\psi \rightarrow \Box\phi)$ }
+\newcommand{\deMorganBedingung}{de Morgan Bedingung }
+\newcommand{\deMorganRegeln}{de Morgan Regeln }
+
+\newcommand{\KFormel}{$\Box(\phi \rightarrow \psi) \wedge \Box \phi \rightarrow \Box \psi$}
+\newcommand{\modelFormel}{$\mathds{M} = (W,R,L)$}
+
 
 \newcommand{\formelSchema}{Formel-Schema }
 \newcommand{\formelSchemata}{Formel-Schemata }
@@ -30,9 +35,9 @@
 
 % für notizen
 \usepackage{color}
-\newcommand{\todo}[1]{\textcolor{red}{\textless \textbf{TODO:} #1\textgreater}}
+\newcommand{\todo}[1]{\marginline{\textcolor{red}{\textless \textbf{TODO:} #1\textgreater}}}
 
-\newcommand{\note}[1]{\textcolor{blue}{\textless \textbf{Notiz:} #1\textgreater}}
+\newcommand{\note}[1]{\marginline{\textcolor{blue}{\textless \textbf{Notiz:} #1\textgreater}}}
 
 %fast navigation
 \newcommand{\curr}{\label{current}}

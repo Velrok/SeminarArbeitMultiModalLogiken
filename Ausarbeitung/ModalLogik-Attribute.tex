@@ -1,7 +1,7 @@
 %!TEX root = /Users/velrok/Dropbox/TheoInf Seminar/Ausarbeitung/Main.tex
 
 
-\subsection{Attribute einer Modal-Logik} % (fold)
+\section{Attribute einer Modal-Logik} % (fold)
 \label{sub:attribute_einer_modal_logik}
 Die Attribute einer \ML werden dadurch bestimmt welche Formeln als valide vorausgesetzt werden.
 Alle \NML setzen die Validität der Formel $K$, die Formel für die Logische Konsequentz \todo{Quelle referenzieren}, voraus.
@@ -37,7 +37,7 @@ Neben der Formel für $K$ gibt es weitere typische Formeln die, sofern sie als v
 \cite[S.326]{huth2004logic}
 
 \begin{definition}
-	Ein Modell der intuitionistischen Aussagenlogik ist ein Model $\mathds{M} = (W,R,L)$ der Logik $KT45$, sodass $R(x,y)$ immer $L(x) \subseteq L(y)$ impliziert.
+	Ein Modell der intuitionistischen Aussagenlogik ist ein Model \modelFormel der Logik $KT45$, sodass $R(x,y)$ immer $L(x) \subseteq L(y)$ impliziert.
 	Gegeben einer modal logische Formel nach \eqref{eqn:bnf}, definieren wir $x \Vdash \psi$ wie in Definition \eqref{def:reasoning} mit Außnahme der Reglen für $\rightarrow$ und $\neg$.
 	\begin{itemize}
 		\item $\psi \rightarrow \phi$ definierten wir als $x \Vdash \psi \rightarrow \phi$ gdw. $\forall y R(x,y)$ auch $y \Vdash \phi$ gilt, immer wenn $y \Vdash \psi$ gilt.
