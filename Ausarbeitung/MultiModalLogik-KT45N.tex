@@ -1,0 +1,37 @@
+%!TEX root = /Users/velrok/Dropbox/TheoInf Seminar/Ausarbeitung/Main.tex
+
+\subsection{Die Modal-Logik $KT45^n$ (Multi-Agent-Wissen)} % (fold)
+\label{sub:the_modal_logic_kt45_n_}
+
+\textbf{multi agent systeme}
+\begin{definition}
+	\label{def:bnf_kt45n}
+	Eine Formel $\psi$ der multi modal Logik $KT45^n$ ist definiert durch folgende Grammatik:
+	\begin{equation}
+		\label{eqn:bnf_kt45n}
+		\phi ::= \bot|\top|p|(\neg\phi)|(\phi\wedge\phi)|(\phi\vee\phi)|(\phi\rightarrow\phi)|
+		(\phi\leftrightarrow\phi)|(K_i\psi)|(E_G\psi)|(C_G\psi)|(D_G\psi)
+	\end{equation}
+\end{definition}
+\cite[S.335f]{huth2004logic}
+
+\begin{definition}
+		Gegeben ein Model $\mathds{M} = (W,(R_i)_{i \in \mathds{A}}, L)$ der $KT45^n$ und eine Welt $w \in W$, so definieren $\psi$ als \emph{Wahr} durch die Erfüllung der Relation $x \vDash \psi$ durch folgende Regeln:
+		\begin{align}
+			x &\Vdash p\text{ gdw. }p \in L(x)\\
+			x &\Vdash \neg \phi\text{ gdw. }x \nVdash \phi\\
+			%
+			x &\Vdash \phi \wedge \psi\text{ gdw. }x \Vdash \phi\text{ und } x \Vdash \psi\\
+			x &\Vdash \phi \vee \psi\text{ gdw. }x \Vdash \phi \text{, oder } x \Vdash \psi\\
+			%
+			x &\Vdash \phi \rightarrow \psi\text{ gdw. }x \Vdash \psi\text{, immer wenn gilt }x \Vdash \phi\\
+			%
+			x &\Vdash K_i\psi \text{ gdw. } \forall y \in W, R_i(x,y) \text{, } y \Vdash \psi \text{ impliziert}\\
+			x &\Vdash E_G\psi \text{ gdw. } \forall i \in G, x \Vdash K_i\psi\\
+			x &\Vdash C_G\psi \text{ gdw. } \forall k \geq 1 \text{, und es gilt } x \Vdash E^k_G\psi \text{.} \text{Wobei } E^k_G \text{ meint } E_{G}E_{G}\dots E_{G} \text{ k-mal.}\\
+			x &\Vdash D_G\psi \text{ gdw. } \forall y \in W, y \Vdash \psi \text{gilt, immer wenn auch } R_i(x,y), \forall i \in G \text{gilt.}\\
+		\end{align}
+\end{definition}
+\cite[S.337]{huth2004logic}
+
+% subsection the_model_logic_kt45_n_ (end)

@@ -1,0 +1,62 @@
+%!TEX root = /Users/velrok/Dropbox/TheoInf Seminar/Ausarbeitung/Main.tex
+
+
+\subsection{Attribute einer Modal-Logik} % (fold)
+\label{sub:attribute_einer_modal_logik}
+Die Attribute einer \ML werden dadurch bestimmt welche Formeln als valide vorausgesetzt werden.
+Alle \NML setzen die Validität der Formel $K$, die Formel für die Logische Konsequentz \todo{Quelle referenzieren}, voraus.
+\NNML sind nicht Teil dieser Arbeit. Der Interessierte Lesen sein an Priest \cite[S.75ff]{Priest:2008} verwiesen.
+Will man eine eigene \ML kreieren ist es wichtig sich genaue Gedanken darüber zu machen, welcher Formeln die als valide voraussetzt, weil das die Eigenschaften der zu modellierenden Wahrheit bestimmt.
+Im Folgenden wird erst das für \NML zwingend erforderliche Basisattribut $K$ vorgestellt und danach auf die anderen optionalen Eigenschaften eingegangen.
+Zum Schluss werden ein paar \NML und deren Eigenschaften beschrieben und erklärt warum die gewählten Eigenschaften für die Modalität wünschenswert / wichtig / notwendig sind.
+
+
+\paragraph{Das Basis Atribute $K$} % (fold)
+\label{par:das_basis_atribute_k_} \KFormel besagt das die Logik geschlossen ist unter der logischen Konsequentz. \todo{mehr schreiben}
+
+
+\paragraph{Weitere Attribute} % (fold)
+\label{par:weitere_attribute} 
+
+Neben der Formel für $K$ gibt es weitere typische Formeln die, sofern sie als valide vorausgesetzt werden einer \NML gewissen Eigenschaften verleihen.
+
+
+\todo{weiter Atribute diskutieren}
+\textbf{einige Modal Logiken}
+\begin{definition}
+	\label{def:substitution}
+	Sei $\mathds{L}$ eine Menge von Formel-Schemata der Modal Logik und $\Gamma \cup {\psi}$ eine Menge von modal logischen Formeln.
+	
+	\begin{itemize}
+		\item Die Menge $\Gamma$ ist abgeschlossen gegenüber der Substitution von Instancen gdw.  $\psi \in \Gamma$. Dann gilt auch, dass jede Substitutionsinstanz von $\psi$ auch in $\Gamma$ ist.
+		\item Sei $\mathds{L}_c$ die kleinste Menge die alle Instanzen von $\mathds{L}$ enthält.
+		\item Aus $\Gamma$ folgt semantisch $\psi$ in $\mathds{L}$ gdw. alle Modelle, deren Frame $\mathds{L}$ erfüllt und alle Welten $x$ in diesem Modell, $x$ erfüllt $\Gamma$, gilt.
+		In diesem Fall sagen wir $\Gamma \vDash_{\mathds{L}} \psi$ ist erfüllt.
+	\end{itemize}
+\end{definition}
+\cite[S.326]{huth2004logic}
+
+\begin{definition}
+	Ein Modell der intuitionistischen Aussagenlogik ist ein Model $\mathds{M} = (W,R,L)$ der Logik $KT45$, sodass $R(x,y)$ immer $L(x) \subseteq L(y)$ impliziert.
+	Gegeben einer modal logische Formel nach \eqref{eqn:bnf}, definieren wir $x \Vdash \psi$ wie in Definition \eqref{def:reasoning} mit Außnahme der Reglen für $\rightarrow$ und $\neg$.
+	\begin{itemize}
+		\item $\psi \rightarrow \phi$ definierten wir als $x \Vdash \psi \rightarrow \phi$ gdw. $\forall y R(x,y)$ auch $y \Vdash \phi$ gilt, immer wenn $y \Vdash \psi$ gilt.
+		\item $\neg \psi$ definierten wir als $x \Vdash \neg \psi$ gdw. $\forall y R(x,y)$ $y \nVdash \psi$ der Fall ist.
+	\end{itemize}
+\end{definition}
+\cite[S.328]{huth2004logic}
+
+\begin{definition}
+	Gegeben einer Menge von Formel Schemata $\mathds{L}$.
+	Definieren wir $\Gamma \Vdash_\mathds{L} \psi$ als valide, wenn es einen Beweis im natürlichen Folgerungssystem für modal Logiken gibt, der um die Axiome in $\mathds{L}$ und den Annahmen in $\Gamma$ erweitert ist.
+	\todo{bessere Forumlierung finden}
+	\todo{natural deduction system beser übersetzen}
+\end{definition}
+\cite[S.330]{huth2004logic}
+
+
+
+
+% paragraph abgesehen_davon_gibt_es_weitere_attribute (end)
+% paragraph das_basis_atribute_k_ (end)
+% subsection attribute_einer_modal_logik (end)

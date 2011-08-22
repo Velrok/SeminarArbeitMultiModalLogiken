@@ -1,0 +1,73 @@
+%!TEX root = /Users/velrok/Dropbox/TheoInf Seminar/Ausarbeitung/Main.tex
+
+
+\subsection{Das Wise-Men Rätsel} % (fold)
+\label{sub:das_wise_men_raetsel}
+
+Das \emph{Wise-Men-Puzzle} ist ein klassisches Beispiel dafür wie ein Agent aufgrund von Allgemeinwissen und das Wissen über das Wissen oder Unwissen andere Folgerungen ziehen kann.
+
+\begin{puzzle}
+	\label{puz:wiseMen}
+	Es gibt 3 weise Männer.
+	Es gehört zum Allgemeinwissen - etwas das jeder weis, und jeder weis, dass es jeder weis, was wiederum jeder weis usw. -, dass es 3 rote und 2 weise Hüte gibt.
+	Der König setzt jedem der weisen Männer einen Hut auf, sodass jeder nur die Hüter der anderen, nicht jedoch seinen eigenen sehen kann.
+	Danach fragt er der Reihe nach jeden ob er weis welche Farbe sein Hut hat.
+	Gehen wir davon aus, das sowohl der Erste als auch der Zweite es nicht weis, dann folgt daraus, dass der Dritte Wissen muss welche Farbe sein Hut hat.
+	\\
+	Warum?\\
+	Welche Farbe hat sein Hut?
+\end{puzzle}
+%
+%
+Das Rätsel setzt folgendes Vorraus:
+\begin{itemize}
+	\item Alle Beteiligten sind ehrlich
+	\item Alle Beteiligten sind schlau (übersehen keine Folgerungen)
+	\item Alle Beteiligten wissen das die anderen schlau sind
+	\item Alle Beteiligten besitzen das selbe Allgemeinwissen
+\end{itemize}
+%
+%
+Im folgenden wird das Rätsel umgangssprachlich und durch Überlegungen gelöst. In \Abs{sub:the_modal_logic_kt45_n_} wird das Rätsel in der \MML $KT45^n$ formalisiert und formal gefolgert.\\
+\\
+Beginnen wir damit alle möglichen Kombinationen zu notieren:\\
+%
+\begin{tabular}{ccc}
+\texttt{R R R} &   & \texttt{W R R}\\
+\texttt{R R W} &   & \texttt{W R W}\\
+\texttt{R W R} &   & \texttt{W W R}\\
+\texttt{R W W} &   &   \\
+\end{tabular}
+%
+Wobei die Notation \texttt{R R W} bezeichnet, dass der Erste und Zweite einen roten und der Dritte einen weißen Hut tragen.
+Der Fall \texttt{W W W} kann nicht auftreten, weil es keine 3 weißen Hüte gibt.\\
+Betrachten wir das Rätsel mal aus der Perspektive des 2. und 3. Weisen. 
+Nach der negativ Aussage vom Ersten kann der Zweite folgern, dass \texttt{R W W}, nicht der Fall ist, sonst wüste der 1. das er einen roten Hut trägt. 
+Mit der selben Argumentation kann der 3. den Fall \texttt{W R W} ausschließen. 
+Damit bleiben folgende Kombinationen:\\
+\begin{tabular}{ccc}
+\texttt{R R R} &   & \texttt{W R R}\\
+\texttt{R R W} &   & \sout{\texttt{W R W}}\\
+\texttt{R W R} &   & \texttt{W W R}\\
+\sout{\texttt{R W W}} &   &   \\
+\end{tabular}
+%
+Der 3. kann außerdem den Fall \texttt{R R W} ausschließen, denn wäre dies der Fall gewesen hätte der 2. gefolgert, dass es einer der beiden Kombinationen \texttt{R R W} oder \texttt{R W W} zutreffen muss.
+Der Fall \texttt{R W W} konnte aber schon durch die Aussage des Ersten ausgeschlossen werden.
+Wäre also \texttt{R R W} der Fall gewesen, so hätte der Zwei gewusst, dass er einen roten trägt. Da er das aber nicht sagt, kann dieser Fall ausgeschlossen werden.
+Damit bleiben übrig:\\
+%
+\begin{tabular}{ccc}
+\texttt{R R R} &   & \texttt{W R R}\\
+\sout{\texttt{R R W}} &   & \sout{\texttt{W R W}}\\
+\texttt{R W R} &   & \texttt{W W R}\\
+\sout{\texttt{R W W}} &   &   \\
+\end{tabular}
+Wie man sehen kann, trägt der 3. in jedem der Fällt einen roten Hut.
+Deswegen kann er folgern, dass er einen roten Hut aufhaben muss, weil sonst einer der anderen anders geantwortet hätte.\\
+Das zeigt, warum es notwendig ist, das alle Beteiligten schlau sind, nichts übersehen, nicht lügen und all dies zum Allgemeinwissen der Beteiligten zählt.
+
+
+
+
+% subsection das_wise_men_ (end)
