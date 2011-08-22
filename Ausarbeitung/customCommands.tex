@@ -6,9 +6,33 @@
 %email format
 \newcommand{\emailAdress}[1]{\textless\href{mailto:#1}{#1}\textgreater}
 
+% referenzing
+\newcommand{\Abs}[1]{Abschnitt~\ref{#1} auf Seite \pageref{#1} }
+\newcommand{\Abb}[1]{Abbildung~\ref{fig:#1} auf Seite \pageref{fig:#1} }
+
+% special words
+\newcommand{\true}{\emph{Wahr }}
+\newcommand{\false}{\emph{Falsch }}
+
+\newcommand{\ML}{Modal-Logik }
+\newcommand{\NML}{normale \ML}
+\newcommand{\NNML}{nicht-normale \ML}
+
+\newcommand{\KFormel}{$\Box(\psi \rightarrow \phi) \rightarrow (\Box\psi \rightarrow \Box\phi)$ }
+
+\newcommand{\formelSchema}{Formel-Schema }
+\newcommand{\formelSchemata}{Formel-Schemata }
+
+\newcommand{\parseTree}{Parse-Tree }
+
+\newcommand{\MML}{Multi-Modal-Logik }
+\newcommand{\NMML}{normale \MML}
 
 % für notizen
 \usepackage{color}
 \newcommand{\todo}[1]{\textcolor{red}{\textless \textbf{TODO:} #1\textgreater}}
 
 \newcommand{\note}[1]{\textcolor{blue}{\textless \textbf{Notiz:} #1\textgreater}}
+
+%fast navigation
+\newcommand{\curr}{\label{current}}

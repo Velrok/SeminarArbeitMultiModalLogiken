@@ -20,7 +20,7 @@
 %        -- Open bibliography style (closed is the default)
 %                        openbib
 % For instance the command
-\documentclass[a4paper]{article}
+\documentclass[a4paper]{scrartcl}
 %           \documentclass[final,narroweqnarray,inline]{ieee}
 % ensures that the paper size is a4, the fonts are typeset at the size 12p
 % and the equation numbers are on the left side
@@ -134,7 +134,8 @@
 
 %------------------------------------------------------------
 
-\usepackage{dsfont}
+\usepackage{dsfont}			% funny math Letters
+\usepackage{ulem}				% strike out fonts
 \input{customCommands}
 
 %------------------------------------------------------------
@@ -154,6 +155,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{puzzle}{Rätsel}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem{problem}[theorem]{Problem}
@@ -177,13 +179,11 @@
 
 \begin{document}
 	
-\input{titlepage}
-	
-	
-	
-%\layout
-%\include{Titelseite}
-%	\renewcommand{\baselinestretch}{1.1}\normalsize
+\input{titlepage}	
+
+Aktuelle Bearbeitung bei \ref{current}
+\todo{entferne diesen Link}
+
 
 \tableofcontents
 \newpage
@@ -191,6 +191,7 @@
 %\listoftables
 %\listoffigures
 %\newpage
+
 
 
 \include{Content}
