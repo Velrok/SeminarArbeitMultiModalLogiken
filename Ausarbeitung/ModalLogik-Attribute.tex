@@ -41,7 +41,37 @@ Den etwas das notwendigerweise \true ist sollte auch einfach \true sein.
 Das selbe gilt für Wissen: Wenn man etwas weis, dann ist das auch wahr oder anders man hat kein falsches Wissen.
 Das mag nicht der Realität entsprechen, ist aber eine Idealisierung die man für Multi-Agent-System i.d.R. haben möchte.
 Will man hingegen die Wahrheitsmodalität Glauben modellieren, so wäre es unklug $T$ aufzunehmen.
-Der Glaube zeichnet sich nämlich dadurch aus, das man auch Dinge glauben kann die \false sind.
+Der Glaube zeichnet sich nämlich dadurch aus, das man auch Dinge glauben kann die \false sind.\\
+\\
+\begin{tabular}{lccccc}
+
+$\Box \phi$ & 
+\begin{sideways}
+	 $\Box \phi \rightarrow \phi$
+\end{sideways} & 
+\begin{sideways}
+	$\phi \rightarrow \Box \Diamond\phi$
+\end{sideways} & 
+\begin{sideways}
+	$\Box \phi \rightarrow \Diamond \phi$
+\end{sideways} &
+\begin{sideways}
+	 $\Box \phi \rightarrow \Box \Box \phi$
+\end{sideways} &
+\begin{sideways}
+	 $\Diamond \phi \rightarrow \Box \Diamond \phi$
+\end{sideways}\\
+\hline
+Es ist notwendig, dass 				& \ja   & \ja 	& \ja 	& \ja		& \ja 	\\
+Es wird immer wahr sein, dass & \nein	& \ja		& \nein & \ja 	& \nein	\\
+Es ist sollte sein, dass 			& \nein & \nein & \ja 	& \nein & \nein	\\
+Agent Q glaubt, dass	 				& \nein & \ja 	& \ja 	& \ja 	& \ja		\\
+Agent Q weis, dass 						& \ja 	& \ja 	& \ja 	& \ja 	& \ja		\\
+\hline
+\hline
+\end{tabular}\\
+\\
+
 
 
 
