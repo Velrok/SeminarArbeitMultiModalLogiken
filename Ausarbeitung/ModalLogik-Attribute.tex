@@ -11,19 +11,7 @@ Im Folgenden wird erst das für \NML zwingend erforderliche Basisattribut $K$ vo
 Zum Schluss werden ein paar \NML und deren Eigenschaften beschrieben und erklärt warum die gewählten Eigenschaften für die Modalität wünschenswert / wichtig / notwendig sind.\\
 %
 \curr
-\begin{definition}
-	\label{def:substitution}
-	Sei $\mathds{L}$ eine Menge von Formel-Schemata der Modal Logik und $\Gamma \cup {\psi}$ eine Menge von modal logischen Formeln.
-	
-	\begin{itemize}
-		\item Die Menge $\Gamma$ ist abgeschlossen gegenüber der Substitution von Instanzen gdw.  $\psi \in \Gamma$. 
-		Dann gilt auch, dass jede Substitutionsinstanz von $\psi$ auch in $\Gamma$ ist.
-		\item Sei $\mathds{L}_c$ die kleinste Menge die alle Instanzen von $\mathds{L}$ enthält.
-		\item Aus $\Gamma$ folgt semantisch $\psi$ in $\mathds{L}$ gdw. alle Modelle, deren Frame $\mathds{L}$ erfüllt und alle Welten $x$ in diesem Modell, $x$ erfüllt $\Gamma$, gilt.
-		In diesem Fall sagen wir $\Gamma \vDash_{\mathds{L}} \psi$ ist erfüllt.
-	\end{itemize}
-	\cite[S.326]{huth2004logic}
-\end{definition}
+
 
 
 \paragraph{Das Basis Atribute $K$} % (fold)
@@ -60,6 +48,20 @@ Neben der Formel für $K$ gibt es weitere typische Formeln die, sofern sie als v
 	\todo{natural deduction system beser übersetzen}
 \end{definition}
 \cite[S.330]{huth2004logic}
+
+\begin{definition}
+	\label{def:substitution}
+	Sei $\mathds{L}$ eine Menge von Formel-Schemata der Modal Logik und $\Gamma \cup {\psi}$ eine Menge von modal logischen Formeln.
+	
+	\begin{itemize}
+		\item Die Menge $\Gamma$ ist abgeschlossen gegenüber der Substitution von Instanzen gdw.  $\psi \in \Gamma$. 
+		Dann gilt auch, dass jede Substitutionsinstanz von $\psi$ auch in $\Gamma$ ist.
+		\item Sei $\mathds{L}_c$ die kleinste Menge die alle Instanzen von $\mathds{L}$ enthält.
+		\item Aus $\Gamma$ folgt semantisch $\psi$ in $\mathds{L}$ gdw. alle Modelle, deren Frame $\mathds{L}$ erfüllt und alle Welten $x$ in diesem Modell, $x$ erfüllt $\Gamma$, gilt.
+		In diesem Fall sagen wir $\Gamma \vDash_{\mathds{L}} \psi$ ist erfüllt.
+	\end{itemize}
+	\cite[S.326]{huth2004logic}
+\end{definition}
 
 
 
