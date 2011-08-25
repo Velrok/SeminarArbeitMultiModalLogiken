@@ -6,4 +6,4 @@
 *.pdf
 *.toc
 *.synctex.gz
-.Main.*
+*.fdb_latexmk
