@@ -1,12 +1,96 @@
 %!TEX root = /Users/velrok/Dropbox/TheoInf Seminar/Ausarbeitung/Main.tex
 
-\section{Natürliche Deduktion} % (fold)
+\section{\ND} % (fold)
 \label{sub:natuerliche_folgerung}
 Natürliche Deduktion ist ein Kalkül um aus einer Menge von aussagen-logischen Formeln andere Formeln abzuleiten.
 Dazu gibt es eine Menge von Regeln die hier aufgelistet aber nicht im Detail erklärt werden.
 Eine gute Erklärung der Grundlagen des Systems findet sich in Huth \cite[Kapitel 1.2 (natural deduction)]{huth2004logic} in englischer Sprache.\\
 \\
-Das System wurde für aussagen-logische Formeln entwickelt lässt sich aber erweitern um es auch in der \ML einsetzen zu können um Beweise der Form $\Gamma \vDash_\Menge{L} \psi$ nachweisen zu können.
+Das System wurde für aussagen-logische Formeln entwickelt. Es lässt sich jedoch erweitern um in der \ML Beweise der Form $\Gamma \vDash_\Menge{L} \psi$ führen zu können.\\
 
+\paragraph{\ND \AL} % (fold)
+\label{par:natuerliche_deduktion_aussagenlogick}
+Die \ND erlaubt das formelle folgern von Aussagen anhand eines festen Regelsatzes.
+Die \Eq{iConjunction} zeigt eine solche Regel.
+
+\begin{equation}
+	\label{eq:iConjunction}
+%	\boxed{
+%	\begin{array}{rcl}
+		\frac{\phi \qquad \psi}{\phi \wedge \psi} \wedge i
+%	\end{array}
+%	}
+\end{equation}
+
+
+Jede Regel hat drei Bestandteile:
+\begin{itemize}
+	\item Die \underline{Voraussetzung} befindet sich über dem Bruchstrich.
+	\item Die \underline{Folgerung} lässt sich unter dem Bruchstrich finden.
+	\item Der \underline{Name} oder der Bezeichner wird rechts an die Gleichung angehangen.
+\end{itemize}
+Es lässt sich dabei zwischen Einführungs- (gekenzeichnet durch ein $i$) und Eliminierungsregeln (gekenzeichnet durch ein $e$) unterscheiden.
+Die \Eq{iConjunction} ist also ein Beispiel für eine Einführungsregel.
+Sie führt die Konjunktion $\phi \wedge \psi$ ein.\\
+\\
+Manchmal ist es notwendig Formeln temporär als gegeben anzunehmen um einen allgemein gültigen Schluss ziehen zu können. Huth \cite[S.11]{huth2004logic} erklärt dies sehr verständlich.\\
+Die Gültigkeit einer solchen temporären Annahme wird durch eine Box um den Teil des entsprechenden Beweises gekennzeichnet.\\
+\begin{equation}
+	\label{eq:iImplication}
+	\frac{
+		\boxed{
+			\begin{array}{c}
+					\phi\\
+					\vdots\\
+					\psi\\
+			\end{array}
+		}
+	}
+	{\phi \rightarrow \psi} \rightarrow i
+\end{equation}
+Ein Box kann selbst wieder weitere Boxen enthalten.
+Ein Box kann alle Formeln verwenden die über Annahmen in dieser Box erzeugt wurden und die vor der Box bereits verfügbar waren.
+Annahmen dürfen eine Box nicht verlassen. Lediglich die Folgerungen können danach verwendet werden.
+
+\begin{equation}
+	\boxed{\begin{array}{c}
+		A\\
+		\vdots\\
+		a_1\\
+		\boxed{\begin{array}{c}
+		B_1\\
+		\vdots
+		\end{array}}\\
+		f_1\\
+		\vdots\\
+		a_2\\
+		\boxed{\begin{array}{c}
+		B_2\\
+		b_{2_1}\\
+		\boxed{\begin{array}{c}
+		C\\
+		\vdots\\
+		\end{array}}\\
+		\vdots\\
+		\end{array}}
+	\end{array}}
+\end{equation}
+
+Die Sichtbarkeit von Formeln ist sehr wichtig, deswegen hier noch ein Beispiel um dies zu verdeutlichen.\\
+Innerhalb der Box $B_1$ sind alle Formeln der Box $A$ sichtbar die bis dahin deklariert wurden, weil $B_1$ eine Box innerhalb der Box $A$ ist. In diesem Falle ist das die Variable $a_1$.\\
+Innerhalb der Box $B_2$ sind ebenfalls alle Formeln aus $A$ verfügbar ($a_1$ $a_2$ $f_1$), allerdings \emph{nicht} die aus $B_1$, weil $B_2$ nur innerhalb von $A$ liegt, nicht jedoch innerhalb von $B_1$.
+Weil die Folgerung aus $B_1$ nun teil von $A$ ist kann $B_2$ diese ebenfalls verwenden.\\
+Die Box $C$ liegt innerhalb von $A$ und $B_2$ und kann damit alle Formeln von $A$ und $B_2$ verwenden ($a_1$ $f_1$ $a_2$ $b_{2_1}$).
+
+\\
+
+
+
+% paragraph natürliche_deduction_aussagenlogick (end)
+
+\paragraph{\ND \ML} % (fold)
+\label{par:natuerliche_deduktion_ml}
+
+% paragraph natürliche_deduktion_ml (end)
 
 % subsection natürliche_folgerung (end)
