@@ -5,5 +5,41 @@
 \label{sub:the_normal_modal_logic_s5_}
 
 
+\paragraph{weitere Modal Logiken} % (fold)
+\label{par:weitere_modal_logiken}
+
+% paragraph weitere_modal_logiken (end)
+
+\begin{definition}
+	Ein Modell der intuitionistischen Aussagenlogik ist ein Model \modelFormel der Logik $KT45$, sodass $R(x,y)$ immer $L(x) \subseteq L(y)$ impliziert.
+	Gegeben einer modal logische Formel nach \eqref{eqn:bnf}, definieren wir $x \Vdash \psi$ wie in Definition \eqref{def:reasoning} mit Außnahme der Reglen für $\rightarrow$ und $\neg$.
+	\begin{itemize}
+		\item $\psi \rightarrow \phi$ definierten wir als $x \Vdash \psi \rightarrow \phi$ gdw. $\forall y R(x,y)$ auch $y \Vdash \phi$ gilt, immer wenn $y \Vdash \psi$ gilt.
+		\item $\neg \psi$ definierten wir als $x \Vdash \neg \psi$ gdw. $\forall y R(x,y)$ $y \nVdash \psi$ der Fall ist.
+	\end{itemize}
+\end{definition}
+\cite[S.328]{huth2004logic}
+
+\begin{definition}
+	Gegeben einer Menge von Formel Schemata $\mathds{L}$.
+	Definieren wir $\Gamma \Vdash_\mathds{L} \psi$ als valide, wenn es einen Beweis im natürlichen Folgerungssystem für modal Logiken gibt, der um die Axiome in $\mathds{L}$ und den Annahmen in $\Gamma$ erweitert ist.
+	\todo{bessere Forumlierung finden}
+	\todo{natural deduction system beser übersetzen}
+\end{definition}
+\cite[S.330]{huth2004logic}
+
+\begin{definition}
+	\label{def:substitution}
+	Sei $\mathds{L}$ eine Menge von Formel-Schemata der Modal Logik und $\Gamma \cup {\psi}$ eine Menge von modal logischen Formeln.
+	
+	\begin{itemize}
+		\item Die Menge $\Gamma$ ist abgeschlossen gegenüber der Substitution von Instanzen gdw.  $\psi \in \Gamma$. 
+		Dann gilt auch, dass jede Substitutionsinstanz von $\psi$ auch in $\Gamma$ ist.
+		\item Sei $\mathds{L}_c$ die kleinste Menge die alle Instanzen von $\mathds{L}$ enthält.
+		\item Aus $\Gamma$ folgt semantisch $\psi$ in $\mathds{L}$ gdw. alle Modelle, deren Frame $\mathds{L}$ erfüllt und alle Welten $x$ in diesem Modell, $x$ erfüllt $\Gamma$, gilt.
+		In diesem Fall sagen wir $\Gamma \vDash_{\mathds{L}} \psi$ ist erfüllt.
+	\end{itemize}
+	\cite[S.326]{huth2004logic}
+\end{definition}
 
 % subsection the_normal_modal_logic_s5_ (end)
