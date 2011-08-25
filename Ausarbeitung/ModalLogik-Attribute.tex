@@ -10,20 +10,6 @@ Will man eine eigene \ML kreieren ist es wichtig sich genaue Gedanken darüber z
 Im Folgenden wird erst das für \NML zwingend erforderliche Basisattribut $K$ vorgestellt und danach auf die anderen optionalen Eigenschaften eingegangen.
 Zum Schluss werden ein paar \NML und deren Eigenschaften beschrieben und erklärt warum die gewählten Eigenschaften für die Modalität wünschenswert / wichtig / notwendig sind.\\
 %
-\begin{definition}
-	\label{def:substitution}
-	Sei $\mathds{L}$ eine Menge von Formel-Schemata der Modal Logik und $\Gamma \cup {\psi}$ eine Menge von modal logischen Formeln.
-	
-	\begin{itemize}
-		\item Die Menge $\Gamma$ ist abgeschlossen gegenüber der Substitution von Instanzen gdw.  $\psi \in \Gamma$. 
-		Dann gilt auch, dass jede Substitutionsinstanz von $\psi$ auch in $\Gamma$ ist.
-		\item Sei $\mathds{L}_c$ die kleinste Menge die alle Instanzen von $\mathds{L}$ enthält.
-		\item Aus $\Gamma$ folgt semantisch $\psi$ in $\mathds{L}$ gdw. alle Modelle, deren Frame $\mathds{L}$ erfüllt und alle Welten $x$ in diesem Modell, $x$ erfüllt $\Gamma$, gilt.
-		In diesem Fall sagen wir $\Gamma \vDash_{\mathds{L}} \psi$ ist erfüllt.
-	\end{itemize}
-	\cite[S.326]{huth2004logic}
-\end{definition}
-
 \paragraph{Das Basis Atribute $K$} % (fold)
 \label{par:das_basis_atribute_k_} Die Formel $K$ \KFormel besagt, dass es nur normale Welten gibt. Das heißt die Wahrheitsmodulation $\Box$ verhält sich immer gleich im Gegensatz zu \NNML wo es \fachwort{nicht normale} Welten geben kann.
 In nicht normalen Welten ist vereinfacht formuliert alles möglich und nichts notwendig.\cite[S.75]{Priest:2008}
