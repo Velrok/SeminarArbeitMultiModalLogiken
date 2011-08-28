@@ -8,20 +8,17 @@ Eine gute Erklärung der Grundlagen des Systems findet sich in Huth \cite[Kapite
 \\
 Das System wurde für aussagen-logische Formeln entwickelt. Es lässt sich jedoch erweitern um in der \ML Beweise der Form $\Gamma \vDash_\Menge{L} \psi$ führen zu können.\\
 
-\paragraph{\ND \AL} % (fold)
+\subsection{\ND \AL} % (fold)
 \label{par:natuerliche_deduktion_aussagenlogick}
 Die \ND erlaubt das formelle folgern von Aussagen anhand eines festen Regelsatzes.
 Die \Eq{iConjunction} zeigt eine solche Regel.
 
 \begin{equation}
 	\label{eq:iConjunction}
-%	\boxed{
-%	\begin{array}{rcl}
-		\frac{\phi \qquad \psi}{\phi \wedge \psi} \wedge i
-%	\end{array}
-%	}
-\end{equation}
+	\frac{\phi \qquad \psi}{\phi \wedge \psi} \wedge i
+\end{equation}	
 
+\paragraph{Aufbau der Regeln}
 
 Jede Regel hat drei Bestandteile:
 \begin{itemize}
@@ -32,18 +29,33 @@ Jede Regel hat drei Bestandteile:
 Es lässt sich dabei zwischen Einführungs- (gekenzeichnet durch ein $i$) und Eliminierungsregeln (gekenzeichnet durch ein $e$) unterscheiden.
 Die \Eq{iConjunction} ist also ein Beispiel für eine Einführungsregel.
 Sie führt die Konjunktion $\phi \wedge \psi$ ein.\\
+Für die Konjunktion gibt es zwei Eliminierungsregeln \Eq{e1Conjunction} und \Eq{e2Conjunction}.
+Die erste extrahiert ersten Teil der Konjunktion, die zweite den zweiten Teil.
+Weil man bei der Erfüllung einer Konjunktion weis, dass beide Teile gelten müssen ist die Eliminierungsregel einfach.\\
+%
+\begin{equation}
+	\label{eq:e1Conjunction}
+	\frac{\phi \wedge \psi}{\phi} \wedge e_1
+\end{equation}
+
+\begin{equation}
+	\label{eq:e2Conjunction}
+	\frac{\phi \wedge \psi}{\psi} \wedge e_2
+\end{equation}
 \\
+Die Regeln der Disjunktion sind schwieriger.
+Sie benötigen Annahmen um nachgewiesen zu werden.
+
+\paragraph{Forumlieren von Annahmen}
 Manchmal ist es notwendig Formeln temporär als gegeben anzunehmen um einen allgemein gültigen Schluss ziehen zu können. Huth \cite[S.11]{huth2004logic} erklärt dies sehr verständlich.\\
 Die Gültigkeit einer solchen temporären Annahme wird durch eine Box um den Teil des entsprechenden Beweises gekennzeichnet.\\
 \begin{equation}
 	\label{eq:iImplication}
 	\frac{
-		\boxed{
-			\begin{array}{c}
-					\phi\\
-					\vdots\\
-					\psi\\
-			\end{array}
+		\oneColBox{
+			\phi\\
+			\vdots\\
+			\psi\\
 		}
 	}
 	{\phi \rightarrow \psi} \rightarrow i
@@ -83,10 +95,43 @@ Weil die Folgerung aus $B_1$ nun teil von $A$ ist kann $B_2$ diese ebenfalls ver
 Die Box $C$ liegt innerhalb von $A$ und $B_2$ und kann damit alle Formeln von $A$ und $B_2$ verwenden ($a_1$ $f_1$ $a_2$ $b_{2_1}$).\\
 
 
+\paragraph{Die Regeln der Disjunktion}
 
+Die Einführenden Regeln der Disjunktion sind einfach.
+Sie erfordern noch nicht den Einsatz von Annahmen.
+Kennt man einen Teil der Aussage kann man den anderen Teil frei wählen, weil man ja schon weis, dass der erste Teil \true ist und damit die Aussage als ganzes \true sein muss.
+Die \Eq{i1Disjunction} und die \Eq{i2Disjunction} formalisieren diese Aussagen.\\
+
+\begin{equation}
+	\label{eq:i1Disjunction}
+	\frac{\phi}{\phi \vee \psi} \vee i_1
+\end{equation}
+
+\begin{equation}
+	\label{eq:i2Disjunction}
+	\frac{\psi}{\phi \vee \psi} \vee i_2
+\end{equation}
+\\
+Die Eliminierungsregeln für die Disjunktion gestallten sich aufwendiger.
+Will man aus der Formel $\phi \vee \psi$ eine Aussage $\chi$ folgern, so muss man zeigen, das $\chi$ gilt egal ob $\phi$ oder $\psi$ der Fall ist. 
+Es wird als erst versucht $\chi$ unter der Annahme von  $\phi$ zu folgern und danach unter der Annahme von $\psi$.
+Nur wenn in beiden Fällen $\chi$ gefolgert werden kann darf $\chi$ danach als gültig angenommen werden kann.
+Die \Eq{eDisjunction} beschreibt dies formal. 
+Huth \cite[S.16ff]{huth2004logic} beschreibt diese Regeln ausführlicher und führt auch einen Beispielhaften Beweis.
+
+\begin{equation}
+	\label{eq:eDisjunction}
+	\frac{
+		\phi \vee \psi 
+		\quad \oneColBox{\phi\\ \vdots\\ \chi} 
+		\quad \oneColBox{\psi\\ \vdots\\ \chi}
+	}
+	{\chi}
+	\vee e
+\end{equation}
 % paragraph natürliche_deduction_aussagenlogick (end)
 
-\paragraph{\ND \ML} % (fold)
+\subsection{\ND \ML} % (fold)
 \label{par:natuerliche_deduktion_ml}
 
 % paragraph natürliche_deduktion_ml (end)
