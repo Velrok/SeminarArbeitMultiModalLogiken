@@ -133,6 +133,33 @@ Huth \cite[S.16ff]{huth2004logic} beschreibt diese Regeln ausführlicher und fü
 
 \subsection{\ND \ML} % (fold)
 \label{par:natuerliche_deduktion_ml}
+Der direkte Beweis von $\Gamma \vDash_\Menge{L} \psi$ auf Basis der Definition wäre sehr umständlich und auswendig.
+Denn es müsste für jede Mögliche Kripkestruktur die alle Formeln in $\Gamma$ erfüllt und für alle die Welten darin, untersucht werden ob $\psi$ gilt.\\
+Statt dessen kann man die Regeln der \ND erweitern, sodass sie auch in der \ML eingesetzt werden können.\\
+Dafür werden gestrichelten Boxen als neues Syntax-Element eingeführt.
+Die gestrichelte Box steht für das \emph{folgern in einer beliebigen erreichbaren Welt}.
+
+
+\begin{itemize}
+	\item dashed boxes
+	\begin{itemize}
+		\item steht für das folgern in einer beliebigen, erreichbaren Welt
+	\end{itemize}
+	\item $\Box i$
+	\item $\Box e$
+	\item keine Box für $\Diamond$ weil eq mit $\neg \Box \neg$
+\end{itemize}
+
+\paragraph{Extra Regeln für $KT45$} % (fold)
+\label{par:extra_regeln_für_kt45_}
+\begin{itemize}
+	\item box i und box e reichen für $K$
+	\item andere brauchen extra regeln
+	\item 4
+	\item 5
+	\item T
+\end{itemize}
+% paragraph extra_regeln_für_kt45_ (end)
 
 % paragraph natürliche_deduktion_ml (end)
 
