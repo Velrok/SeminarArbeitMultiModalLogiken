@@ -1,12 +1,181 @@
 %!TEX root = /Users/velrok/Dropbox/TheoInf Seminar/Ausarbeitung/Main.tex
 
-\section{Natürliche Deduktion} % (fold)
+\section{\ND} % (fold)
 \label{sub:natuerliche_folgerung}
 Natürliche Deduktion ist ein Kalkül um aus einer Menge von aussagen-logischen Formeln andere Formeln abzuleiten.
 Dazu gibt es eine Menge von Regeln die hier aufgelistet aber nicht im Detail erklärt werden.
 Eine gute Erklärung der Grundlagen des Systems findet sich in Huth \cite[Kapitel 1.2 (natural deduction)]{huth2004logic} in englischer Sprache.\\
 \\
-Das System wurde für aussagen-logische Formeln entwickelt lässt sich aber erweitern um es auch in der \ML einsetzen zu können um Beweise der Form $\Gamma \vDash_\Menge{L} \psi$ nachweisen zu können.
+Das System wurde für aussagen-logische Formeln entwickelt. Es lässt sich jedoch erweitern um in der \ML Beweise der Form $\Gamma \vDash_\Menge{L} \psi$ führen zu können.\\
 
+\subsection{\ND \AL} % (fold)
+\label{par:natuerliche_deduktion_aussagenlogick}
+Die \ND erlaubt das formelle folgern von Aussagen anhand eines festen Regelsatzes.
+Die \Eq{iConjunction} zeigt eine solche Regel.
+
+\begin{equation}
+	\label{eq:iConjunction}
+	\frac{\phi \qquad \psi}{\phi \wedge \psi} \wedge i
+\end{equation}	
+
+\paragraph{Aufbau der Regeln}
+
+Jede Regel hat drei Bestandteile:
+\begin{itemize}
+	\item Die \underline{Voraussetzung} befindet sich über dem Bruchstrich.
+	\item Die \underline{Folgerung} lässt sich unter dem Bruchstrich finden.
+	\item Der \underline{Name} oder der Bezeichner wird rechts an die Gleichung angehangen.
+\end{itemize}
+Es lässt sich dabei zwischen Einführungs- (gekenzeichnet durch ein $i$) und Eliminierungsregeln (gekenzeichnet durch ein $e$) unterscheiden.
+Die \Eq{iConjunction} ist also ein Beispiel für eine Einführungsregel.
+Sie führt die Konjunktion $\phi \wedge \psi$ ein.\\
+Für die Konjunktion gibt es zwei Eliminierungsregeln \Eq{e1Conjunction} und \Eq{e2Conjunction}.
+Die erste extrahiert ersten Teil der Konjunktion, die zweite den zweiten Teil.
+Weil man bei der Erfüllung einer Konjunktion weis, dass beide Teile gelten müssen ist die Eliminierungsregel einfach.\\
+%
+\begin{equation}
+	\label{eq:e1Conjunction}
+	\frac{\phi \wedge \psi}{\phi} \wedge e_1
+\end{equation}
+
+\begin{equation}
+	\label{eq:e2Conjunction}
+	\frac{\phi \wedge \psi}{\psi} \wedge e_2
+\end{equation}
+\\
+Die Regeln der Disjunktion sind schwieriger.
+Sie benötigen Annahmen um nachgewiesen zu werden.
+
+\paragraph{Forumlieren von Annahmen}
+Manchmal ist es notwendig Formeln temporär als gegeben anzunehmen um einen allgemein gültigen Schluss ziehen zu können. Huth \cite[S.11]{huth2004logic} erklärt dies sehr verständlich.\\
+Die Gültigkeit einer solchen temporären Annahme wird durch eine Box um den Teil des entsprechenden Beweises gekennzeichnet.\\
+\begin{equation}
+	\label{eq:iImplication}
+	\frac{
+		\oneColBox{
+			\phi\\
+			\vdots\\
+			\psi\\
+		}
+	}
+	{\phi \rightarrow \psi} \rightarrow i
+\end{equation}
+Ein Box kann selbst wieder weitere Boxen enthalten.
+Ein Box kann alle Formeln verwenden die über Annahmen in dieser Box erzeugt wurden und die vor der Box bereits verfügbar waren.
+Annahmen dürfen eine Box nicht verlassen. Lediglich die Folgerungen können danach verwendet werden.
+
+\begin{equation}
+	\boxed{\begin{array}{c}
+		A\\
+		\vdots\\
+		a_1\\
+		\boxed{\begin{array}{c}
+		B_1\\
+		\vdots
+		\end{array}}\\
+		f_1\\
+		\vdots\\
+		a_2\\
+		\boxed{\begin{array}{c}
+		B_2\\
+		b_{2_1}\\
+		\boxed{\begin{array}{c}
+		C\\
+		\vdots\\
+		\end{array}}\\
+		\vdots\\
+		\end{array}}
+	\end{array}}
+\end{equation}
+
+Die Sichtbarkeit von Formeln ist sehr wichtig, deswegen hier noch ein Beispiel um dies zu verdeutlichen.\\
+Innerhalb der Box $B_1$ sind alle Formeln der Box $A$ sichtbar die bis dahin deklariert wurden, weil $B_1$ eine Box innerhalb der Box $A$ ist. In diesem Falle ist das die Variable $a_1$.\\
+Innerhalb der Box $B_2$ sind ebenfalls alle Formeln aus $A$ verfügbar ($a_1$ $a_2$ $f_1$), allerdings \emph{nicht} die aus $B_1$, weil $B_2$ nur innerhalb von $A$ liegt, nicht jedoch innerhalb von $B_1$.
+Weil die Folgerung aus $B_1$ nun teil von $A$ ist kann $B_2$ diese ebenfalls verwenden.\\
+Die Box $C$ liegt innerhalb von $A$ und $B_2$ und kann damit alle Formeln von $A$ und $B_2$ verwenden ($a_1$ $f_1$ $a_2$ $b_{2_1}$).\\
+
+
+\paragraph{Die Regeln der Disjunktion}
+
+Die Einführenden Regeln der Disjunktion sind einfach.
+Sie erfordern noch nicht den Einsatz von Annahmen.
+Kennt man einen Teil der Aussage kann man den anderen Teil frei wählen, weil man ja schon weis, dass der erste Teil \true ist und damit die Aussage als ganzes \true sein muss.
+Die \Eq{i1Disjunction} und die \Eq{i2Disjunction} formalisieren diese Aussagen.\\
+
+\begin{equation}
+	\label{eq:i1Disjunction}
+	\frac{\phi}{\phi \vee \psi} \vee i_1
+\end{equation}
+
+\begin{equation}
+	\label{eq:i2Disjunction}
+	\frac{\psi}{\phi \vee \psi} \vee i_2
+\end{equation}
+\\
+Die Eliminierungsregeln für die Disjunktion gestallten sich aufwendiger.
+Will man aus der Formel $\phi \vee \psi$ eine Aussage $\chi$ folgern, so muss man zeigen, das $\chi$ gilt egal ob $\phi$ oder $\psi$ der Fall ist. 
+Es wird als erst versucht $\chi$ unter der Annahme von  $\phi$ zu folgern und danach unter der Annahme von $\psi$.
+Nur wenn in beiden Fällen $\chi$ gefolgert werden kann darf $\chi$ danach als gültig angenommen werden kann.
+Die \Eq{eDisjunction} beschreibt dies formal. 
+Huth \cite[S.16ff]{huth2004logic} beschreibt diese Regeln ausführlicher und führt auch einen Beispielhaften Beweis.
+
+\begin{equation}
+	\label{eq:eDisjunction}
+	\frac{
+		\phi \vee \psi 
+		\quad \oneColBox{\phi\\ \vdots\\ \chi} 
+		\quad \oneColBox{\psi\\ \vdots\\ \chi}
+	}
+	{\chi}
+	\vee e
+\end{equation}
+% paragraph natürliche_deduction_aussagenlogick (end)
+
+\subsection{\ND \ML} % (fold)
+\label{par:natuerliche_deduktion_ml}
+Der direkte Beweis von $\Gamma \vDash_\Menge{L} \psi$ auf Basis der Definition wäre sehr umständlich und auswendig.
+Denn es müsste für jede Mögliche Kripkestruktur die alle Formeln in $\Gamma$ erfüllt und für alle die Welten darin, untersucht werden ob $\psi$ gilt.\\
+Statt dessen kann man die Regeln der \ND erweitern, sodass sie auch in der \ML eingesetzt werden können.\\
+Dafür werden gestrichelten Boxen als neues Syntax-Element eingeführt, siehe \Eq{iBox} und \Eq{eBox}.
+Die gestrichelte Box steht für das \emph{folgern in einer beliebigen erreichbaren Welt}.\\
+Eine gestrichelten Box erlaubt es also die Formel $\phi$ in eine gestrichelte Box aufzunehmen wenn es vorher die Formel $\Box \phi$ gab und eine Formel $\Box \psi$ zu verwenden wenn vorher eine gestrichelte Box mit der Formel $\psi$ endete.\\
+Es gibt keine extra Box für $\Diamond$, weil dies zu $\neg \Box \neg$ äquivalent ist
+\cite[329f]{huth2004logic}.
+
+\begin{equation}
+	\label{eq:iBox}
+	\frac{\dashedBox{\vdots \\ \phi}}{ \Box \phi} \Box i 
+\end{equation}
+
+\begin{equation}
+	\label{eq:eBox}
+	\frac{\Box \phi}{\dashedBox{\vdots \\ \phi \\ \vdots}} \Box e
+\end{equation}
+
+
+\paragraph{Extra Regeln für $KT45$} % (fold)
+\label{par:extra_regeln_für_kt45_}
+Die Regeln $\Box i$ und $\Box e$ sind für das Folgern in $K$ ausreichend.
+Stärkere Sprachen wie $KT45$ brauchen hingegen weiter Regeln um ihre semantischen Besonderheiten mit einzubeziehen. 
+
+%\Eq{T}, \Eq{4} und \Eq{5} beschreiben die extra Regeln für die \ML $KT45$.
+
+\todo{Regeln aufschreiben}
+\\
+Anstatt der Regeln könnte man auch die Restriktionen für das Importieren von Formeln in gestrichelte Boxen lockern.
+Dadurch das $4$ es erlaubt um eine gestrichelte Box eine weiter gestrichelte Box zu zeichnen könnte man sich auch überlegen das es im alg. erlaubt ist Formeln der Form $\Box \phi$ unverändert in gestrichelte Boxen aufzunehmen.
+Das Gleiche gilt analog für $5$ und Formeln der Form $\neg \Box \phi$.
+
+\todo{Definition 5.20 aufschreiben}
+\begin{definition}
+	Sei $\Menge{L}$ eine Menge von \formelSchemata. 
+	$\Gamme \Vdash_\Menge{L} \psi$ ist valide, wenn es einen Beweis im \ND System der \NML, erweitert um die Axiome aus $\Menge{L}$, und den Voraussetzungen von $\Gamma$ gibt \cite[S.330]{huth2004logic}.
+\end{definition}
+
+\todo{folge Beispiel bringen}
+
+% paragraph extra_regeln_für_kt45_ (end)
+
+% paragraph natürliche_deduktion_ml (end)
 
 % subsection natürliche_folgerung (end)

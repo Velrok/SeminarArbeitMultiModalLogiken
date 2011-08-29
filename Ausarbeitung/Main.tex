@@ -32,6 +32,7 @@
 \clubpenalty = 10000	 % verhindert Schusterjungen (Einzelzeile unten)
 \widowpenalty = 10000 \displaywidowpenalty = 10000	% verhindert "Hurenkinder" (Einzelzeile oben)
 
+
 %           \documentclass[final,narroweqnarray,inline]{ieee}
 % ensures that the paper size is a4, the fonts are typeset at the size 12p
 % and the equation numbers are on the left side
@@ -190,12 +191,10 @@
 \author{Waldemar Schwan}
 
 \begin{document}
-	
-\input{titlepage}	
 
-Aktuelle Bearbeitung bei \ref{current}
-\todo{entferne diesen Link}
+\setlength{\parindent}{0} % Absätze nicht einrücken
 
+\input{titlepage}
 
 \tableofcontents
 \newpage
