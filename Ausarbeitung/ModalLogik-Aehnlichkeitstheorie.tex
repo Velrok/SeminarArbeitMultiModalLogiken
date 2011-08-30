@@ -54,6 +54,13 @@ Im folgenden Abschnitt wird näher auf die Zusammenhänge zwischen Eigenschaften
 
 \paragraph{Zusammenhang zwischen der Relation $R$ und den validen \formelSchemata}
 
+Zusamenhang bisher auf basis von Intuition:
+
+
+
+\textbf{About Frames}
+
+Was Frames sind:
 \begin{definition}
 	\label{def:frame}
 	Ein Frame $F = (W,R)$ ist eine Menge von Welten $W$ und eine binäre Relation $R$ auf $W$.
@@ -61,13 +68,55 @@ Im folgenden Abschnitt wird näher auf die Zusammenhänge zwischen Eigenschaften
 \cite[S.322]{huth2004logic}
 \note{labeling funktion fehlt}
 
+Wozu Frames gut sind:
 
+
+Wann ein Frame etwas erfüllt:
 \begin{definition}
 	\label{def:frame_erfuellt}
 	Ein Frame $F$ erfüllt eine modal logische Formal $\psi$, wenn für jede \fachwort{Labelfunktion} $L: W \rightarrow P(Atome)$ und jedes $w \in W$, es der Fall ist, dass $M,w \vDash \psi$ gilt. $M$ ist das Model: $M = (W,R,L)$.
 	In diesem Falle schreiben wir $\mathds{F} \vDash \psi$.
 	\cite[S.322f]{huth2004logic}
 \end{definition}
+
+Wenn ein Frame eine Formel erfüllt erfüllt es auch das entsprechende Schema.
+
+
+Beispiel dafür (5.12)
+
+Theorem warum das Bsp. Frame \TFormel erfüllt aber \vierFormel nicht:
+
+Beweis dafür:
+
+Behauptung das Tabelle s.u. gilt
+
+<Tabelle über name schema und R Eigenschaften>
+
+
+
+
+
+
+
+
+
+
+
+\begin{itemize}
+	\item Was genau ist das? : Ein bewiesenes Theorem.
+	\item Wie ist das begründet? : Ursprung Intuition, kann aber bewiesen werden.
+	\item Wie werden die Definitionen genutzt? : Frames sind eine veralgemeinerung von Modellen. Können analog zu formel Schemata in Formeln gesehen werden.
+	\item Welche Behauptungen werden aufgestellt? : siehe tabelle 5.12
+	\item Wie werden diese Bewiesen? : Ringschluss S. 325
+	\item Was sind Frames? : die analogie zu Formel Schemeta. \KM ohne Labels
+	\item Wozu brauch man Frames? : für die Beweise der Theoreme. Um zu zeigen, dass ein Model eine Eigenschaft hat die unabhängig ist von der Konkreten Wissensbasis -> alg. gültig.
+\end{itemize}
+
+
+
+
+
+
 
 
 
