@@ -31,35 +31,58 @@ Damit übernehmen sie in Kripke-Strukturen die selbe Rolle wie \formelSchemata i
 	\cite[S.322f]{huth2004logic}
 \end{definition}
 
-Wenn ein Frame eine Formel erfüllt erfüllt es auch das entsprechende Schema.
+Wenn ein Frame eine Formel erfüllt erfüllt es auch das entsprechende Schema. 
 
-\begin{figure}[h!]
-	\label{fig:Kripke02}
-	\centering
-	\includegraphics[width=10cm]{Images/Kripke02}
-	\caption{Beispielframe}
-\end{figure}
+\begin{example}
+	Das Beispiel-Frame auf \Abb{Kripke02} erfüllt die \TFormel.
+	Um das zu beweisen muss man zeigen, dass jede Welt mit beliebiger Labeling-Funktion die Bedingung: wenn $x \VDash \Box p$ der Fall ist, dann gilt auch $x \VDash p$.
+	Betrachten wie nun eine beliebige Welt $x \in W$ und setzen $x \VDash \Box p$, dann folgt aufgrund der Tatsache dass $R(x,x)$ gilt und der Regel für $\Box$ aus der \Def{reasoning}, dass $x \VDash p$ der Falls ein muss.
+	Den $x$ zeigt auf sich selbst und ist damit in den von $x$ erreichbaren Welten enthalten
 
-\begin{figure}[h!]
-	\label{fig:Kripke03}
-	\centering
-	\includegraphics[width=10cm]{Images/Kripke03}
-	\caption{Gegenbeispiel}
-\end{figure}
+	\begin{figure}[h!]
+		\label{fig:Kripke02}
+		\centering
+		\includegraphics[width=10cm]{Images/Kripke02}
+		\caption{Beispielframe}
+	\end{figure}
 
+	Da ein \emph{Frame} keine Annahme über eine konkrete Labeling-Funktion macht und wir gerade nachgewiesen haben, dass $\Box p \rightarrow p$ gilt, ist auch \TFormel der Fall.
+	
+	Die \vierFormel wird hingegen nicht erfüllt.
+	Das Model in \Abb{Kripke03} beweist dies durch ein Gegenbeispiel.
 
-Beispiel dafür (5.12)
-\begin{itemize}
-	\item erfüllt die \TFormel
-	\item Bew: jede welt mit beligbiger L erfüllt das
-	\item z.z.: wenn $x \VDash \Box p$ dann $x \VDash p$
-	\item erfüllt nicht \vierFormel (Gegenbeispiel)
-\end{itemize}
+	\begin{figure}[h!]
+		\label{fig:Kripke03}
+		\centering
+		\includegraphics[width=10cm]{Images/Kripke03}
+		\caption{Gegenbeispiel}
+	\end{figure}
 
+\end{example}
 
-Theorem warum das Bsp. Frame \TFormel erfüllt aber \vierFormel nicht:
+Auf Basis des Beispiels lässt sich folgendes Theorem aufstellen:
 
-Beweis dafür:
+\begin{theorem}
+	Gegeben ein Frame \FrameDef.
+	\begin{enumerate}
+		\item Die folgenden Aussagen sind äquvivalient:
+		\begin{itemize}
+			\item $R$ ist reflexiv
+			\item $\Fancy{F}$ erfüllt \TFormel
+			\item $\Fancy{F}$ erfüllt $\Box p \rightarrow p$
+		\end{itemize} 
+		
+		\item Die folgenden Aussagen sind äquvivalient:
+		\begin{itemize}
+			\item $R$ ist transitiv
+			\item $\Fancy{F}$ erfüllt \vierFormel
+			\item $\Fancy{F}$ erfüllt $\Box p \rightarrow \Box \Box p$
+		\end{itemize}
+	\end{enumerate}
+	
+\end{theorem}
+
+Beweis dafür: 
 
 Behauptung das Tabelle s.u. gilt
 
@@ -69,32 +92,5 @@ Behauptung das Tabelle s.u. gilt
 
 
 
-
-
-
-
-
-
-\begin{itemize}
-	\item Was genau ist das? : Ein bewiesenes Theorem.
-	\item Wie ist das begründet? : Ursprung Intuition, kann aber bewiesen werden.
-	\item Wie werden die Definitionen genutzt? : Frames sind eine veralgemeinerung von Modellen. Können analog zu formel Schemata in Formeln gesehen werden.
-	\item Welche Behauptungen werden aufgestellt? : siehe tabelle 5.12
-	\item Wie werden diese Bewiesen? : Ringschluss S. 325
-	\item Was sind Frames? : die analogie zu Formel Schemeta. \KS ohne Labels
-	\item Wozu brauch man Frames? : für die Beweise der Theoreme. Um zu zeigen, dass ein Model eine Eigenschaft hat die unabhängig ist von der Konkreten Wissensbasis -> alg. gültig.
-\end{itemize}
-
-
-
-
-
-
-
-
-
-
-
-\todo{mehr schreiben}
 
 % subsection Aehnlichkeitstheorie (end)
