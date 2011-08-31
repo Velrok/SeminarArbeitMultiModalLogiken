@@ -82,11 +82,32 @@ Auf Basis des Beispiels lässt sich folgendes Theorem aufstellen:
 	
 \end{theorem}
 
-Beweis dafür: 
+\begin{proof}
+	Bla
+\end{proof}
 
 Behauptung das Tabelle s.u. gilt
 
-\todo{Tabelle über name schema und R Eigenschaften}
+
+\begin{table}
+	\label{tab:attributesIncludingR}
+	\centering
+	\begin{tabular}{cll}
+	\hline
+	\hline
+	Name & Formel Schema\\
+	\hline
+	T & $\Box \phi \rightarrow \phi$									&	reflexiv\\
+	B & $\phi \rightarrow \Box \Diamond\phi$					& symmetrisch\\
+	D & $\Box \phi \rightarrow \Diamond \phi$					& seriell\\
+	4 & $\Box \phi \rightarrow \Box \Box \phi$				& transitiv\\
+	5 & $\Diamond \phi \rightarrow \Box \Diamond \phi$& euklidisch\\
+	  & $\Box \phi \leftrightarrow \Diamond \phi$			& funktional\\
+	  & $\Box(\phi \wedge \Box \phi \rightarrow \psi) \vee \Box(\psi \wedge \Box \psi \rightarrow \phi)$& vorwärts funktional\\
+	\hline
+	\end{tabular}\\
+	\caption{Attribut Bezeichnungen und entsprechende \formelSchemata so wie $R$ Eigenschaften}
+\end{table}
 
 
 
