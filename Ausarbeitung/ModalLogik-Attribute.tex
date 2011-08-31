@@ -101,6 +101,48 @@ Die Formel $K$ \KFormel wird im Kontext des Wissen auch als \emph{logische Allwi
 Die besagt, dass das Wissen des Agenten abgeschlossen gegenüber der logischen Konsequenz ist.
 Es besagt, das der Agent alle Konsequenzen seines Wissen weis. Dieser Umstand ist natürlich nicht wahr für menschliches Wissen (vgl. \cite[S.319f]{huth2004logic}).
 
+\todo{sicher stellen, das sich dieser Absatz ordentlich in den Textfluss integriert}
+\paragraph{Festlegung von Attributen mithilfe von $R$}
+Wir haben gesehen, dass wenn man eine Modalität der Logik modelliert, man sich überlegt welche \formelSchemata als valide vorausgesetzt werden sollen.\\
+Im Gegenzug kann man sich auch überlegen wie die \KS aufgebaut sein soll.
+
+Nach den Regeln in \Def{reasoning} besagt die Formel
+\begin{equation*}
+	x &\Vdash \Box \psi \text{ gdw. }\forall y \in W \text{ gilt } R(x,y)\text{, und } y \Vdash \psi	
+\end{equation*}
+dass $\psi$ \emph{notwendig} ist wenn es in allen irgendwie erreichbaren Welten von $x$ \true ist.\\
+Wie genau dieses \emph{irgendwie} zu lesen ist hängt von der zu modellierenden \ML ab.
+Im Falle der \emph{Notwendigkeit} kann man sich überlegen, das etwas \emph{notwendig} ist, wenn es in allen \emph{möglichen} Welten der fall ist.
+Oder anders: basierend auf der Welt $x$ kann man sich \textbf{keine} andere Welt $y$ vorstellen, in der $\psi$ \textbf{nicht} gilt.\\
+Im Falle von \emph{Wissen} für einen Agenten $Q$ beschreibt $R(x,y)$ $y$ die \emph{eigentliche} Welt entsprechend des Wissens in $x$ \vglHuth{S.320f}.
+
+Welche Eigenschaften soll $R$ nun also haben um die Intention der Modularität abzubilden?
+
+Zur Erinnerung: eine binäre Relation kann die folgenden Eigenschaften besitzen:
+\begin{itemize}
+	\item \emph{reflexiv}: wenn für $\forall x \in W, R(x,x)$ gilt
+	\item \emph{symmetrisch}: wenn für $\forall x,y \in W, R(x,y)$, $R(y,x)$ folgt
+	\item \emph{seriell}: wenn für jedes $x$ es auch ein $y$ gibt, sodass $R(x,y)$
+	\item \emph{transitiv}: wenn für $\forall x,y,z \in W | R(x,y) R(y,z)$, $R(x,z)$ folgt
+	\item \emph{euklidisch}: 
+	\item \emph{funktional}
+	\item \emph{vorwärts funktional} \todo{ist das die korrekte Übesetzung?}
+	\item \emph{total}
+	\item eine \emph{Äquivalentz-Relation} ist reflexiv, symmetrisch und transitiv
+\end{itemize}
+\todo{fertig machen}
+
+Betrachten wir nun welche Eigenschaften $R$ haben sollte um \emph{Wissen} nach unseren Wünschen zu modellieren.
+
+\textbf{Reflexibilität}, würde besagen, dass die aktuelle Welt $x$ die \emph{eigentliche} Welt ist.
+Mit anderen Worten $x$ kann nur Wissen enthalten, das auch wirklich so ist.
+Oder: Ein Agent $Q$ kann nichts falsches Wissen.
+
+\textbf{Transitivität}, würde besagen, dass wenn $y$ möglich ist nach allem was Agent $Q$ in $x$ weis und $z$ möglich ist nach allem was er in $y$ weis, dass ist es auch möglich nach allem was er in $x$ weis.
+Mit anderen Worten $x$ darf nichts enthalten was $z$ unmöglich macht, denn wäre dies der Fall gewesen, dann hätte $Q$ dies in $x$ gewusst und folglich auch in $y$.
+Das Hauptargument ist also die \emph{positive Introspektion} \vierFormel \vglHuth{S. 321f}.
+
+Im folgenden Abschnitt wird näher auf die Zusammenhänge zwischen Eigenschaften der $R$ Relation und der Menge an vorausgesetzter \formelSchemata eingegangen. \todo{Absatz in Attribute Absatz verschieben}
 
 
 
