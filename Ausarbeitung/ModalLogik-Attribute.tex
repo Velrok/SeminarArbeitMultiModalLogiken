@@ -101,14 +101,17 @@ Die Formel $K$ \KFormel wird im Kontext des Wissen auch als \emph{logische Allwi
 Die besagt, dass das Wissen des Agenten abgeschlossen gegenüber der logischen Konsequenz ist.
 Es besagt, das der Agent alle Konsequenzen seines Wissen weis. Dieser Umstand ist natürlich nicht wahr für menschliches Wissen (vgl. \cite[S.319f]{huth2004logic}).
 
-\todo{sicher stellen, das sich dieser Absatz ordentlich in den Textfluss integriert}
+
 \paragraph{Festlegung von Attributen mithilfe von $R$}
+\label{festlegung_von_attibuten_mit_R}
+\todo{sicher stellen, das sich dieser Absatz ordentlich in den Textfluss integriert}
+
 Wir haben gesehen, dass wenn man eine Modalität der Logik modelliert, man sich überlegt welche \formelSchemata als valide vorausgesetzt werden sollen.\\
 Im Gegenzug kann man sich auch überlegen wie die \KS aufgebaut sein soll.
 
 Nach den Regeln in \Def{reasoning} besagt die Formel
 \begin{equation*}
-	x &\Vdash \Box \psi \text{ gdw. }\forall y \in W \text{ gilt } R(x,y)\text{, und } y \Vdash \psi	
+	x \Vdash \Box \psi \text{ gdw. }\forall y \in W \text{ gilt } R(x,y)\text{, und } y \Vdash \psi	
 \end{equation*}
 dass $\psi$ \emph{notwendig} ist wenn es in allen irgendwie erreichbaren Welten von $x$ \true ist.\\
 Wie genau dieses \emph{irgendwie} zu lesen ist hängt von der zu modellierenden \ML ab.

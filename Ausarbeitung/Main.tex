@@ -146,6 +146,16 @@
 
 %------------------------------------------------------------
 
+% including graphs
+% http://www.fauskes.net/nb/introducing-dot2texi/
+\usepackage{dot2texi}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+% bugfix: 
+%http://groups.google.com/group/dot2tex-users/browse_thread/thread/91b8d9191553e526
+%\@ifundefined{verbatim@out}{\newwrite\verbatim@out}{}% 
+
+
 \usepackage{dsfont}			% funny math Letters
 \usepackage{ulem}				% strike out fonts
 \usepackage{rotating}		% rotated table text
@@ -192,7 +202,7 @@
 
 \begin{document}
 
-\setlength{\parindent}{0} % Absätze nicht einrücken
+\setlength{\parindent}{0cm} % Absätze nicht einrücken
 
 \input{titlepage}
 

@@ -149,19 +149,20 @@ Es gibt keine extra Box für $\Diamond$, weil dies zu $\neg \Box \neg$ äquivale
 
 \begin{equation}
 	\label{eq:eBox}
-	\frac{\Box \phi}{\dashedBox{\vdots \\ \phi \\ \vdots}} \Box e
+	\frac{\Box \phi}
+	{\dashedBox{\vdots\\\phi\\\vdots}}
+	\Box e
 \end{equation}
 
 
 \paragraph{Extra Regeln für $KT45$} % (fold)
-\label{par:extra_regeln_für_kt45_}
+\label{par:extra_regeln_fuer_kt45_}
 Die Regeln $\Box i$ und $\Box e$ sind für das Folgern in $K$ ausreichend.
 Stärkere Sprachen wie $KT45$ brauchen hingegen weiter Regeln um ihre semantischen Besonderheiten mit einzubeziehen. 
 
 %\Eq{T}, \Eq{4} und \Eq{5} beschreiben die extra Regeln für die \ML $KT45$.
 
 \todo{Regeln aufschreiben}
-\\
 Anstatt der Regeln könnte man auch die Restriktionen für das Importieren von Formeln in gestrichelte Boxen lockern.
 Dadurch das $4$ es erlaubt um eine gestrichelte Box eine weiter gestrichelte Box zu zeichnen könnte man sich auch überlegen das es im alg. erlaubt ist Formeln der Form $\Box \phi$ unverändert in gestrichelte Boxen aufzunehmen.
 Das Gleiche gilt analog für $5$ und Formeln der Form $\neg \Box \phi$.
@@ -169,12 +170,17 @@ Das Gleiche gilt analog für $5$ und Formeln der Form $\neg \Box \phi$.
 \todo{Definition 5.20 aufschreiben}
 \begin{definition}
 	Sei $\Menge{L}$ eine Menge von \formelSchemata. 
-	$\Gamme \Vdash_\Menge{L} \psi$ ist valide, wenn es einen Beweis im \ND System der \NML, erweitert um die Axiome aus $\Menge{L}$, und den Voraussetzungen von $\Gamma$ gibt \cite[S.330]{huth2004logic}.
+	$\Gamma
+	\Vdash_\Menge{L} \psi$ ist valide, wenn es einen Beweis im 
+	\ND System der 
+	\NML, erweitert um die Axiome aus 
+	$\Menge{L}$, und den Voraussetzungen von 
+	$\Gamma$ gibt \cite[S.330]{huth2004logic}.
 \end{definition}
 
 \todo{folge Beispiel bringen}
 
-% paragraph extra_regeln_für_kt45_ (end)
+% paragraph extra_regeln_fuer_kt45_ (end)
 
 % paragraph natürliche_deduktion_ml (end)
 
