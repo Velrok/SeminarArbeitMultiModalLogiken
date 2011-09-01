@@ -1,0 +1,17 @@
+\section{Intuistische \ML} % (fold)
+\label{sec:intuistische_ml}
+\todo{mehr schreiben}
+
+\begin{definition}
+	\label{intuistischeLogiken}
+	Ein Modell der intuitionistischen Aussagenlogik ist ein Model \modelFormel der Logik $KT45$, sodass $R(x,y)$ immer $L(x) \subseteq L(y)$ impliziert.
+	Gegeben einer modal logische Formel nach \eqref{eqn:bnf}, definieren wir $x \Vdash \psi$ wie in Definition \eqref{def:reasoning} mit Außnahme der Reglen für $\rightarrow$ und $\neg$.
+	\begin{itemize}
+		\item $\psi \rightarrow \phi$ definierten wir als $x \Vdash \psi \rightarrow \phi$ gdw. $\forall y R(x,y)$ auch $y \Vdash \phi$ gilt, immer wenn $y \Vdash \psi$ gilt.
+		\item $\neg \psi$ definierten wir als $x \Vdash \neg \psi$ gdw. $\forall y R(x,y)$ $y \nVdash \psi$ der Fall ist.
+	\end{itemize}
+\end{definition}
+\cite[S.328]{huth2004logic}
+
+
+% section intuistische_ml (end)

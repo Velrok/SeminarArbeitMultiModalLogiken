@@ -4,29 +4,8 @@
 \section{Die Modal-Logik $KT45$ (Wissen)} % (fold)
 \label{sub:the_normal_modal_logic_s5_}
 
-
-\paragraph{weitere Modal Logiken} % (fold)
-\label{par:weitere_modal_logiken}
-
-% paragraph weitere_modal_logiken (end)
-
-\begin{definition}
-	Ein Modell der intuitionistischen Aussagenlogik ist ein Model \modelFormel der Logik $KT45$, sodass $R(x,y)$ immer $L(x) \subseteq L(y)$ impliziert.
-	Gegeben einer modal logische Formel nach \eqref{eqn:bnf}, definieren wir $x \Vdash \psi$ wie in Definition \eqref{def:reasoning} mit Außnahme der Reglen für $\rightarrow$ und $\neg$.
-	\begin{itemize}
-		\item $\psi \rightarrow \phi$ definierten wir als $x \Vdash \psi \rightarrow \phi$ gdw. $\forall y R(x,y)$ auch $y \Vdash \phi$ gilt, immer wenn $y \Vdash \psi$ gilt.
-		\item $\neg \psi$ definierten wir als $x \Vdash \neg \psi$ gdw. $\forall y R(x,y)$ $y \nVdash \psi$ der Fall ist.
-	\end{itemize}
-\end{definition}
-\cite[S.328]{huth2004logic}
-
-\begin{definition}
-	Gegeben einer Menge von Formel Schemata $\mathds{L}$.
-	Definieren wir $\Gamma \Vdash_\mathds{L} \psi$ als valide, wenn es einen Beweis im natürlichen Folgerungssystem für modal Logiken gibt, der um die Axiome in $\mathds{L}$ und den Annahmen in $\Gamma$ erweitert ist.
-	\todo{bessere Forumlierung finden}
-	\todo{natural deduction system beser übersetzen}
-\end{definition}
-\cite[S.330]{huth2004logic}
+Die \ML wird definiert durch eine Menge an gültigen \formelSchemata $\Menge{L}$.
+Die \Tab{attributesIncludingR} zeigt einige der wichtigsten dieser \formelSchemata.
 
 \begin{definition}
 	\label{def:substitution}
@@ -37,9 +16,34 @@
 		Dann gilt auch, dass jede Substitutionsinstanz von $\psi$ auch in $\Gamma$ ist.
 		\item Sei $\mathds{L}_c$ die kleinste Menge die alle Instanzen von $\mathds{L}$ enthält.
 		\item Aus $\Gamma$ folgt semantisch $\psi$ in $\mathds{L}$ gdw. alle Modelle, deren Frame $\mathds{L}$ erfüllt und alle Welten $x$ in diesem Modell, $x$ erfüllt $\Gamma$, gilt.
-		In diesem Fall sagen wir $\Gamma \vDash_{\mathds{L}} \psi$ ist erfüllt.
+		In diesem Fall sagen wir $\Gamma \vDash_{\mathds{L}} \psi$ gilt.
 	\end{itemize}
 	\cite[S.326]{huth2004logic}
 \end{definition}
+
+Bei der \ML $KT45$ handelt es sich um eine wohl bekannte Logik zur Modellierung von Wissen.
+Sie wird in der Literatur auch mit $S$ bezeichnet.
+Die Formel $\Box \phi$ bezeichnet also dass ein Agent $Q$ die Tatsache $\phi$ weis.
+Die Menge der vorausgesetzten \formelSchemata ist $\Menge{L} = \{T, 4, 5\}$.\\
+\textbf{T} bedeutet in diesem Zusammenhang, dass nur Dinge gewusst werden können die auch \true sind.\\
+\textbf{4} \emph{Positive Introspektion} bedeutet, dass wenn man etwas weiß, dann weiß man, das man es weiß.
+\textbf{5} \emph{Negative Introspektion} bedeute, dass wenn man etwas nicht weiß, dann weiß man, das man es nicht weiß.
+\textbf{K} \emph{Logische Allwissenheit} bedeutet, dass dem Agenten alle möglichen Folgerungen aus seinem Wissen ebenfalls bekannt sind.
+
+Es ist wichtig anzumerken, dass es sich hierbei um eine stark idealisierte Modellierung von Wissen handelt.
+Auf menschliches Wissen treffen diese Eigenschaften \underline{nicht} zu.
+Nicht einmal alle Agenten-System erfüllen all diese Eigenschaften. \citeHuth{S. 326f}
+
+
+\begin{fact}
+	Eine Relation ist reflexiv, transitiv und euklidisch gdw. sie reflexiv, transitiv und symmetrisch ist, es sich also um eine Gleichheits-Relation handelt. \citeHuth{S.327}
+\end{fact}
+
+Die \ML $KT45$ ist simpler als $K$, weil weniger sich tatsächlich unterscheidende Aussagen möglich sind.
+
+\begin{theorem}
+	Jede Folge von modal Operatoren und Negationen in $KT45$ ist gleichbedeutend zu einer der folgenden Kombinationen: $-$, $\Box$, $\Diamond$, $\neg$, $\neg \Box$ und $\neg \Diamond$, wobei $-$ bedeutet, dass keien modal Operator und keine Negation verwendet wird. \citeHuth{S. 327}
+\end{theorem}
+
 
 % subsection the_normal_modal_logic_s5_ (end)
