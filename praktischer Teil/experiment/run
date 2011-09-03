@@ -1,0 +1,6 @@
+t=60
+filename=test
+
+echo "time limit is set to $t secounds"
+echo "input file: $filename.in outputfile: $filename.out"
+prover9 -t $t -f $filename.in > $filename.out
