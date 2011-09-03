@@ -1,7 +1,7 @@
 ============================== Prover9 ===============================
 Prover9 (64) version 2009-11A, November 2009.
-Process 55113 was started by velrok on stormrage.localdomain,
-Sat Sep  3 10:50:06 2011
+Process 56892 was started by velrok on stormrage.localdomain,
+Sat Sep  3 13:26:03 2011
 The command was "prover9 -t 60 -f test.in".
 ============================== end of head ===========================
 
@@ -9,13 +9,33 @@ The command was "prover9 -t 60 -f test.in".
 
 % Reading from file test.in
 
+set(prolog_style_variables).
 
-formulas(sos).
-(all x all y (subset(x,y) <-> (all z (member(z,x) -> member(z,y))))).
+formulas(assumptions).
+W(x1).
+W(x2).
+W(x3).
+W(x4).
+W(x5).
+W(x6).
+R(x1,x2).
+R(x1,x3).
+R(x2,x2).
+R(x2,x3).
+R(x3,x2).
+R(x4,x5).
+R(x5,x4).
+R(x5,x6).
+L(x1,q).
+L(x2,p).
+L(x2,q).
+L(x3,p).
+L(x4,q).
+L(x6,p).
 end_of_list.
 
 formulas(goals).
-(all x all y all z (subset(x,y) & subset(y,z) -> subset(x,z))).
+R(x1,x3).
 end_of_list.
 
 ============================== end of input ==========================
@@ -25,8 +45,7 @@ end_of_list.
 ============================== PROCESS NON-CLAUSAL FORMULAS ==========
 
 % Formulas that are not ordinary clauses:
-1 (all x all y (subset(x,y) <-> (all z (member(z,x) -> member(z,y))))) # label(non_clause).  [assumption].
-2 (all x all y all z (subset(x,y) & subset(y,z) -> subset(x,z))) # label(non_clause) # label(goal).  [goal].
+1 R(x1,x3) # label(non_clause) # label(goal).  [goal].
 
 ============================== end of process non-clausal formulas ===
 
@@ -38,12 +57,27 @@ formulas(usable).
 end_of_list.
 
 formulas(sos).
--subset(x,y) | -member(z,x) | member(z,y).  [clausify(1)].
-subset(x,y) | member(f1(x,y),x).  [clausify(1)].
-subset(x,y) | -member(f1(x,y),y).  [clausify(1)].
-subset(c1,c2).  [deny(2)].
-subset(c2,c3).  [deny(2)].
--subset(c1,c3).  [deny(2)].
+W(x1).  [assumption].
+W(x2).  [assumption].
+W(x3).  [assumption].
+W(x4).  [assumption].
+W(x5).  [assumption].
+W(x6).  [assumption].
+R(x1,x2).  [assumption].
+R(x1,x3).  [assumption].
+R(x2,x2).  [assumption].
+R(x2,x3).  [assumption].
+R(x3,x2).  [assumption].
+R(x4,x5).  [assumption].
+R(x5,x4).  [assumption].
+R(x5,x6).  [assumption].
+L(x1,q).  [assumption].
+L(x2,p).  [assumption].
+L(x2,q).  [assumption].
+L(x3,p).  [assumption].
+L(x4,q).  [assumption].
+L(x6,p).  [assumption].
+-R(x1,x3).  [deny(1)].
 end_of_list.
 
 formulas(demodulators).
@@ -51,121 +85,69 @@ end_of_list.
 
 ============================== PREDICATE ELIMINATION =================
 
-Eliminating subset/2
-3 subset(x,y) | member(f1(x,y),x).  [clausify(1)].
-4 -subset(x,y) | -member(z,x) | member(z,y).  [clausify(1)].
-Derived: member(f1(x,y),x) | -member(z,x) | member(z,y).  [resolve(3,a,4,a)].
-5 subset(x,y) | -member(f1(x,y),y).  [clausify(1)].
-Derived: -member(f1(x,y),y) | -member(z,x) | member(z,y).  [resolve(5,a,4,a)].
-6 subset(c1,c2).  [deny(2)].
-Derived: -member(x,c1) | member(x,c2).  [resolve(6,a,4,a)].
-7 subset(c2,c3).  [deny(2)].
-Derived: -member(x,c2) | member(x,c3).  [resolve(7,a,4,a)].
-8 -subset(c1,c3).  [deny(2)].
-Derived: member(f1(c1,c3),c1).  [resolve(8,a,3,a)].
-Derived: -member(f1(c1,c3),c3).  [resolve(8,a,5,a)].
+Eliminating W/1
+
+Eliminating R/2
+2 -R(x1,x3).  [deny(1)].
+3 R(x1,x2).  [assumption].
+4 R(x1,x3).  [assumption].
+5 R(x2,x2).  [assumption].
+6 R(x2,x3).  [assumption].
+7 R(x3,x2).  [assumption].
+8 R(x4,x5).  [assumption].
+9 R(x5,x4).  [assumption].
+10 R(x5,x6).  [assumption].
+Derived: $F.  [resolve(2,a,4,a)].
+
+Eliminating L/2
 
 ============================== end predicate elimination =============
 
-Auto_denials:  (non-Horn, no changes).
+Auto_denials:  (no changes).
 
 Term ordering decisions:
-Predicate symbol precedence:  predicate_order([ member ]).
-Function symbol precedence:  function_order([ c1, c2, c3, f1 ]).
+Predicate symbol precedence:  predicate_order([ ]).
+Function symbol precedence:  function_order([ ]).
 After inverse_order:  (no changes).
 Unfolding symbols: (none).
 
 Auto_inference settings:
-  % set(binary_resolution).  % (non-Horn)
-  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
 
-Auto_process settings:
-  % set(factor).  % (non-Horn)
-  % set(unit_deletion).  % (non-Horn)
+Auto_process settings:  (no changes).
 
-kept:      9 member(f1(x,y),x) | -member(z,x) | member(z,y).  [resolve(3,a,4,a)].
-kept:      10 -member(f1(x,y),y) | -member(z,x) | member(z,y).  [resolve(5,a,4,a)].
-kept:      11 -member(x,c1) | member(x,c2).  [resolve(6,a,4,a)].
-kept:      12 -member(x,c2) | member(x,c3).  [resolve(7,a,4,a)].
-kept:      13 member(f1(c1,c3),c1).  [resolve(8,a,3,a)].
-kept:      14 -member(f1(c1,c3),c3).  [resolve(8,a,5,a)].
-
-============================== end of process initial clauses ========
-
-============================== CLAUSES FOR SEARCH ====================
-
-% Clauses after input processing:
-
-formulas(usable).
-end_of_list.
-
-formulas(sos).
-9 member(f1(x,y),x) | -member(z,x) | member(z,y).  [resolve(3,a,4,a)].
-10 -member(f1(x,y),y) | -member(z,x) | member(z,y).  [resolve(5,a,4,a)].
-11 -member(x,c1) | member(x,c2).  [resolve(6,a,4,a)].
-12 -member(x,c2) | member(x,c3).  [resolve(7,a,4,a)].
-13 member(f1(c1,c3),c1).  [resolve(8,a,3,a)].
-14 -member(f1(c1,c3),c3).  [resolve(8,a,5,a)].
-end_of_list.
-
-formulas(demodulators).
-end_of_list.
-
-============================== end of clauses for search =============
-
-============================== SEARCH ================================
-
-% Starting search at 0.01 seconds.
-
-given #1 (I,wt=11): 9 member(f1(x,y),x) | -member(z,x) | member(z,y).  [resolve(3,a,4,a)].
-
-given #2 (I,wt=11): 10 -member(f1(x,y),y) | -member(z,x) | member(z,y).  [resolve(5,a,4,a)].
-
-given #3 (I,wt=6): 11 -member(x,c1) | member(x,c2).  [resolve(6,a,4,a)].
-
-given #4 (I,wt=6): 12 -member(x,c2) | member(x,c3).  [resolve(7,a,4,a)].
-
-given #5 (I,wt=5): 13 member(f1(c1,c3),c1).  [resolve(8,a,3,a)].
-
-given #6 (I,wt=5): 14 -member(f1(c1,c3),c3).  [resolve(8,a,5,a)].
 
 ============================== PROOF =================================
 
 % Proof 1 at 0.01 (+ 0.00) seconds.
-% Length of proof is 14.
-% Level of proof is 4.
-% Maximum clause weight is 6.000.
-% Given clauses 6.
+% Length of proof is 4.
+% Level of proof is 2.
+% Maximum clause weight is 0.000.
+% Given clauses 0.
 
-1 (all x all y (subset(x,y) <-> (all z (member(z,x) -> member(z,y))))) # label(non_clause).  [assumption].
-2 (all x all y all z (subset(x,y) & subset(y,z) -> subset(x,z))) # label(non_clause) # label(goal).  [goal].
-3 subset(x,y) | member(f1(x,y),x).  [clausify(1)].
-4 -subset(x,y) | -member(z,x) | member(z,y).  [clausify(1)].
-5 subset(x,y) | -member(f1(x,y),y).  [clausify(1)].
-6 subset(c1,c2).  [deny(2)].
-7 subset(c2,c3).  [deny(2)].
-8 -subset(c1,c3).  [deny(2)].
-11 -member(x,c1) | member(x,c2).  [resolve(6,a,4,a)].
-12 -member(x,c2) | member(x,c3).  [resolve(7,a,4,a)].
-13 member(f1(c1,c3),c1).  [resolve(8,a,3,a)].
-14 -member(f1(c1,c3),c3).  [resolve(8,a,5,a)].
-15 member(f1(c1,c3),c2).  [resolve(13,a,11,a)].
-18 $F.  [ur(12,b,14,a),unit_del(a,15)].
+1 R(x1,x3) # label(non_clause) # label(goal).  [goal].
+2 -R(x1,x3).  [deny(1)].
+4 R(x1,x3).  [assumption].
+11 $F.  [resolve(2,a,4,a)].
 
 ============================== end of proof ==========================
 
 ============================== STATISTICS ============================
 
-Given=6. Generated=12. Kept=9. proofs=1.
-Usable=6. Sos=3. Demods=0. Limbo=0, Disabled=12. Hints=0.
+Given=0. Generated=1. Kept=0. proofs=1.
+Usable=0. Sos=0. Demods=0. Limbo=0, Disabled=22. Hints=0.
 Kept_by_rule=0, Deleted_by_rule=0.
-Forward_subsumed=2. Back_subsumed=0.
+Forward_subsumed=0. Back_subsumed=0.
 Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
 New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
 Demod_attempts=0. Demod_rewrites=0.
 Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
-Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=6.
-Megabytes=0.05.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.03.
 User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
 
 ============================== end of statistics =====================
@@ -176,4 +158,4 @@ THEOREM PROVED
 
 Exiting with 1 proof.
 
-Process 55113 exit (max_proofs) Sat Sep  3 10:50:06 2011
+Process 56892 exit (max_proofs) Sat Sep  3 13:26:03 2011

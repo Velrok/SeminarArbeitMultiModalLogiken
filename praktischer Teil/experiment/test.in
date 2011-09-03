@@ -1,7 +1,48 @@
-formulas(sos).
-  all x all y (subset(x,y) <-> (all z (member(z,x) -> member(z,y)))).
+% we use prolog notation: lowercase -> term , UPERCASE -> variable
+set(prolog_style_variables).
+
+formulas(assumptions).
+	% basics
+	% W states that this a world: W(<world>)
+	% labeling function: L(<world>, <term>)
+	% accessabel world relation: R(<world>, <world>)
+
+	% defining K
+	
+	%BEGIN
+			this is our world (knowlage base)
+	END%
+	
+	% define worlds
+	W(x1).
+	W(x2).
+	W(x3).
+	W(x4).
+	W(x5).
+	W(x6).
+	
+	% define connection of world (see fig 2.4 )
+	R(x1,x2).
+	R(x1,x3).
+	R(x2,x2).
+	R(x2,x3).
+	R(x3,x2).
+	
+	R(x4,x5).
+	R(x5,x4).
+	R(x5,x6).
+	
+	% define labeling
+	L(x1, q).
+	L(x2, p).
+	L(x2, q).
+	L(x3, p).
+	L(x4, q).
+	L(x6, p).
+	
 end_of_list.
 
 formulas(goals).
-  all x all y all z (subset(x,y) & subset(y,z) -> subset(x,z)).
+	% only one entry is allowed
+	R(x1,x3).
 end_of_list.
