@@ -1,6 +1,13 @@
 t=60
 filename=test
 
+successImage="--image /Users/velrok/Pictures/icons/success.png"
+failImage="--image /Users/velrok/Pictures/icons/fail.png"
+
+growlcommand="growlnotify -t prover9"
+growlSuccess="$growlcommand $successImage -m SUCCESS"
+growlFail="$growlcommand $failImage -m FAIL"
+
 echo "time limit is set to $t secounds"
 echo "input file: $filename.in outputfile: $filename.out"
-prover9 -t $t -f $filename.in > $filename.out
+prover9 -t $t -f $filename.in > $filename.out && $growlSuccess || $growlFail
