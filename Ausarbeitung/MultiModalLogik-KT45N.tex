@@ -15,6 +15,21 @@
 	\item heißt jeder in der Gruppe weis $p$
 	\item ist also gleichbedeutent mit $K_1 p \wedge K_2 p \wedge \dots K_n p$
 	\item es gelten die selben Bindungsstärken wie in \Abb{bindungsstaerke} beschrieben
+	\item wobei $K_i$ als $\Box$ angesehen wird
+\end{itemize}
+
+\begin{itemize}
+	\item $\phi$ kann bekannter sein als $E_G \phi$ nämlich als $E_G E_G \phi$
+	\item bsp: offenes geheimnis: jeder weis es, aber keiner weis das die anderen es wissen
+	\item $E_G E_G \phi$ größer $E_G \phi$
+	\item und $E_G E_G E_G \phi$ größer als $E_G E_G \phi$
+	\item $C_G \phi$ Allgemeinwissen innerhalb $G$ 
+	\item weil $E_G E_G \dots \phi$ unendlich, wir aber nur endlich ausdrücken können wird 
+	\item $C_G \phi$ als weite Verbindung über die Semantik definiert
+	\item $C_G \phi$ heißt als $E_G \phi \wedge E_G E_G \phi \wedge E_G E_G E_G \phi \wedge \dots$
+	\item $D_G \phi$ heißt verteiltes Wissen
+	\item auch wenn jeder einzelne es nicht weis, wenn sie sich abbrechen kommen sie drauf
+	\item D steht für distributed
 \end{itemize}
 
 
@@ -28,14 +43,52 @@
 		\phi ::= \bot|\top|p|(\neg\phi)|(\phi\wedge\phi)|(\phi\vee\phi)|(\phi\rightarrow\phi)|
 		(\phi\leftrightarrow\phi)|(K_i\psi)|(E_G\psi)|(C_G\psi)|(D_G\psi)
 	\end{equation}
+	wobei $p$ irgendeine atomare Formel ist und $i \in \Fancy{A}$ sowie $G \subseteq \Fancy{A}$ gilt.
+	$E_\Fancy{A}, C_\Fancy{A}, D_\Fancy{A}$ werden zur Einfachheit ohne den extra Index geschrieben $E,C,D$.
+	\citeHuth{S.335f}
 \end{definition}
-\cite[S.335f]{huth2004logic}
+
+
+Vergleicht man diese Definition mit der von 
+\Def{syntax} so stellt man fest, dass anstelle des 
+$\Box$ Konnektors es jetzt dien Vielzahl von Konnektoren gibt: 
+$K_i, E_G, C_G, D_G$ für alle $ G \subseteq \Fancy{A}$.
+Im Folgenden wird gezeigt das sich diese Konnektoren $\Box$ ähnlich verhalten.
+Es gibt kein explizites Analogon zu $\Diamond$.
+Es wäre aber gleichbedeutend mit $\neg K_i \neg, \neg E_G \neg, \neg C_G \neg, \neg D_G \neg$.
+
 
 \begin{definition}
-	Add Def.
-	\todo{add definition}
+	Ein Model \MMModelDef der \MML $KT45^n$ mit der Menge $\Fancy{A}$ von $n$ Agenten wird beschrieben durch drei Dinge:
+	\begin{enumerate}
+		\item einer Menge $W$ von möglichen Welten
+		\item für jedes $i \in \Fancy{A}$, der Gleichheitsrelation $R_i$ auf $W$ $R_i \subseteq W \times W)$ auch Erreichbarkeitsrealtion gennant und
+		\item der Labeling-Funktion $L: W \rightarrow \Fancy{P}(Atome)$
+	\end{enumerate}
+	\cite[S.336f]{huth2004logic}
 \end{definition}
-\cite[S.336f]{huth2004logic}
+
+
+\begin{itemize}
+	\item jetzt mehre R
+	\item eines für jeden Agenten
+	\item außerdem muss R eine Gleichheitsrelation sein
+	\item Besonderheit in der Datstellung von KT45n Kripkestrukturen
+	\begin{itemize}
+		\item kanten müssen mit der entsprechenden raltionen beschriftet werden
+		\item keine pfeile, weil symetrisch
+		\item außerdem werden pfeile auf sich selbst weg gelassen, weil klar ist das alle auf sich selbst zeigen (in jeder der raltionen), weil relfexiv 
+	\end{itemize}
+\end{itemize}
+
+\todo{Bsp: grphic aus huth S. 336 erstellen}
+
+
+
+
+
+
+
 
 \begin{definition}
 		Gegeben ein Model $\mathds{M} = (W,(R_i)_{i \in \mathds{A}}, L)$ der $KT45^n$ und eine Welt $w \in W$, so definieren $\psi$ als \emph{Wahr} durch die Erfüllung der Relation $x \vDash \psi$ durch folgende Regeln:
@@ -53,7 +106,25 @@
 			x &\Vdash C_G\psi \text{ gdw. } \forall k \geq 1 \text{, und es gilt } x \Vdash E^k_G\psi \text{.} \text{Wobei } E^k_G \text{ meint } E_{G}E_{G}\dots E_{G} \text{ k-mal.}\\
 			x &\Vdash D_G\psi \text{ gdw. } \forall y \in W, y \Vdash \psi \text{gilt, immer wenn auch } R_i(x,y), \forall i \in G \text{gilt.}\\
 		\end{align}
+		\cite[S.337]{huth2004logic}
 \end{definition}
-\cite[S.337]{huth2004logic}
+
+
+\paragraph{Valide Formeln in $KT45^n$}
+
+
+
+\subsection{\ND in $KT45^n$}
+
+\subsection{Formalisierung des Wise Men Rätsels in $KT45^n$}
+
+
+
+
+
+
+
+
+
 
 % subsection the_model_logic_kt45_n_ (end)
