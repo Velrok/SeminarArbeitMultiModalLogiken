@@ -1,11 +1,39 @@
 % we use prolog notation: lowercase -> term , UPERCASE -> variable
 set(prolog_style_variables).
 
+% custom operators
+op(900, infix, "|-").
+
 formulas(assumptions).
 	% basics
 	% W states that this a world: W(<world>)
 	% labeling function: L(<world>, <term>)
 	% accessabel world relation: R(<world>, <world>)
+	
+	%BEGIN
+		defining the |- oeprator. See Definition 3 for it.
+		X var for a world
+		F var for a Formular
+	END%
+	
+	
+	W(X) & Fact(F) & L(X,F) 					<-> |-(W,F).
+	%W(X) & (-(Fact(F)) | -(L(X,F))) 	<-> -(|-(W,F)). 				% not working ?
+	
+	% AND
+	W(X) & (X |- Y) & (X |- Z) <-> (X |- (Y & Z) ).
+	
+	% OR
+	W(X) & ((X |- Y) | (X |- Z)) <-> (X |- (Y | Z)).
+	
+	% implication
+	W(X) & (((X |- Y) & (X |- Z)) | (-(X |- Y) & -(X |- Z)) )	<-> (X |- (Y -> Z)). 		
+	
+	% equality
+	% W(X) & ((X |- Y) | (X |- Z)) <-> (X |- (Y <-> Z)).
+	
+	% box
+	
 
 	% defining K
 	
@@ -40,9 +68,13 @@ formulas(assumptions).
 	L(x4, q).
 	L(x6, p).
 	
+	% define facts
+	Fact(p).
+	Fact(q).
+	
 end_of_list.
 
 formulas(goals).
 	% only one entry is allowed
-	R(x1,x3).
+	x1 |- a|b.
 end_of_list.
