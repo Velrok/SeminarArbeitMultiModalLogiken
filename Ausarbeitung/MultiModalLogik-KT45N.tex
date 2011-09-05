@@ -3,6 +3,22 @@
 \section{Die Modal-Logik $KT45^n$ (Multi-Agent-Wissen)} % (fold)
 \label{sub:the_modal_logic_kt45_n_}
 
+
+\begin{itemize}
+	\item geranlisierung: viele $\Box$
+	\item eins für jeden Agenten $\Fancy{A} = \{1,2,\dots,n\}$ 
+	\item geschrieben als $K_i$ für Agent $i$ (weil knowlage)
+	\item $p,q,r$ für atome
+	\item $K_ip$ heißt Agent $i$ weiß $p$
+	\item Bsp.: $K_1p \wedge K_1 \neg K_2 K_1 p$ heißt Agent 1 weis K und 1 weis, das 2 nicht weis, dass er p weis
+	\item $E_G p$ $G$ ist eine Gruppe von Agenten $G= \{1,2,3,\dots,n\}$
+	\item heißt jeder in der Gruppe weis $p$
+	\item ist also gleichbedeutent mit $K_1 p \wedge K_2 p \wedge \dots K_n p$
+	\item es gelten die selben Bindungsstärken wie in \Abb{bindungsstaerke} beschrieben
+\end{itemize}
+
+
+
 \textbf{multi agent systeme}
 \begin{definition}
 	\label{def:bnf_kt45n}
@@ -14,6 +30,12 @@
 	\end{equation}
 \end{definition}
 \cite[S.335f]{huth2004logic}
+
+\begin{definition}
+	Add Def.
+	\todo{add definition}
+\end{definition}
+\cite[S.336f]{huth2004logic}
 
 \begin{definition}
 		Gegeben ein Model $\mathds{M} = (W,(R_i)_{i \in \mathds{A}}, L)$ der $KT45^n$ und eine Welt $w \in W$, so definieren $\psi$ als \emph{Wahr} durch die Erfüllung der Relation $x \vDash \psi$ durch folgende Regeln:
