@@ -32,6 +32,31 @@
 	}
 }
 
+\newcommand{\oneCol}[1]{
+	\begin{array}{c}
+		#1
+	\end{array}
+}
+
+\newcommand{\threeCol}[1]{
+	\begin{array}{lll}
+		#1
+	\end{array}
+}
+
+\newcommand{\blackBox}[1]{
+	\boxed{
+		#1
+	}
+}
+
+\newcommand{\blueBox}[1]{
+	\fcolorbox{blue}{white}{
+		#1
+	}
+}
+
+
 \newcommand{\dashedBox}[1]{
 		\fcolorbox{blue}{white}{
 			\begin{array}{c}

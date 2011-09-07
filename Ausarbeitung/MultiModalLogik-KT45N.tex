@@ -259,11 +259,118 @@ Bei dieser Vorgehensweise handelt es sich um eine schwierige Methode, weil für 
 \todo{kompletten Beweis aufführen}
 \todo{kompletten Beweis diskutieren}
 
+\begin{equation*}	
+\oneCol{
+	\threeCol{
+		&C(p_1 \vee p_2 \vee p_3)& \text{:Vorgabe}\\
+		&C(p_1 \rightarrow K_j p_i)& \text{:Vorgabe, } (i \neq j)\\
+		&C(\neg p_1 \rightarrow K_j \neg p_i)& \text{:Vorgabe, } (i \neq j)\\
+		&C \neg K_1 p_1& \text{:Vorgabe}\\
+		&C \neg K_1 \neg p_1& \text{:Vorgabe}
+	}\\
+	
+	\blueBox{
+		\oneCol{
+			\threeCol{
+				C & &
+			}\\
+			
+			\blackBox{
+				\oneCol{
+					\threeCol{
+						& \neg p_2 \wedge \neg p_3 & \text{:Annahme} \\
+						& \neg p_2 \rightarrow K_1 \neg p_2 & C_e :3 (i,j) = (2,1)\\
+						& \neg p_3 \rightarrow K_1 \neg p_3 & C_e :3 (i,j) = (3,1)\\
+						& K_1 \neg p_2 \wedge K_1 \neg p_3 & \text{: folgt aus \AL}\\
+					}\\
+				
+					\blueBox{
+						\threeCol{
+							K_1 & & \\
+							& \neg p_2 \wedge \neg p_3 & \wedge e_1, K_{1e}, \wedge i\\
+							& p_1 \vee p_2 \vee p_3 & C_e 1\\
+							& p_1	& \text{: folgt aus \AL}
+						}
+					}\\
+					
+					\threeCol{
+						& K_1 p_1 & K_1 i\\
+						& \neg K_1 p_1 & C_e 4\\
+						& \bot & \neg e
+					}
+				}
+			}\\
+			
+			\threeCol{
+				& \neg (\neg p_2 \wedge \neg p_3) & \neg i\\
+				& p_2 \vee p_3 & \text{folgt aus \AL}
+			}
+		}
+	}\\
+	
+	\threeCol{
+		& C(p_2 \vee p_3) & C_i
+	}
+}
+\end{equation*}
 
 
 
 
-
+\begin{equation*}	
+\oneCol{
+	\threeCol{
+		& C(p_1 \vee p_2 \vee p_3)& \text{:Vorgabe}\\
+		& C(p_i \rightarrow K_j p_i)& \text{:Vorgabe, } (i \neq j)\\
+		& C(\neg p_1 \rightarrow K_j \neg p_i)& \text{:Vorgabe, } (i \neq j)\\
+		& C \neg K_2 p_2& \text{:Vorgabe}\\
+		& C \neg K_2 \neg p_2& \text{:Vorgabe}\\
+		& C(p_2 \vee p_3) & \text{:Vorgabe}
+	}\\
+	
+	\blueBox{
+		\oneCol{
+			\threeCol{
+				K_3 & &
+			}\\
+			
+			\blackBox{
+				\oneCol{
+					\threeCol{
+						& \neg p_3 & \text{:Annahme} \\
+						& \neg p_3 \rightarrow K_2 \neg p_3 & CK :3 (i,j) = (3,2)\\
+						& K_2 \neg p_3 & \rightarrow e
+					}\\
+				
+					\blueBox{
+						\threeCol{
+							K_2 & & \\
+							& \neg p_3 & K_{2e}\\
+							& p_2 \vee p_3 & C_e\\
+							& p_2	& \text{: folgt aus \AL}
+						}
+					}\\
+					
+					\threeCol{
+						& K_2 p_2 & K_2 i\\
+						& K_i \neg K_2 p_2 & CK, \forall i \\
+						& \neg K_2 p_2 & KT\\
+						& \bot & \neg e
+					}
+				}
+			}\\
+			
+			\threeCol{
+				& p_3 & \text{PBC}
+			}
+		}
+	}\\
+	
+	\threeCol{
+		& K_3 p_3 & K_3 i
+	}
+}
+\end{equation*}
 
 
 % subsection the_model_logic_kt45_n_ (end)
