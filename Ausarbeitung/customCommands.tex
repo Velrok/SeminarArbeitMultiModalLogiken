@@ -7,14 +7,15 @@
 \newcommand{\emailAdress}[1]{\textless\href{mailto:#1}{#1}\textgreater}
 
 % referenzing
-\newcommand{\Abs}[1]{Abschnitt~\ref{#1} auf Seite \pageref{#1} }
-\newcommand{\Ref}[1]{\ref{#1} auf Seite \pageref{#1} }
-\newcommand{\Abb}[1]{Abbildung~\ref{fig:#1} auf Seite \pageref{fig:#1} }
-\newcommand{\Eq}[1]{Gleichung~\eqref{eq:#1} auf Seite \pageref{eq:#1} }
-\newcommand{\Tab}[1]{Tabelle~\eqref{tab:#1} auf Seite \pageref{tab:#1} }
-\newcommand{\Theo}[1]{Theorem~\eqref{theo:#1} auf Seite \pageref{theo:#1} }
-\newcommand{\Def}[1]{Definition~\eqref{def:#1} auf Seite \pageref{def:#1} }
-\newcommand{\Bsp}[1]{Beispiel~\eqref{bsp:#1} auf Seite \pageref{bsp:#1} }
+\newcommand{\Abs}[1]{Abschnitt~\ref{#1} }
+\newcommand{\Ref}[1]{\ref{#1} }
+\newcommand{\Abb}[1]{Abbildung~\ref{fig:#1} }
+\newcommand{\Eq}[1]{Gleichung~\eqref{eq:#1} }
+\newcommand{\Tab}[1]{Tabelle~\ref{tab:#1} }
+\newcommand{\Theo}[1]{Theorem~\eqref{theo:#1} }
+\newcommand{\Def}[1]{Definition~\eqref{def:#1} }
+\newcommand{\Bsp}[1]{Beispiel~\eqref{bsp:#1} }
+
 \newcommand{\vglHuth}[1]{(vgl. \cite[#1]{huth2004logic}) }
 \newcommand{\citeHuth}[1]{\cite[#1]{huth2004logic} }
 
@@ -32,13 +33,20 @@
 }
 
 \newcommand{\dashedBox}[1]{
-	\boxed{
-		\begin{array}{c}
-			#1
-		\end{array}
-	}
-	\text{make this box dashed}
-}
+		\fcolorbox{blue}{white}{
+			\begin{array}{c}
+				#1
+			\end{array}
+		}
+} 
+% \newcommand{\dashedBox}[1]{
+% 	\boxed{
+% 		\begin{array}{c}
+% 			#1
+% 		\end{array}
+% 	}
+% 	\text{make this box dashed}
+% }
 
 \newcommand{\FrameDef}{$\Fancy{F} = (W,R)$ }
 \newcommand{\ModelDef}{$\Fancy{M} = (W,R,L)$ }

@@ -108,16 +108,17 @@ Das \Theo{gErreichbarkeit} ist nützlich wenn es um die Beantwortung von Formel 
 Wir wollen nun den Begriff der G-Erreichbarkeit erklären.
 Seit \MMModelDef ein Model für $KT45^n$ und $x,y \in W$.
 Wir nennen $y$ G-erreichbar in $k$ Schritten von $x$ wenn es $w_1, w_2, \dots, w_{k-1} \in W$ und $i_1, i_2, \dots, i_k$ in $G$ gibt, sodass 
+
 \begin{equation*}
-	x R_i_1 w_1 R_i_2 w_2 \dots R_i_k-1 w_k-1 R_i_k y
+	x R_{i_1} w_1 R_{i_2} w_2 \dots R_{i_{k-1}} w_{k-1} R_{i_k} y
 \end{equation*}
+
 gilt.
-Die Formulierung meint $R_i_1(x,w_1)m, R_i_2(w_1,w_2), \dots, R_i_k(w_k,w_y)$.
+Die Formulierung meint $R_{i_1}(x,w_1)m, R_{i_2}(w_1,w_2), \dots, R_{i_k}(w_k,w_y)$.
 Eine Welt $y$ wird einfach nur G-erreichbar von $x$ genannt, wenn diese durch eine feste Anzahl an Schritten $k$ von $x$ G-erreichbar in $k$ Schritten ist.
 
 \begin{theorem}
 	\label{theo:gErreichbarkeit}
-	\newline
 	\begin{enumerate}
 		\item $x \Vdash E_{G}^{k} \phi$, gdw. für alle $y$, die in $k$ Schritten von $x$ G-erreichbar sind, $y \Vdash \phi$ gilt.
 		\item $x \Vdash C_{G} \phi$, gdw. für alle $y$, die von $x$ G-erreichbar sind, $y \Vdash \phi$ gilt.
@@ -128,23 +129,23 @@ Eine Welt $y$ wird einfach nur G-erreichbar von $x$ genannt, wenn diese durch ei
 
 
 \paragraph{Valide Formeln in $KT45^n$}
-
+\label{par:valid_formulas_in_kt45n}
 Das Schema $K$ gilt für alle Operatoren.
 Alle Ebenen des Wissens sind also abgeschlossen gegenüber der logischen Konsequentz.
 Wenn z.B. eine Zusammenhang $\phi$ Allgemeinwissen ist dann sind auch alle logischen Folgerungen daraus wieder Teil des Allgemeinwissens.\\
 Die Operatoren $E,C,D$ sind boxähnlich weil sie Universallquantoren über die Relationen $R_{E_G}, R_{D_G}, R_{C_G}$ sind.
 
-\begin{equation*}
-	\begin{align}
-		R_{E_G}(x,y) &\text{ gdw. } R_i(x,y) \text{ für einige } i \in G\\
-		R_{D_G}(x,y) &\text{ gdw. } R_i(x,y) \text{ für alle } i \in G\\
-		R_{C_G}(x,y) &\text{ gdw. } R_{E_G}^k(x,y) \text{ für jedes } k \geq 1
-	\end{align}
-\end{equation*}
+
+\begin{align}
+	R_{E_G}(x,y) &\text{ gdw. } R_i(x,y) \text{ für einige } i \in G\\
+	R_{D_G}(x,y) &\text{ gdw. } R_i(x,y) \text{ für alle } i \in G\\
+	R_{C_G}(x,y) &\text{ gdw. } R_{E_G}^k(x,y) \text{ für jedes } k \geq 1
+\end{align}
+
 
 Daraus folgt, dass $E_G, D_G, C_G$ das Schema $K$ im Bezug auf $R_{E_G}, R_{D_G}, R_{C_G}$ erfüllen.
 Was ist mit den anderen Schemata $T,4,5$?\\
-Da $R_i$ eine Gleichheitsrelation ist folgt nach \Theo{aehnlichkeitstheorie} und \Tab{attributesIncludingR}} das für jedes $K_i$ gilt:
+Da $R_i$ eine Gleichheitsrelation ist folgt nach \Theo{aehnlichkeitstheorie} und  \Tab{attributesIncludingR} das für jedes $K_i$ gilt:
 \begin{itemize}
 	\item $\Four{K_i}{\phi}$ \emph{positive Introspektion}
 	\item $\Five{K_i}{\phi}$ \emph{negative Introspektion}
@@ -165,23 +166,21 @@ $R_{C_{G}}$ ist eine Gleichheitsrelation, daraus folgt, dass $T,4,5$ gelten, wob
 
 
 \subsection{\ND in $KT45^n$}
-- D weglassen
-- KT45 wird erweitert um die neuen Operatoren
-
-- getrichelte Boxen haben nun verschiedenen Art ( abhängig vom Operator )
-- wie im oberen abscnitt gesehn könne Axiome T 4 5 für jeded $K_i$ eingesetzte werden
- - 4,5 können für $C_G$ aber nicht für $E_G$ eigenutzt werden
-- Die Regeln CE und CK sind genau genommen eine Menge von Regeln für jede Wahl eines bestimmten $k$, der Einfachheit halber werden sie aber nur mit CE und CK bezeichnet
-- $EK_i$ wird als eine Art gennerelle \emph{und}-Elimination und $KE$ wie eine gennerelle \emph{und}-Einführung
-- Wie auch bei den Regeln zur KT45 kann man sich die Regeln K4 K5 C4 und C5 als eine Art Stricktheits Entschärfung für das Importieren und exportieren von Formeln in bestimme Boxen vorstellen.
-Weil K4 es erlaubt um jedes K_i ein weiters K_i zu ergänzen erlaubt es effektiv das unveränderte Importieren von K_i \phi Formeln in K_i Boxen.
+Die \ND von $KT45$ wird erweitert um neue Arten von blauen Boxen.
+Jeweils eine für jeder der entsprechenden Operatoren.
+Der Operator D wird hier nicht behandelt.\\
+Wie in \Abs{par:valid_formulas_in_kt45n} gesehen könne die Axiome T 4 5 für jedes $K_i$ eingesetzte werden. 4 und 5 können hingegen für $C_G$ aber nicht für $E_G$ eigenutzt.\\
+Die Regeln CE und CK sind genau genommen eine Menge von Regeln für jede Wahl eines bestimmten $k$, der Einfachheit halber werden sie aber nur mit CE und CK bezeichnet.
+$EK_i$ verhält sich wie eine generelle \emph{und}-Elimination und $KE$ wie eine generelle \emph{und}-Einführung.\\
+Wie auch bei den Regeln zur KT45 kann man sich die Regeln K4, K5, C4 und C5 als eine Art Striktheitsentschärfung für das Importieren und Exportieren von Formeln in bestimme Boxen vorstellen.\\
+Weil K4 es erlaubt um jedes $K_i$ ein weiters $K_i$ zu ergänzen erlaubt es effektiv das unveränderte Importieren von $K_i \phi$ Formeln in $K_i$ Boxen.
 Ähnliches gilt für C5 das es uns erlaubt $\neg C_G$ Formeln in $C_G$ Boxen zu importieren.\\
 Das Öffnen einer Box kann man sich intuitiv als das folgern auf Basis des Wissens des entsprechenden Agenten vorstellen.
 Unter dieser Betrachtung ist es ebenfalls intuitiv einleuchtend, dass eine Tatsache $\phi$ nicht einfach in eine Box gebracht werden kann, denn die existent der Tatsache bedeutet nicht gleichzeitig, dass der entsprechende Agent diese auch weis.\\
 Wir erinnern uns, dass ein Agent nicht falsches wissen kann.
-Daher gilt besondere Sorgfalt mit der Regel $\negi$.
+Daher gilt besondere Sorgfalt mit der Regel $\neg i$.
 Sie darf nicht angewendet werden, wenn eine der verwendeten Annahmen außerhalb der Box existiert.\\
-$C\phi$ ist besonders mächtig, weil es erlaubt die Formel $\phi$ in jeder Box zu verwenden unanbhängig von dessen Schachtelungstiefe.
+$C\phi$ ist besonders mächtig, weil es erlaubt die Formel $\phi$ in jeder Box zu verwenden unabhängig von dessen Schachtelungstiefe.
 Die Regel $E^k \phi$ hingegen erlaub die Verwendung von $\phi$ nur in Boxen der Schachtelungstiefe $\leq k$.\citeHuth{S.339ff}
 
 
@@ -199,7 +198,7 @@ Es soll nun mithilfe der $KT45^n$ formal gezeigt, dass der dritte Mann dann zwan
 Im Folgenden wird $p_i$ notieren, dass der Mann $i$ einen roten Hut auf hat und 
 $\neg p_i$, dass der Mann $i$ einen weißen Hut trägt.
 
-Die Menge $\Gamme$ enthält Formeln, die das Allgemeinwissen in $KT45^n$ beschreiben:
+Die Menge $\Gamma$ enthält Formeln, die das Allgemeinwissen in $KT45^n$ beschreiben:
 \begin{subequations}
 	\begin{align}
 		\{&C(p_1 \vee p_2 \vee p_3) \label{eq:min_ein_roter_hut}\\
