@@ -3,36 +3,29 @@
 \section{Die Modal-Logik $KT45^n$ (Multi-Agent-Wissen)} % (fold)
 \label{sub:the_modal_logic_kt45_n_}
 
-
-\begin{itemize}
-	\item geranlisierung: viele $\Box$
-	\item eins für jeden Agenten $\Fancy{A} = \{1,2,\dots,n\}$ 
-	\item geschrieben als $K_i$ für Agent $i$ (weil knowlage)
-	\item $p,q,r$ für atome
-	\item $K_ip$ heißt Agent $i$ weiß $p$
-	\item Bsp.: $K_1p \wedge K_1 \neg K_2 K_1 p$ heißt Agent 1 weis K und 1 weis, das 2 nicht weis, dass er p weis
-	\item $E_G p$ $G$ ist eine Gruppe von Agenten $G= \{1,2,3,\dots,n\}$
-	\item heißt jeder in der Gruppe weis $p$
-	\item ist also gleichbedeutent mit $K_1 p \wedge K_2 p \wedge \dots K_n p$
-	\item es gelten die selben Bindungsstärken wie in \Abb{bindungsstaerke} beschrieben
-	\item wobei $K_i$ als $\Box$ angesehen wird
-\end{itemize}
-
-\begin{itemize}
-	\item $\phi$ kann bekannter sein als $E_G \phi$ nämlich als $E_G E_G \phi$
-	\item bsp: offenes geheimnis: jeder weis es, aber keiner weis das die anderen es wissen
-	\item $E_G E_G \phi$ größer $E_G \phi$
-	\item und $E_G E_G E_G \phi$ größer als $E_G E_G \phi$
-	\item $C_G \phi$ Allgemeinwissen innerhalb $G$ 
-	\item weil $E_G E_G \dots \phi$ unendlich, wir aber nur endlich ausdrücken können wird 
-	\item $C_G \phi$ als weite Verbindung über die Semantik definiert
-	\item $C_G \phi$ heißt als $E_G \phi \wedge E_G E_G \phi \wedge E_G E_G E_G \phi \wedge \dots$
-	\item $D_G \phi$ heißt verteiltes Wissen
-	\item auch wenn jeder einzelne es nicht weis, wenn sie sich abbrechen kommen sie drauf
-	\item D steht für distributed
-\end{itemize}
+Die \MML $Kt45^n$ ist eine Verallgemeinerung der \ML $KT45$, in der Hinsicht als dass es mehrerer $\Box$ ähnliche Operatoren gibt.
+Jeder Agent einer Menge \AgentSetDef hat seine eigene Relation $R_i$ auf $W$.
+Der Operator eines Agenten $i$ wird notiert als $K_i$ mit $K$ für \emph{Knowlage} (Wissen).
+Wir verwenden weiterhin $p,q,r$ für atomare Terme.
+Die $K_ip$ bedeutet das Agent $i$ die Tatsache $p$ weis.
+Hier nun eine komplexeres Beispiel einer Formel in $KT45^n$ : $K_1p \wedge K_1 \neg K_2 K_1 p$.
+Sie besagt: Agent 1 weis $p$, außerdem weis Agent 1, das Agent 2 nicht weis, dass er $p$ weis.
+Mit $G$ beschreiben wir eine Gruppe von Agenten $G= \{1,2,3,\dots,n\}$.
+Will man nun Aussagen das eine Gruppe $G$ von Agenten einen Umstand $p$ weis : $K_1 p \wedge K_2 p \wedge \dots K_n p$ benutzt man dafür die Formulierung $E_G p$.
+Es gelden die selben Bindungsstärke der Operatoren wie in der Auflistung \Ref{bindungsstaerke}.
+Wobei $K_i$ wie der $\Box$-Operator behandelt wird.
+\citeHuth{S.335ff}
 
 
+Bei erster Betrachtung mag man annehmen, dass eine Tatsache $\phi$ nicht bekannter sein kann als $E_G \phi$.
+$E_G E_G \phi$ stellt jedoch mehr Wissen dar als $E_G \phi$, denn es besagt nicht nur das jeder etwas weis, sondern auch das jeder weis, dass es jeder weis.
+Genauso stellt $E_G E_G E_G \phi$ wiederum noch mehr Wissen dar, denn jeder Weis, dass alle etwas wissen und \emph{das} ist wiederum bekannt.
+Dies lässt sich ins unendliche fortsetzen $E_G E_G \dots \phi$.
+Da es aber nur möglich ist finite Aussagen zu machen, für diesen Umstand des Allgemeinwissens ein extra Operator $C_G$ eingeführt und über seine Semantik definiert.
+Wir bezeichnen als mit $C_G$ das Allgemeinwissen innerhalb einer Gruppe $G$.
+Mit $D_G$ wollen wir verteiltes Wissen beschreiben.
+Verteiltes wissen ist dem Einzelnen evtl. nicht bekannt, kann jedoch gefolgert werden, sobald alle Beteiligten der Gruppe ihr Wissen vereinen.
+Die Buchstaben $C$ und $D$ stammen aus dem Englischen für common-knowlage und distributed-knowlage.
 
 \textbf{multi agent systeme}
 \begin{definition}
@@ -51,11 +44,11 @@
 
 Vergleicht man diese Definition mit der von 
 \Def{syntax} so stellt man fest, dass anstelle des 
-$\Box$ Konnektors es jetzt dien Vielzahl von Konnektoren gibt: 
+$\Box$ Operator nun eine Vielzahl von Operatoren gibt: 
 $K_i, E_G, C_G, D_G$ für alle $ G \subseteq \Fancy{A}$.
-Im Folgenden wird gezeigt das sich diese Konnektoren $\Box$ ähnlich verhalten.
+Im Folgenden wird gezeigt das sich diese Operatoren $\Box$ ähnlich verhalten.
 Es gibt kein explizites Analogon zu $\Diamond$.
-Es wäre aber gleichbedeutend mit $\neg K_i \neg, \neg E_G \neg, \neg C_G \neg, \neg D_G \neg$.
+Es ist aber entsprechend gleichbedeutend mit $\neg K_i \neg, \neg E_G \neg, \neg C_G \neg, \neg D_G \neg$.
 
 
 \begin{definition}
@@ -68,25 +61,15 @@ Es wäre aber gleichbedeutend mit $\neg K_i \neg, \neg E_G \neg, \neg C_G \neg, 
 	\cite[S.336f]{huth2004logic}
 \end{definition}
 
-
-\begin{itemize}
-	\item jetzt mehre R
-	\item eines für jeden Agenten
-	\item außerdem muss R eine Gleichheitsrelation sein
-	\item Besonderheit in der Datstellung von KT45n Kripkestrukturen
-	\begin{itemize}
-		\item kanten müssen mit der entsprechenden raltionen beschriftet werden
-		\item keine pfeile, weil symetrisch
-		\item außerdem werden pfeile auf sich selbst weg gelassen, weil klar ist das alle auf sich selbst zeigen (in jeder der raltionen), weil relfexiv 
-	\end{itemize}
-\end{itemize}
+Vergleicht man diese Definition mit der \Def{model}, aus der \ML so lässt sich folgendes feststellen.
+Es sind nur mehrere Relationen $R_i$, eine für jeden Agenten $i$ definiert.
+Außerdem wird vorausgesetzt, dass $R$ eine Gleichheitsrelation ist, also reflexiv und symmetrisch.\\
+Dieser Umstand wird bei der graphischen Darstellung von $KT45^n$ Modellen ausgenutzt.
+So sind die Kanten mit den Relationen beschriftet für die sie gelten, außerdem gibt es keine Notwendigkeit für Pfeile, weil eine Verbindung durch die Symmetrie-Eigenschaft immer in beide Richtungen besteht.
+Streng genommen müsste auch jede Welt, aufgrund der Transitivität, eine Verbindung auf sich selbst haben, die in jeder Relation definiert ist.
+Weil dieser Umstand stand aber für alle Welten außnahmslos gilt, wird zugunsten der Übersichtlichkeit auf die Verbindungen verzichtet. \todo{Abbildung verlinken}
 
 \todo{Bsp: grphic aus huth S. 336 erstellen}
-
-
-
-
-
 
 
 
@@ -109,14 +92,180 @@ Es wäre aber gleichbedeutend mit $\neg K_i \neg, \neg E_G \neg, \neg C_G \neg, 
 		\cite[S.337]{huth2004logic}
 \end{definition}
 
+Wir wollen wieder diese Definition der \MML mit ihrem Analogon in der \ML (\Def{reasoning}) vergleichen.
+Die typischen Boolean Operatoren sind identisch definiert.
+Alle $K_i$ verhalten sich wie der $\Box$ Operator, nur jeweils bezogen auf ihre Relation $R_i$.
+$E_G$ ist auf Basis von $K$ definiert und $C_G$ wiederum auf Basis von $E_G$.\\
+Es gibt keien Definition für $\Diamond$ weil dies über $\neg K \neg$ ausgedrückt werden kann.
+
+Viele der festgestellen Eingenschaften der \ML gelten auch in der \MML nur jeweils mit Bezug auf die entsprechende Relation $R_i$:
+\begin{enumerate}
+	\item Ein \textbf{Frame} \MMFrameDef besteht aus einer Menge von Welten $W$ und einer Gleichheitsrelation $R_i$ für jedes $i \in \Fancy{A}$.
+	\item Ein Frame \MMFrameDef erfüllt eine Formel $\phi$ gdw. für jede Labeling-Funktion \LabelFuncDef in jeder Welt $w \in W$, $\Fancy{M}, w \vDash \phi$ gilt, mit \MMModelDef. Dann schreiben wir $\Fancy{F} \vDash \phi$.
+\end{enumerate}
+
+Das \Theo{gErreichbarkeit} ist nützlich wenn es um die Beantwortung von Formel geht, die $E$ oder $C$ enthalten.
+Wir wollen nun den Begriff der G-Erreichbarkeit erklären.
+Seit \MMModelDef ein Model für $KT45^n$ und $x,y \in W$.
+Wir nennen $y$ G-erreichbar in $k$ Schritten von $x$ wenn es $w_1, w_2, \dots, w_{k-1} \in W$ und $i_1, i_2, \dots, i_k$ in $G$ gibt, sodass 
+\begin{equation*}
+	x R_i_1 w_1 R_i_2 w_2 \dots R_i_k-1 w_k-1 R_i_k y
+\end{equation*}
+gilt.
+Die Formulierung meint $R_i_1(x,w_1)m, R_i_2(w_1,w_2), \dots, R_i_k(w_k,w_y)$.
+Eine Welt $y$ wird einfach nur G-erreichbar von $x$ genannt, wenn diese durch eine feste Anzahl an Schritten $k$ von $x$ G-erreichbar in $k$ Schritten ist.
+
+\begin{theorem}
+	\label{theo:gErreichbarkeit}
+	\newline
+	\begin{enumerate}
+		\item $x \Vdash E_{G}^{k} \phi$, gdw. für alle $y$, die in $k$ Schritten von $x$ G-erreichbar sind, $y \Vdash \phi$ gilt.
+		\item $x \Vdash C_{G} \phi$, gdw. für alle $y$, die von $x$ G-erreichbar sind, $y \Vdash \phi$ gilt.
+	\end{enumerate}
+\end{theorem}
+
+\note{Beweis führen?}
+
 
 \paragraph{Valide Formeln in $KT45^n$}
+
+Das Schema $K$ gilt für alle Operatoren.
+Alle Ebenen des Wissens sind also abgeschlossen gegenüber der logischen Konsequentz.
+Wenn z.B. eine Zusammenhang $\phi$ Allgemeinwissen ist dann sind auch alle logischen Folgerungen daraus wieder Teil des Allgemeinwissens.\\
+Die Operatoren $E,C,D$ sind boxähnlich weil sie Universallquantoren über die Relationen $R_{E_G}, R_{D_G}, R_{C_G}$ sind.
+
+\begin{equation*}
+	\begin{align}
+		R_{E_G}(x,y) &\text{ gdw. } R_i(x,y) \text{ für einige } i \in G\\
+		R_{D_G}(x,y) &\text{ gdw. } R_i(x,y) \text{ für alle } i \in G\\
+		R_{C_G}(x,y) &\text{ gdw. } R_{E_G}^k(x,y) \text{ für jedes } k \geq 1
+	\end{align}
+\end{equation*}
+
+Daraus folgt, dass $E_G, D_G, C_G$ das Schema $K$ im Bezug auf $R_{E_G}, R_{D_G}, R_{C_G}$ erfüllen.
+Was ist mit den anderen Schemata $T,4,5$?\\
+Da $R_i$ eine Gleichheitsrelation ist folgt nach \Theo{aehnlichkeitstheorie} und \Tab{attributesIncludingR}} das für jedes $K_i$ gilt:
+\begin{itemize}
+	\item $\Four{K_i}{\phi}$ \emph{positive Introspektion}
+	\item $\Five{K_i}{\phi}$ \emph{negative Introspektion}
+	\item $\Truth{K_i}{\phi}$ \emph{Wahrheit}
+\end{itemize}
+
+$R_{D_G}$ erfüllt die die Schemata $T,4,5$, weil sie ebenfalls eine Gleichheitsrelation ist.
+Die Schemata gelten aber nicht automatisch für $E_G$ und $E_C$.
+$\Four{E_G}{\phi}$ gilt z.B. nicht sonst wäre Allgemeinwissen lediglich, das was jeder weiß.
+$\Five{E_G}{\phi}$ gilt ebenfalls nicht.\\
+Die Ursache für diese Sachverhalte ist die Tatsache, dass $R_{E_G}$ ist nicht notwendigerweise eine Gleichheitsrelation ist, obwohl dies für jedes $R_i$ gilt.\\
+$\Truth{E_G}{\phi}$ ist hingegen der Fall, weil $R_{E_G}$ reflexiv ist.
+Für den Fall $G \neq \emptyset$ ist $E_G \phi$ immer leer, auch wenn $\phi = \bot$, sprich $E_G \bot \rightarrow \emptyset$. \todo{kann man das so schreiben?}\\
+$R_{C_{G}}$ ist eine Gleichheitsrelation, daraus folgt, dass $T,4,5$ gelten, wobei 5 $G \neq \emptyset$ fordert.
+
+
 
 
 
 \subsection{\ND in $KT45^n$}
+- D weglassen
+- KT45 wird erweitert um die neuen Operatoren
+
+- getrichelte Boxen haben nun verschiedenen Art ( abhängig vom Operator )
+- wie im oberen abscnitt gesehn könne Axiome T 4 5 für jeded $K_i$ eingesetzte werden
+ - 4,5 können für $C_G$ aber nicht für $E_G$ eigenutzt werden
+- Die Regeln CE und CK sind genau genommen eine Menge von Regeln für jede Wahl eines bestimmten $k$, der Einfachheit halber werden sie aber nur mit CE und CK bezeichnet
+- $EK_i$ wird als eine Art gennerelle \emph{und}-Elimination und $KE$ wie eine gennerelle \emph{und}-Einführung
+- Wie auch bei den Regeln zur KT45 kann man sich die Regeln K4 K5 C4 und C5 als eine Art Stricktheits Entschärfung für das Importieren und exportieren von Formeln in bestimme Boxen vorstellen.
+Weil K4 es erlaubt um jedes K_i ein weiters K_i zu ergänzen erlaubt es effektiv das unveränderte Importieren von K_i \phi Formeln in K_i Boxen.
+Ähnliches gilt für C5 das es uns erlaubt $\neg C_G$ Formeln in $C_G$ Boxen zu importieren.\\
+Das Öffnen einer Box kann man sich intuitiv als das folgern auf Basis des Wissens des entsprechenden Agenten vorstellen.
+Unter dieser Betrachtung ist es ebenfalls intuitiv einleuchtend, dass eine Tatsache $\phi$ nicht einfach in eine Box gebracht werden kann, denn die existent der Tatsache bedeutet nicht gleichzeitig, dass der entsprechende Agent diese auch weis.\\
+Wir erinnern uns, dass ein Agent nicht falsches wissen kann.
+Daher gilt besondere Sorgfalt mit der Regel $\negi$.
+Sie darf nicht angewendet werden, wenn eine der verwendeten Annahmen außerhalb der Box existiert.\\
+$C\phi$ ist besonders mächtig, weil es erlaubt die Formel $\phi$ in jeder Box zu verwenden unanbhängig von dessen Schachtelungstiefe.
+Die Regel $E^k \phi$ hingegen erlaub die Verwendung von $\phi$ nur in Boxen der Schachtelungstiefe $\leq k$.\citeHuth{S.339ff}
+
+
+
+
 
 \subsection{Formalisierung des Wise Men Rätsels in $KT45^n$}
+
+Anwendung auf Rätsel.
+keien temporaler Aspekt -> snapshots
+kurz bsp zusammenfassung
+
+es gibt 2 weiße und 3 rote
+
+$p_i$ ... Mann $i$ hat einen roten hut auf
+$\neg p_i$ ... Mann $i$ hat einen weißen Hut auf
+
+$\Gamme$ Menge an Formeln:
+
+\begin{subequations}
+	\label{eq:}
+	\begin{align}
+		\{&C(p_1 \vee p_2 \vee p_3)\\
+		&C(p_1 \rightarrow K_2 p_1), C(\neg p_1 \rightarrow K_2 \neg p_1),\\
+		&C(p_1 \rightarrow K_3 p_1), C(\neg p_1 \rightarrow K_3 \neg p_1),\\
+		&C(p_2 \rightarrow K_1 p_2), C(\neg p_2 \rightarrow K_1 \neg p_2),\\
+		&C(p_2 \rightarrow K_3 p_2), C(\neg p_2 \rightarrow K_3 \neg p_2),\\
+		&C(p_3 \rightarrow K_1 p_3), C(\neg p_3 \rightarrow K_1 \neg p_3),\\
+		&C(p_3 \rightarrow K_2 p_3), C(\neg p_3 \rightarrow K_2 \neg p_3)\}
+	\end{align}
+\end{subequations}
+
+- beschreibt allgemein wissen
+
+- erste Ansage:
+\begin{equation}
+	$C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1)$
+\end{equation}
+
+
+zweite Ansage
+- erste Ansage:
+\begin{equation}
+	$C(\neg K_2 p_2 \wedge \neg K_2 \neg p_2)$
+\end{equation}
+
+naiver ansatz:
+\begin{equation}
+	\Gamma, C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1), C(\neg K_2 p_2 \wedge \neg K_2 \neg p_2) \Vdash K_3 p_3
+\end{equation}
+
+funktioniert nicht weil Zeitlicher Aspekt nicht berücksichtigt
+$C \neg K_1 p_1$
+muss nicht \true bleiben. bsp 
+ankündigung 01 danach $C p_1$
+
+Wissen sammelt sich an, unwissen nicht. 
+
+zum beweis von wise men aufteilung in 2 phasen ( nach der ankündugung)
+positive forumlierung finden: 
+
+informel RWW konnte ausgeschlossen werden
+gegeben $p_1 \vee p_2 \vee p_3$ wird zu $p_2 \vee p_3$
+
+also versuchen wir zu folgern für schritt 1:
+$\Gamma, C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1), \Vdash C(p_2 \vee p_3)$
+weil positive beleibt es erhalten und kann weiter verwendet werden
+
+schritt 02:
+$\Gamma, C(p_2 \vee p_3), C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1), \Vdash K_3 p_3$
+
+
+schwierige methode, weil \emph{positives} Wissen als ziel defniiert werden muss
+das zusätzlich noch zielführend für den eigentlichen schluss ist.
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -8,9 +8,11 @@
 
 % referenzing
 \newcommand{\Abs}[1]{Abschnitt~\ref{#1} auf Seite \pageref{#1} }
+\newcommand{\Ref}[1]{\ref{#1} auf Seite \pageref{#1} }
 \newcommand{\Abb}[1]{Abbildung~\ref{fig:#1} auf Seite \pageref{fig:#1} }
 \newcommand{\Eq}[1]{Gleichung~\eqref{eq:#1} auf Seite \pageref{eq:#1} }
 \newcommand{\Tab}[1]{Tabelle~\eqref{tab:#1} auf Seite \pageref{tab:#1} }
+\newcommand{\Theo}[1]{Theorem~\eqref{theo:#1} auf Seite \pageref{theo:#1} }
 \newcommand{\Def}[1]{Definition~\eqref{def:#1} auf Seite \pageref{def:#1} }
 \newcommand{\Bsp}[1]{Beispiel~\eqref{bsp:#1} auf Seite \pageref{bsp:#1} }
 \newcommand{\vglHuth}[1]{(vgl. \cite[#1]{huth2004logic}) }
@@ -41,7 +43,18 @@
 \newcommand{\FrameDef}{$\Fancy{F} = (W,R)$ }
 \newcommand{\ModelDef}{$\Fancy{M} = (W,R,L)$ }
 \newcommand{\MMModelDef}{$\Fancy{M} = (W,(R_i)_{i \in \Fancy{A}},L)$ }
+\newcommand{\MMFrameDef}{$\Fancy{F} = (W, (R_i)_{i \in \Fancy{A}})$ }
+\newcommand{\LabelFuncDef}{$L: W \rightarrow \Fancy{P}(Atome)$ }
+\newcommand{\AgentSetDef}{$\Fancy{A} = \{1,2,\dots,n\}$ }
 
+% args: connective condition conclusion
+\newcommand{\K}[3]{#1 #2 \wedge #1(#2 \rightarrow #3)\rightarrow #1 #3 }
+% args: connective formula
+\newcommand{\Truth}[2]{#1 #2 \rightarrow #2 }
+% args: connective formula
+\newcommand{\Four}[2]{#1 #2 \rightarrow #1 #1 #2 }
+% args: connective formula
+\newcommand{\Five}[2]{\neg #1 #2 \rightarrow #1 \neg #1 #2 }
 
 
 % special words
