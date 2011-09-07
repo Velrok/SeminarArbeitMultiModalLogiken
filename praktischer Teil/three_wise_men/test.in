@@ -1,0 +1,80 @@
+% we use prolog notation: lowercase -> term , UPERCASE -> variable
+set(prolog_style_variables).
+
+% custom operators
+op(900, infix, "|-").
+
+formulas(assumptions).
+	% basics
+	% W states that this a world: W(<world>)
+	% labeling function: L(<world>, <term>)
+	% accessabel world relation: R(<world>, <world>)
+	
+	%BEGIN
+		defining the |- oeprator. See Definition 3 for it.
+		X var for a world
+		F var for a Formular
+	END%
+	
+	
+	W(X) & Fact(F) & L(X,F) 					<-> |-(W,F).
+	%W(X) & (-(Fact(F)) | -(L(X,F))) 	<-> -(|-(W,F)). 				% not working ?
+	
+	% AND
+	W(X) & (X |- Y) & (X |- Z) <-> (X |- (Y & Z) ).
+	
+	% OR
+	W(X) & ((X |- Y) | (X |- Z)) <-> (X |- (Y | Z)).
+	
+	% implication
+	W(X) & (((X |- Y) & (X |- Z)) | (-(X |- Y) & -(X |- Z)) )	<-> (X |- (Y -> Z)). 		
+	
+	% equality
+	% W(X) & ((X |- Y) | (X |- Z)) <-> (X |- (Y <-> Z)).
+	
+	% box
+	
+
+	% defining K
+	
+	%BEGIN
+			this is our world (knowlage base)
+	END%
+	
+	% define worlds
+	W(x1).
+	W(x2).
+	W(x3).
+	W(x4).
+	W(x5).
+	W(x6).
+	
+	% define connection of world (see fig 2.4 )
+	R(x1,x2).
+	R(x1,x3).
+	R(x2,x2).
+	R(x2,x3).
+	R(x3,x2).
+	
+	R(x4,x5).
+	R(x5,x4).
+	R(x5,x6).
+	
+	% define labeling
+	L(x1, q).
+	L(x2, p).
+	L(x2, q).
+	L(x3, p).
+	L(x4, q).
+	L(x6, p).
+	
+	% define facts
+	Fact(p).
+	Fact(q).
+	
+end_of_list.
+
+formulas(goals).
+	% only one entry is allowed
+	x1 |- a|b.
+end_of_list.
