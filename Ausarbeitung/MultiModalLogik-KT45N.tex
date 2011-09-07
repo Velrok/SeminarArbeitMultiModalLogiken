@@ -189,85 +189,76 @@ Die Regel $E^k \phi$ hingegen erlaub die Verwendung von $\phi$ nur in Boxen der 
 
 
 \subsection{Formalisierung des Wise Men Rätsels in $KT45^n$}
+Da wir nun eine Definition der Logik $KT45^n$ könnnen wir das Wise Men Rätsel darin formulieren und lösen.\\
+Zur Erinnerung: Der König setzt jeder der drei weisen Männen einen Hut auf, sodass jeder die Hüte der anderen nicht jedoch seinen eigenen sehen kann.
+Es ist allgemein bekannt das es nur 3 rote und 2 weiße Hüte gibt.
+Der König fragt nun jeden der Männer der reihe nach welche Farbe der Hut hat, den der Man trägt.
+Wir gehen davon aus, das sowohl der erste als auch der zwei weise Mann die Aussage machen, dass sie es nicht wissen.
+Es soll nun mithilfe der $KT45^n$ formal gezeigt, dass der dritte Mann dann zwangsläufig weiß, dass er einen roten Hut trägt.
 
-Anwendung auf Rätsel.
-keien temporaler Aspekt -> snapshots
-kurz bsp zusammenfassung
+Im Folgenden wird $p_i$ notieren, dass der Mann $i$ einen roten Hut auf hat und 
+$\neg p_i$, dass der Mann $i$ einen weißen Hut trägt.
 
-es gibt 2 weiße und 3 rote
-
-$p_i$ ... Mann $i$ hat einen roten hut auf
-$\neg p_i$ ... Mann $i$ hat einen weißen Hut auf
-
-$\Gamme$ Menge an Formeln:
-
+Die Menge $\Gamme$ enthält Formeln, die das Allgemeinwissen in $KT45^n$ beschreiben:
 \begin{subequations}
-	\label{eq:}
 	\begin{align}
-		\{&C(p_1 \vee p_2 \vee p_3)\\
+		\{&C(p_1 \vee p_2 \vee p_3) \label{eq:min_ein_roter_hut}\\
+		\label{eq:zweiter_kennt_farbe_von_erster}
 		&C(p_1 \rightarrow K_2 p_1), C(\neg p_1 \rightarrow K_2 \neg p_1),\\
 		&C(p_1 \rightarrow K_3 p_1), C(\neg p_1 \rightarrow K_3 \neg p_1),\\
 		&C(p_2 \rightarrow K_1 p_2), C(\neg p_2 \rightarrow K_1 \neg p_2),\\
 		&C(p_2 \rightarrow K_3 p_2), C(\neg p_2 \rightarrow K_3 \neg p_2),\\
 		&C(p_3 \rightarrow K_1 p_3), C(\neg p_3 \rightarrow K_1 \neg p_3),\\
+		\label{eq:zweiter_kennt_farbe_von_letzter}
 		&C(p_3 \rightarrow K_2 p_3), C(\neg p_3 \rightarrow K_2 \neg p_3)\}
 	\end{align}
 \end{subequations}
 
-- beschreibt allgemein wissen
+\Eq{min_ein_roter_hut} beschreibt den Umstand, dass mindestens einer der Männer einen roten Hut tragen muss und damit auch das es nicht mehr als zwei weiße geben kann.
+Die \Eq{zweiter_kennt_farbe_von_erster} bis \Eq{zweiter_kennt_farbe_von_letzter} beschreiben, dass jeder die Hutfarbe des anderen weiß, jedoch nicht seine eigenen und das dies allgemein bekannt ist.
+Es ist zu beachten, dass jeweils der positiv wie der negativ Fall festgehalten wird.
 
-- erste Ansage:
-\begin{equation}
-	$C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1)$
-\end{equation}
+Die Aussage des ersten Mannes, dass er nicht weis welche Farbe sein Hut hat lässt sich wie folgt formalisieren:
+\begin{equation*}
+	C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1)
+\end{equation*}
 
+entsprechend die Aussage des zweiten Mannes:
+\begin{equation*}
+	C(\neg K_2 p_2 \wedge \neg K_2 \neg p_2)
+\end{equation*}
 
-zweite Ansage
-- erste Ansage:
-\begin{equation}
-	$C(\neg K_2 p_2 \wedge \neg K_2 \neg p_2)$
-\end{equation}
+Ein naiver Ansatz das Rätsel zu lösen könnte so aussehen:
 
-naiver ansatz:
 \begin{equation}
 	\Gamma, C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1), C(\neg K_2 p_2 \wedge \neg K_2 \neg p_2) \Vdash K_3 p_3
 \end{equation}
 
-funktioniert nicht weil Zeitlicher Aspekt nicht berücksichtigt
-$C \neg K_1 p_1$
-muss nicht \true bleiben. bsp 
-ankündigung 01 danach $C p_1$
+Auch wenn $KT45$ ist eine komplexe Logik, reicht jedoch noch nicht aus, um das Beispiel in einem Schritt erklären zu können.
+Es fehlt der temporale (zeitliche) Aspekt.
+$C \neg K_1 p_1$ mag z.B. wahr sein muss es aber nicht bleiben.
+Nach der Aussage des Erste ist z.B. $C p_1$ bekannt und $C \neg K_1 p_1$ damit hinfällig.
 
-Wissen sammelt sich an, unwissen nicht. 
+Wissen hat, in unserem idealisierten System, die Eigenschaft sich anzuhäufen und bestehen zu bleiben. 
+\emph{Unwissenheit hat diese Eigenschaften nicht.}
+Negative Wissensaussagen der form $\neg K \phi$ können also im zeitlichen Verlauf ihre Gültigkeit verlieren.
+Erneut: $KT45^n$ kennt keine zeitlichen Zusammenhänge.
 
-zum beweis von wise men aufteilung in 2 phasen ( nach der ankündugung)
-positive forumlierung finden: 
+Um den Beweis des wise men Rätsels zu führen, der einen zeitlichen aspekt fordert, werden wir uns durch Schrittweise beweisen behelfen indem wir jeweils den Wissensstand vor einer Ankündigung betrachten.
+Die Lösung des wise men Rätsels benötigt folglich zwei Schritte.
 
-informel RWW konnte ausgeschlossen werden
-gegeben $p_1 \vee p_2 \vee p_3$ wird zu $p_2 \vee p_3$
-
-also versuchen wir zu folgern für schritt 1:
+Informel konnte die Kombination RWW nach der ersten Ankündigung ausgeschlossen werden.
+Damit wird also $p_1 \vee p_2 \vee p_3$ zu $p_2 \vee p_3$.\\
+Im ersten Schritt soll genau dies nun aus dem anfänglichen Wissen gefolgert werden:
 $\Gamma, C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1), \Vdash C(p_2 \vee p_3)$
-weil positive beleibt es erhalten und kann weiter verwendet werden
-
-schritt 02:
+weil $p_2 \vee p_3$ eine positive Formulierung ist, bleibt sie auch in späteren Schnitten gültig.\\
+Schritt zwei kann nun das in Schritt~1 gefolgerte Wissen nutzen um die Aussage das der dritte Mann weis, dass er einen roten Hut trägt zu folgern:
 $\Gamma, C(p_2 \vee p_3), C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1), \Vdash K_3 p_3$
 
+Bei dieser Vorgehensweise handelt es sich um eine schwierige Methode, weil für jeden Schritt \emph{positives} Wissen gefunden werden muss, dass zusätzlich auch noch zielführend ist für den eigentlichen zu beweisenden Schluss.
 
-schwierige methode, weil \emph{positives} Wissen als ziel defniiert werden muss
-das zusätzlich noch zielführend für den eigentlichen schluss ist.
-
-
-
-
-
-
-
-
-
-
-
-
+\todo{kompletten Beweis aufführen}
+\todo{kompletten Beweis diskutieren}
 
 
 
