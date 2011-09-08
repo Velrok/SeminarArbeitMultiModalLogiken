@@ -10,18 +10,18 @@ Die Aussagenlogik und Prädikatenlogik kennen nur eine Art von Wahr oder Falsch.
 Die Aussage \emph{"Frau Merkel ist die Bundeskanzlerin der BRD"} ist \textbf{im Moment} wahr es kann sich jedoch bei der nächsten Wahl ändern.
 Die Aussage \emph{"Die Erde hat einen Mond"} ist jetzt wahr und wird mit an Sicherheit grenzender Wahrscheinlichkeit auch in Zukunft wahr sein. 
 Sie ist aber nicht notwendiger Weise Wahr, denn es hätten ja auch 2 oder 3 Monde sein können.
-Ein Beispiel für eine notwendigerweise wahre Aussage ist \emph{''ein Junggeselle ist unverheiratet''}. Wir können uns keinen verheirateten Junggestellen vorstellen.\todo{Zitat einfügen}
+Ein Beispiel für eine notwendigerweise wahre Aussage ist \emph{''ein Junggeselle ist unverheiratet''}. Den ein Junggestellen ist per Definition unverheiratet, es ist genau diese Eigenschaft, die ihn zum Junggestellen macht. \vglHuth{S. 306}.
 
 % paragraph wahrheits_modi (end)
 
 \paragraph{Anwendungsfelder} % (fold)
 \label{par:anwendungsfelder}
 
-In der Informatik ist das Schlussfolgern über verschiedene Arten der Wahrheit nützlich in Bereichen wie \emph{Model Checking} und \emph{AI (Artificial Intelligence)}. \\
+In der Informatik ist Schlussfolgern über verschiedene Arten der Wahrheit nützlich in Bereichen wie \emph{Model Checking} und \emph{AI (Artificial Intelligence)}. \\
 Im Model Checking kommen vor allem Temporal Logiken zum Einsatz, um Wahrheitsaussagen zu unterschiedlichen Zeiten im Programmablauf treffen zu können. \\
-Im Bereich der AI, werden Multi-Modal-Logiken in Multi-Agent-Systemen verwendet. 
-Solche Systeme sind in der Lage Schlussfolgerungen, nicht nur aus dem eigenen Wissen, sondern auch aus dem Wissen über das Wissen anderer und deren Wissen zu ziehen.\\
-Einfache Logiken modellieren nur eine Modularität von Wahrheit, z.B. notwendigerweise wahr, komplizierte Logiken modellieren auch mehrere, z.B. wahr nach allem was Agent $i$ weis, für $ 0 < i < k$. \cite[S.306f]{huth2004logic}\\
+Im Bereich der AI, werden \MMLn in Multi-Agent-Systemen verwendet. 
+In solche Systeme sind die Agenten in der Lage Schlussfolgerungen, nicht nur aus dem eigenen Wissen, sondern auch aus dem Wissen über das Wissen anderer Agenten zu ziehen.\\
+Einfache Logiken modellieren nur eine Modalität von Wahrheit, z.B. notwendigerweise wahr, komplizierte Logiken modellieren auch mehrere, z.B. wahr nach allem was Agent $i$ weiß, für $ 0 < i < k$ \vglHuth{S.306f}.\\
 
 % paragraph anwendungsfelder (end)
 
@@ -30,14 +30,14 @@ Einfache Logiken modellieren nur eine Modularität von Wahrheit, z.B. notwendige
 
 Diese Arbeit ist in zwei Bestandteile aufgeteilt. 
 
-Kapitel \ref{sec:modal_logic} beschäftigt sich mit dem Grundlagen von Modal-Logiken. 
-Es erklärt Syntax, Semantik die Modellierung in Form von Kripke-Struckturen und die possible Word Semantik. \todo{stimmt das so?}
-Es werden wichtige Eigenschaften von Modal-Logiken aufgeführt und erklärt, sowie der Zusammenhang zwischen der Relation $R$ im Kipke-Model und den vorher beschriebenen Eigenschaften verdeutlicht, bekannt als \emph{Ähnlichkeitstheorie}.
+Kapitel \ref{sec:modal_logic} beschäftigt sich mit den Grundlagen von \ML. 
+Es erklärt Syntax, Semantik, die Modellierung in Form von \KSn und die \PW Semantik.\\
+Es werden wichtige Eigenschaften von \ML aufgeführt und erklärt, sowie der Zusammenhang zwischen der Relation $R$ im \KM und den vorher beschriebenen Eigenschaften verdeutlicht, bekannt als \emph{Ähnlichkeitstheorie}.
 Am Ende wird das Thema anhand der Modal-Logik $KT45$ (für Wissen) konkretisiert.
 
-Kapitel \ref{sec:multi_modal_logic} erklärt Multi-Modal-Logiken, als Modal-Logiken die mehr als nur eine Modalität vereinen. Das Kapitel beginnt mit der Darstellung der \emph{the wise men} und \emph{muddy children} Rätsel. 
-Anhand dieser Beispiele wird die Verallgemeinerung der Modal-Logik $KT45$ verdeutlicht und zur Anwendung gebracht um diese Rätsel formal zu lösen.
-Im Zuge dieser Lösung wird genauer auf die Multi-Modal-Logik $KT45^n$ eingegangen und deren Unterschiede und Erweiterungen im Vergleich zur Logik $KT45$ erklärt.
+Kapitel \ref{sec:multi_modal_logic} erklärt \MMLn, als \MLn die mehr als nur eine Modalität vereinen. Das Kapitel beginnt mit der Darstellung des \WMR. 
+Anhand dieses Beispiels wird die Verallgemeinerung der \ML $KT45$ verdeutlicht und zur Anwendung gebracht um das Rätsel formal zu lösen.
+Im Zuge dieser Lösung wird genauer auf die \MML $KT45^n$ eingegangen und deren Unterschiede und Erweiterungen im Vergleich zur Logik $KT45$ erklärt.
 
 
 
