@@ -136,11 +136,17 @@ Huth \cite[S.16ff]{huth2004logic} beschreibt diese Regeln ausführlicher und fü
 Der direkte Beweis von $\Gamma \vDash_\Menge{L} \psi$ auf Basis der Definition wäre sehr umständlich und auswendig.
 Denn es müsste für jede Mögliche Kripkestruktur die alle Formeln in $\Gamma$ erfüllt und für alle die Welten darin, untersucht werden ob $\psi$ gilt.\\
 Statt dessen kann man die Regeln der \ND erweitern, sodass sie auch in der \ML eingesetzt werden können.\\
-Dafür werden gestrichelten Boxen als neues Syntax-Element eingeführt, siehe \Eq{iBox} und \Eq{eBox}.
-Die gestrichelte Box steht für das \emph{folgern in einer beliebigen erreichbaren Welt}.\\
-Eine gestrichelten Box erlaubt es also die Formel $\phi$ in eine gestrichelte Box aufzunehmen wenn es vorher die Formel $\Box \phi$ gab und eine Formel $\Box \psi$ zu verwenden wenn vorher eine gestrichelte Box mit der Formel $\psi$ endete.\\
+Dafür werden blaue Boxen als neues Syntax-Element eingeführt, siehe \Eq{iBox} und \Eq{eBox}.
+Die blaue Box steht für das \emph{folgern in einer beliebigen erreichbaren Welt}.\\
+Eine blaue Box erlaubt es also die Formel $\phi$ in eine blaue Box zu verwenden wenn es vorher die Formel $\Box \phi$ gab \vglHuth{S. 328ff}.
+Denn $\Box \phi$ besagt, das $\phi$ in \underline{allen} erreichbaren Welten gilt.
+Wenn man dann also Folgerungen in einer beliebigen Welt vornimmt kann man $\phi$ aus diesem Grund verwenden.
+Ähnliches gilt für gefolgerte Aussagen.
+Hat man in einer blauen Box (einer beliebigen erreichbaren Welt) einen Folgerung für die Aussage $\phi$ gefunden, so kann man danach $\Box \phi$ außerhalb dieser Box verwenden.
+Dadurch das keinerlei Annahme über eine konkrete Welt gemacht wurden gilt entsprechen, dass dies $\phi$ für alle erreichbaren Welten gelten muss.
+
 Es gibt keine extra Box für $\Diamond$, weil dies zu $\neg \Box \neg$ äquivalent ist
-\cite[329f]{huth2004logic}.
+\vglHuth{S. 329f}.
 
 \begin{equation}
 	\label{eq:iBox}
@@ -160,14 +166,28 @@ Es gibt keine extra Box für $\Diamond$, weil dies zu $\neg \Box \neg$ äquivale
 Die Regeln $\Box i$ und $\Box e$ sind für das Folgern in $K$ ausreichend.
 Stärkere Sprachen wie $KT45$ brauchen hingegen weiter Regeln um ihre semantischen Besonderheiten mit einzubeziehen. 
 
-%\Eq{T}, \Eq{4} und \Eq{5} beschreiben die extra Regeln für die \ML $KT45$.
+\Eq{kt45_deduc_rules} beschreibt die extra Regeln für die \ML $KT45$.
 
-\todo{Regeln aufschreiben}
-Anstatt der Regeln könnte man auch die Restriktionen für das Importieren von Formeln in gestrichelte Boxen lockern.
-Dadurch das $4$ es erlaubt um eine gestrichelte Box eine weiter gestrichelte Box zu zeichnen könnte man sich auch überlegen das es im alg. erlaubt ist Formeln der Form $\Box \phi$ unverändert in gestrichelte Boxen aufzunehmen.
-Das Gleiche gilt analog für $5$ und Formeln der Form $\neg \Box \phi$.
+\begin{equation}
+	\label{eq:kt45_deduc_rules}
+	\begin{array}{ccc}
+		\frac{\Box \phi}
+		{\phi} T&
+		
+		\frac{\Box \phi}
+		{\Box \Box \phi} 4&
+		
+		\frac{\neg \Box \phi}
+		{\Box \neg \Box \phi} 5
+	\end{array}
+	\citeHuth{S. 330}
+\end{equation}
 
-\todo{Definition 5.20 aufschreiben}
+Anstatt der Regeln könnte man auch die Restriktionen für das Importieren von Formeln in blaue Boxen lockern.
+Dadurch das $4$ es erlaubt um eine blaue Box eine weiter blaue Box zu zeichnen.
+Daher könnte man sich auch überlegen das es im alg. erlaubt ist Formeln der Form $\Box \phi$ unverändert in blaue Boxen aufzunehmen.\\
+Das Gleiche gilt analog für $5$ und Formeln der Form $\neg \Box \phi$ \vglHuth{S. 330}.
+
 \begin{definition}
 	Sei $\Menge{L}$ eine Menge von \formelSchemata. 
 	$\Gamma
@@ -177,8 +197,6 @@ Das Gleiche gilt analog für $5$ und Formeln der Form $\neg \Box \phi$.
 	$\Menge{L}$, und den Voraussetzungen von 
 	$\Gamma$ gibt \cite[S.330]{huth2004logic}.
 \end{definition}
-
-\todo{folge Beispiel bringen}
 
 % paragraph extra_regeln_fuer_kt45_ (end)
 

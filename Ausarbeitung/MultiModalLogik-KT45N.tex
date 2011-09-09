@@ -158,7 +158,7 @@ $\Four{E_G}{\phi}$ gilt z.B. nicht sonst wäre Allgemeinwissen lediglich, das wa
 $\Five{E_G}{\phi}$ gilt ebenfalls nicht.\\
 Die Ursache für diese Sachverhalte ist die Tatsache, dass $R_{E_G}$ ist nicht notwendigerweise eine Gleichheitsrelation ist, obwohl dies für jedes $R_i$ gilt.\\
 $\Truth{E_G}{\phi}$ ist hingegen der Fall, weil $R_{E_G}$ reflexiv ist.
-Für den Fall $G \neq \emptyset$ ist $E_G \phi$ immer leer, auch wenn $\phi = \bot$, sprich $E_G \bot \rightarrow \emptyset$. \todo{kann man das so schreiben?}\\
+Für den Fall $G \neq \emptyset$ ist $E_G \phi$ immer leer, auch wenn $\phi = \bot$, sprich $E_G \bot \rightarrow \emptyset$.\\
 $R_{C_{G}}$ ist eine Gleichheitsrelation, daraus folgt, dass $T,4,5$ gelten, wobei 5 $G \neq \emptyset$ fordert.
 
 
@@ -215,7 +215,9 @@ Die Menge $\Gamma$ enthält Formeln, die das Allgemeinwissen in $KT45^n$ beschre
 
 \Eq{min_ein_roter_hut} beschreibt den Umstand, dass mindestens einer der Männer einen roten Hut tragen muss und damit auch das es nicht mehr als zwei weiße geben kann.
 Die \Eq{zweiter_kennt_farbe_von_erster} bis \Eq{zweiter_kennt_farbe_von_letzter} beschreiben, dass jeder die Hutfarbe des anderen weiß, jedoch nicht seine eigenen und das dies allgemein bekannt ist.
-Es ist zu beachten, dass jeweils der positiv wie der negativ Fall festgehalten wird.
+Es ist zu beachten, dass jeweils der positiv wie der negativ Fall festgehalten wird \vglHuth{S. 342f}.
+
+\newline
 
 Die Aussage des ersten Mannes, dass er nicht weis welche Farbe sein Hut hat lässt sich wie folgt formalisieren:
 \begin{equation*}
@@ -226,6 +228,7 @@ entsprechend die Aussage des zweiten Mannes:
 \begin{equation*}
 	C(\neg K_2 p_2 \wedge \neg K_2 \neg p_2)
 \end{equation*}
+\vglHuth{S. 342f}\\\\
 
 Ein naiver Ansatz das Rätsel zu lösen könnte so aussehen:
 
@@ -236,15 +239,15 @@ Ein naiver Ansatz das Rätsel zu lösen könnte so aussehen:
 Auch wenn $KT45$ ist eine komplexe Logik, reicht jedoch noch nicht aus, um das Beispiel in einem Schritt erklären zu können.
 Es fehlt der temporale (zeitliche) Aspekt.
 $C \neg K_1 p_1$ mag z.B. wahr sein muss es aber nicht bleiben.
-Nach der Aussage des Erste ist z.B. $C p_1$ bekannt und $C \neg K_1 p_1$ damit hinfällig.
+Nach der Aussage des Erste ist z.B. $C p_1$ bekannt und $C \neg K_1 p_1$ damit hinfällig \vglHuth{S. 342f}.
 
 Wissen hat, in unserem idealisierten System, die Eigenschaft sich anzuhäufen und bestehen zu bleiben. 
 \emph{Unwissenheit hat diese Eigenschaften nicht.}
-Negative Wissensaussagen der form $\neg K \phi$ können also im zeitlichen Verlauf ihre Gültigkeit verlieren.
-Erneut: $KT45^n$ kennt keine zeitlichen Zusammenhänge.
+Negative Wissensaussagen der form $\neg K \phi$ können also im zeitlichen Verlauf ihre Gültigkeit verlieren \vglHuth{S. 342f}.
+Erneut: $KT45^n$ kennt keine zeitlichen Zusammenhänge.\\\\
 
 Um den Beweis des wise men Rätsels zu führen, der einen zeitlichen aspekt fordert, werden wir uns durch Schrittweise beweisen behelfen indem wir jeweils den Wissensstand vor einer Ankündigung betrachten.
-Die Lösung des wise men Rätsels benötigt folglich zwei Schritte.
+Die Lösung des wise men Rätsels benötigt folglich zwei Schritte \vglHuth{S. 342f}.
 
 Informel konnte die Kombination RWW nach der ersten Ankündigung ausgeschlossen werden.
 Damit wird also $p_1 \vee p_2 \vee p_3$ zu $p_2 \vee p_3$.\\
@@ -252,125 +255,162 @@ Im ersten Schritt soll genau dies nun aus dem anfänglichen Wissen gefolgert wer
 $\Gamma, C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1), \Vdash C(p_2 \vee p_3)$
 weil $p_2 \vee p_3$ eine positive Formulierung ist, bleibt sie auch in späteren Schnitten gültig.\\
 Schritt zwei kann nun das in Schritt~1 gefolgerte Wissen nutzen um die Aussage das der dritte Mann weis, dass er einen roten Hut trägt zu folgern:
-$\Gamma, C(p_2 \vee p_3), C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1), \Vdash K_3 p_3$
+$\Gamma, C(p_2 \vee p_3), C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1), \Vdash K_3 p_3$.\\\\
 
-Bei dieser Vorgehensweise handelt es sich um eine schwierige Methode, weil für jeden Schritt \emph{positives} Wissen gefunden werden muss, dass zusätzlich auch noch zielführend ist für den eigentlichen zu beweisenden Schluss.
+Bei dieser Vorgehensweise handelt es sich um eine schwierige Methode, weil für jeden Schritt \emph{positives} Wissen gefunden werden muss, dass zusätzlich auch noch zielführend ist für den eigentlichen zu beweisenden Schluss.\\\\
 
-\todo{kompletten Beweis aufführen}
-\todo{kompletten Beweis diskutieren}
 
-\begin{equation*}	
-\oneCol{
-	\threeCol{
-		&C(p_1 \vee p_2 \vee p_3)& \text{:Vorgabe}\\
-		&C(p_1 \rightarrow K_j p_i)& \text{:Vorgabe, } (i \neq j)\\
-		&C(\neg p_1 \rightarrow K_j \neg p_i)& \text{:Vorgabe, } (i \neq j)\\
-		&C \neg K_1 p_1& \text{:Vorgabe}\\
-		&C \neg K_1 \neg p_1& \text{:Vorgabe}
-	}\\
+\Abb{wise_men_01} zeigt den formalen Beweis des ersten Schnittes, \Abb{wise_men_02} den zweiten Schritt.
+
+
+\paragraph{Beweisdiskussion \WMR Schritt 01}
+\underline{Alle Linenverweise beziehen sich auf \Abb{wise_men_01}}.\\
+Die \LNs{1-5} beschreiben die Vorgaben, das Grundwissen, das bereits auf dem Umgangssprachlichen Text extrahier wurde.\\
+Zur Erinnerung: Ziel ist es die Aussage $C(p_2 \vee p_3)$ (Ausschluss der Kombination RWW) nachzuweisen.\\
+Der Beweis beginnt mit der Eröffnung einer $C$ Box in \LN{6}, weil am Schluss die Aussage $p_2 \vee p_3$ ebenfalls Allgemein Wissen sein muss.\\
+In \LN{7} wird begonnen die Aussage durch einen Widerspruchsbeweis zu belegen.\\
+\LNs{8, 9} sind ein Beispiel dafür das die $C_e$ Regel immer angewendet werden kann, egal wie tief die Boxen geschachtelt sind.
+Allgemeinwissen ist so gesehen jederzeit verfügbar.\\
+Die \LNs{10-12} wurden ein wenig abgekürzt.
+Strickt gesehen wir in \LN{10} mithilfe der $\wedge e$ regeln erst jeder der beiden Teile einzeln extrahiert und mit begin der $K_1$ Box in \LN{11} das $K_1$ eliminiert.
+Da nun beide Aussagen $\neg p_i, i=\{2,3\}$ gelten können diese mit $\wedge i$ zusammengeführt werden.\\
+In Zeile \LN{15} wir der Aussage ein $K_1$ vorangestellt, weil das Folgern aus sich das Wissen aus $K_1$ abgeschlossen ist.\\
+Danach wird durch das Voranstellen des $K_1$ festgehalten das die Folgerungen nur \emph{nach allem was $K_1$ weis} wahr sind.\\
+Die \LNs{15-17} zeigen den daraus folgenden Widerspruch an was die Annahme aus \LN{7} widerlegt woraus nach anwenden der De-Morgen-Regel in \LN{18} die gewünschte Aussage bewiesen ist, die, weil alles im Bereich des Allgemeinwissens geführt wurde, ebenfalls zum Allgemeinwissen zählen \underline{muss}.
+
+
+\begin{figure}[h!t]
+	\centering
+	\begin{equation*}	
+	\oneCol{
+		\threeCol{
+			1. &C(p_1 \vee p_2 \vee p_3)& \text{:Vorgabe}\\
+			2. &C(p_1 \rightarrow K_j p_i)& \text{:Vorgabe, } (i \neq j)\\
+			3. &C(\neg p_1 \rightarrow K_j \neg p_i)& \text{:Vorgabe, } (i \neq j)\\
+			4. &C \neg K_1 p_1& \text{:Vorgabe}\\
+			5. &C \neg K_1 \neg p_1& \text{:Vorgabe}
+		}\\
 	
-	\blueBox{
-		\oneCol{
-			\threeCol{
-				C & &
-			}\\
+		\blueBox{
+			\oneCol{
+				\threeCol{
+					6. C & &
+				}\\
 			
-			\blackBox{
-				\oneCol{
-					\threeCol{
-						& \neg p_2 \wedge \neg p_3 & \text{:Annahme} \\
-						& \neg p_2 \rightarrow K_1 \neg p_2 & C_e :3 (i,j) = (2,1)\\
-						& \neg p_3 \rightarrow K_1 \neg p_3 & C_e :3 (i,j) = (3,1)\\
-						& K_1 \neg p_2 \wedge K_1 \neg p_3 & \text{: folgt aus \AL}\\
-					}\\
-				
-					\blueBox{
+				\blackBox{
+					\oneCol{
 						\threeCol{
-							K_1 & & \\
-							& \neg p_2 \wedge \neg p_3 & \wedge e_1, K_{1e}, \wedge i\\
-							& p_1 \vee p_2 \vee p_3 & C_e 1\\
-							& p_1	& \text{: folgt aus \AL}
-						}
-					}\\
-					
-					\threeCol{
-						& K_1 p_1 & K_1 i\\
-						& \neg K_1 p_1 & C_e 4\\
-						& \bot & \neg e
-					}
-				}
-			}\\
-			
-			\threeCol{
-				& \neg (\neg p_2 \wedge \neg p_3) & \neg i\\
-				& p_2 \vee p_3 & \text{folgt aus \AL}
-			}
-		}
-	}\\
-	
-	\threeCol{
-		& C(p_2 \vee p_3) & C_i
-	}
-}
-\end{equation*}
-
-
-
-
-\begin{equation*}	
-\oneCol{
-	\threeCol{
-		& C(p_1 \vee p_2 \vee p_3)& \text{:Vorgabe}\\
-		& C(p_i \rightarrow K_j p_i)& \text{:Vorgabe, } (i \neq j)\\
-		& C(\neg p_1 \rightarrow K_j \neg p_i)& \text{:Vorgabe, } (i \neq j)\\
-		& C \neg K_2 p_2& \text{:Vorgabe}\\
-		& C \neg K_2 \neg p_2& \text{:Vorgabe}\\
-		& C(p_2 \vee p_3) & \text{:Vorgabe}
-	}\\
-	
-	\blueBox{
-		\oneCol{
-			\threeCol{
-				K_3 & &
-			}\\
-			
-			\blackBox{
-				\oneCol{
-					\threeCol{
-						& \neg p_3 & \text{:Annahme} \\
-						& \neg p_3 \rightarrow K_2 \neg p_3 & CK :3 (i,j) = (3,2)\\
-						& K_2 \neg p_3 & \rightarrow e
-					}\\
+							7. & \neg p_2 \wedge \neg p_3 & \text{:Annahme} \\
+							8. & \neg p_2 \rightarrow K_1 \neg p_2 & C_e :3 (i,j) = (2,1)\\
+							9. & \neg p_3 \rightarrow K_1 \neg p_3 & C_e :3 (i,j) = (3,1)\\
+							10. & K_1 \neg p_2 \wedge K_1 \neg p_3 & \text{: folgt aus \AL}\\
+						}\\
 				
-					\blueBox{
-						\threeCol{
-							K_2 & & \\
-							& \neg p_3 & K_{2e}\\
-							& p_2 \vee p_3 & C_e\\
-							& p_2	& \text{: folgt aus \AL}
-						}
-					}\\
+						\blueBox{
+							\threeCol{
+								11. K_1 & & \\
+								12. & \neg p_2 \wedge \neg p_3 & \wedge e_1, K_{1e}, \wedge i\\
+								13. & p_1 \vee p_2 \vee p_3 & C_e 1\\
+								14. & p_1	& \text{: folgt aus \AL}
+							}
+						}\\
 					
-					\threeCol{
-						& K_2 p_2 & K_2 i\\
-						& K_i \neg K_2 p_2 & CK, \forall i \\
-						& \neg K_2 p_2 & KT\\
-						& \bot & \neg e
+						\threeCol{
+							15. & K_1 p_1 & K_1 i\\
+							16. & \neg K_1 p_1 & C_e 4\\
+							17. & \bot & \neg e
+						}
 					}
-				}
-			}\\
+				}\\
 			
-			\threeCol{
-				& p_3 & \text{PBC}
+				\threeCol{
+					18. & \neg (\neg p_2 \wedge \neg p_3) & \neg i\\
+					19. & p_2 \vee p_3 & \text{folgt aus \AL}
+				}
 			}
-		}
-	}\\
+		}\\
 	
-	\threeCol{
-		& K_3 p_3 & K_3 i
+		\threeCol{
+			20. & C(p_2 \vee p_3) & C_i
+		}
 	}
-}
-\end{equation*}
+	\end{equation*}
+	\caption{Schritt 01 des three wise men Rätsels \\ Quelle: \citeHuth{S. 345}}
+	\label{fig:wise_men_01}
+\end{figure}
+
+
+
+\paragraph{Beweisdiskussion \WMR Schritt 02}
+\underline{Alle Linenverweise beziehen sich auf \Abb{wise_men_02}}.\\
+Dem Vorwissen wurden die Folgerung aus dem ersten Schritt hinzugefügt (\LN{6}).\\
+Ziel ist es die Aussage $K_3 p_3$ nachzuweisen.
+Deswegen wird in \LN{7} eine $K_3$ Box eröffnet.
+Damit finden alle Folgerungen aus der Wissenssicht von $K_3$ statt.\\
+Bis \LN{16} folgt der Beweis einfachen Regeln.\\
+In \LN{16} formuliert beschreibt, dass, da $\neg K_2 p_2$ zum Allgemeinwissen gehört \LN{5}, jeder der Weisen $K_i$ mit $i = \{1,2,3\}$ diesen Umstand weiß.\\
+
+
+
+\begin{figure}[h!t]
+	\centering
+	\begin{equation*}	
+	\oneCol{
+		\threeCol{
+			1. & C(p_1 \vee p_2 \vee p_3)& \text{:Vorgabe}\\
+			2. & C(p_i \rightarrow K_j p_i)& \text{:Vorgabe, } (i \neq j)\\
+			3. & C(\neg p_1 \rightarrow K_j \neg p_i)& \text{:Vorgabe, } (i \neq j)\\
+			4. & C \neg K_2 p_2& \text{:Vorgabe}\\
+			5. & C \neg K_2 \neg p_2& \text{:Vorgabe}\\
+			6. & C(p_2 \vee p_3) & \text{:Vorgabe}
+		}\\
+	
+		\blueBox{
+			\oneCol{
+				\threeCol{
+					7. K_3 & &
+				}\\
+			
+				\blackBox{
+					\oneCol{
+						\threeCol{
+							8. & \neg p_3 & \text{:Annahme} \\
+							9. & \neg p_3 \rightarrow K_2 \neg p_3 & CK :3 (i,j) = (3,2)\\
+							10. & K_2 \neg p_3 & \rightarrow e
+						}\\
+				
+						\blueBox{
+							\threeCol{
+								11. K_2 & & \\
+								12. & \neg p_3 & K_{2e}\\
+								13. & p_2 \vee p_3 & C_e\\
+								14. & p_2	& \text{: folgt aus \AL}
+							}
+						}\\
+					
+						\threeCol{
+							15. & K_2 p_2 & K_2 i\\
+							16. & K_i \neg K_2 p_2 & CK, \forall i \\
+							17. & \neg K_2 p_2 & KT\\
+							18. & \bot & \neg e
+						}
+					}
+				}\\
+			
+				\threeCol{
+					19. & p_3 & \text{Bew. durch Widerspruch}
+				}
+			}
+		}\\
+	
+		\threeCol{
+			20. & K_3 p_3 & K_3 i
+		}
+	}
+	\end{equation*}
+	\caption{Schritt 02 des three wise men Rätsels \\ Quelle: \citeHuth{S. 346}}
+	\label{fig:wise_men_02}
+\end{figure}
 
 
 % subsection the_model_logic_kt45_n_ (end)

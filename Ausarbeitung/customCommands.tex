@@ -16,8 +16,14 @@
 \newcommand{\Def}[1]{Definition~\eqref{def:#1} }
 \newcommand{\Bsp}[1]{Beispiel~\eqref{bsp:#1} }
 
+\newcommand{\LN}[1]{Zeile #1 }
+\newcommand{\LNs}[1]{Zeilen #1 }
+
 \newcommand{\vglHuth}[1]{(vgl. \cite[#1]{huth2004logic}) }
 \newcommand{\citeHuth}[1]{\cite[#1]{huth2004logic} }
+
+\newcommand{\vglPriest}[1]{(vgl.~\cite[#1]{Priest:2008}) }
+\newcommand{\citePriest}[1]{Priest~\cite[#1]{Priest:2008} }
 
 % special math writings
 \newcommand{\Menge}[1]{\mathds{#1}}
@@ -102,13 +108,14 @@
 \newcommand{\deMorganBedingung}{de Morgan Bedingung }
 \newcommand{\deMorganRegeln}{de Morgan Regeln }
 
-\newcommand{\KFormel}{$\Box(\phi \rightarrow \psi) \wedge \Box \phi \rightarrow \Box \psi$}
-\newcommand{\modelFormel}{$\mathds{M} = (W,R,L)$}
+\newcommand{\KFormel}{$\Box(\phi \rightarrow \psi) \wedge \Box \phi \rightarrow \Box \psi$ }
+\newcommand{\modelFormel}{$\mathds{M} = (W,R,L)$ }
 
 \newcommand{\vierFormel}{$\Box \phi \rightarrow \Box \Box\phi$ }
 \newcommand{\fuenfFormel}{$\Diamond \phi \rightarrow \Box \Diamond \phi$ }
 \newcommand{\TFormel}{$\Box \phi \rightarrow \phi$ }
 
+\newcommand{\EQRef}{Äquivalentz-Relation }
 
 \newcommand{\formelSchema}{Formel-Schema }
 \newcommand{\formelSchemata}{Formel-Schemata }
@@ -139,15 +146,15 @@
 \newcommand{\AL}{Aussagenlogik }
 
 % table markter shortcurts
-\newcommand{\ja}{\checkmark}
-\newcommand{\nein}{$\times$}
+\newcommand{\ja}{\checkmark }
+\newcommand{\nein}{$\times$ }
 
 
 % für notizen
 \usepackage{color}
-\newcommand{\todo}[1]{\marginline{\textcolor{red}{\underline{todo}\\#1}}}
+\newcommand{\todo}[1]{\marginline{\textcolor{red}{\underline{todo }\\#1 }} }
 
-\newcommand{\note}[1]{\marginline{\textcolor{blue}{\underline{notiz}\\#1}}}
+\newcommand{\note}[1]{\marginline{\textcolor{blue}{\underline{notiz }\\#1 }} }
 
 %fast navigation
 \newcommand{\curr}{\label{current}}

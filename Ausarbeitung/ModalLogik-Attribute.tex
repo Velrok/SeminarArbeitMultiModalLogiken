@@ -4,23 +4,25 @@
 \section{Attribute einer Modal-Logik} % (fold)
 \label{sub:attribute_einer_modal_logik}
 Die Attribute einer \ML werden dadurch bestimmt welche Formeln als valide vorausgesetzt werden.
-Alle \NML setzen die Validität der Formel $K$, die Formel für die Logische Konsequentz \todo{Quelle referenzieren}, voraus.
-\NNML sind nicht Teil dieser Arbeit. Der interessierte Leser sein an Priest \cite[S.75ff]{Priest:2008} verwiesen.
+Alle \NML setzen die Validität der Formel $K$, die Formel für die Logische Konsequentz \vglPriest{S. 75ff}, voraus.
+\NNML sind nicht Teil dieser Arbeit. 
+Der interessierte Leser sein an Priest \citePriest{S. 75ff} verwiesen.
+
 Will man eine eigene \ML kreieren ist es wichtig sich genaue Gedanken darüber zu machen, welcher Formeln die als valide voraussetzt, weil das die Eigenschaften der zu modellierenden Wahrheit bestimmt.
+
 Im Folgenden wird erst das für \NML zwingend erforderliche Basisattribut $K$ vorgestellt und danach auf die anderen optionalen Eigenschaften eingegangen.
-Zum Schluss werden ein paar \NML und deren Eigenschaften beschrieben und erklärt warum die gewählten Eigenschaften für die Modalität wünschenswert / wichtig / notwendig sind.\\
-%
+Zum Schluss werden ein paar \NML und deren Eigenschaften beschrieben und erklärt warum die gewählten Eigenschaften für die Modalität wünschenswert / wichtig / notwendig sind.
+
 \paragraph{Das Basis Atribute $K$} % (fold)
 \label{par:das_basis_atribute_k_} Die Formel $K$ \KFormel besagt, dass es nur normale Welten gibt. Das heißt die Wahrheitsmodulation $\Box$ verhält sich immer gleich im Gegensatz zu \NNML wo es \fachwort{nicht normale} Welten geben kann.
-In nicht normalen Welten ist vereinfacht formuliert alles möglich und nichts notwendig.\cite[S.75]{Priest:2008}
+In nicht normalen Welten ist vereinfacht formuliert alles möglich und nichts notwendig (vgl. \cite[S.75]{Priest:2008}).
 
 
 \paragraph{Weitere Attribute} % (fold)
 \label{par:weitere_attribute} 
 
-Neben der Formel für $K$ gibt es weitere typische Formeln die, sofern sie als valide vorausgesetzt werden einer \NML gewissen Eigenschaften verleihen.\\
+Neben der Formel für $K$ gibt es weitere typische Formeln die, sofern sie als valide vorausgesetzt werden, einer \ML gewissen Eigenschaften verleihen.\\
 \\
-%
 \begin{table}
 	\label{tab:attributes}
 	\centering
@@ -36,16 +38,17 @@ Neben der Formel für $K$ gibt es weitere typische Formeln die, sofern sie als v
 	5 & $\Diamond \phi \rightarrow \Box \Diamond \phi$\\
 	\hline
 	\end{tabular}\\
-	\caption{Attribut Bezeichnungen und entsprechende \formelSchemata}
+	\caption{Attribut Bezeichnungen und entsprechende \formelSchemata. \\
+	nach \citeHuth{S. 325}}
 \end{table}
 \\
-Will man z.B.: eine Logik für die Notwendigkeit erstellen, so will man das die Formel $T$ $\Box \phi \rightarrow \phi$ für alle Welten zutrifft.
+Beim Design der Logik für Notwendigkeit definiert man z.B. die Formel $T$ $\Box \phi \rightarrow \phi$ für alle Welten als zutreffend.
 Den etwas das notwendigerweise \true ist sollte auch einfach \true sein.
-Das selbe gilt für Wissen: Wenn man etwas weis, dann ist das auch wahr oder anders man hat kein falsches Wissen.
-Das mag nicht der Realität entsprechen, ist aber eine Idealisierung die man für Multi-Agent-System i.d.R. haben möchte.
+Das selbe gilt für Wissen: Wenn man etwas weis, dann ist das auch wahr oder anders formuliert: man hat kein falsches Wissen.
+Das mag nicht der Realität entsprechen, ist aber eine Idealisierung die für \MAS i.d.R. wünschenswert ist.
 Will man hingegen die Wahrheitsmodalität Glauben modellieren, so wäre es unklug $T$ aufzunehmen.
-Der Glaube zeichnet sich nämlich dadurch aus, das man auch Dinge glauben kann die \false sind.\\
-\todo{Professioneller formulieren}
+Der Glaube zeichnet sich nämlich dadurch aus, dass man auch Dinge glauben kann die \false sind \vglHuth{S. 318ff}.
+
 \Tab{wahrheitsModsUndAttr} zeigt welche Eigenschaften typischerweise für welche Art der Wahrheitsmodulation wünschenswert sind.\\
 %
 \begin{table}
@@ -98,16 +101,16 @@ $5$ \fuenfFormel ist die \emph{negative Introspektion}. Wenn er etwas nicht weis
 Dabei handelt es sich um eine Idealisierte Modulation von Wissen.
 Menschen erfüllen diese Eigenschaften nicht.\\
 Die Formel $K$ \KFormel wird im Kontext des Wissen auch als \emph{logische Allwissenheit} bezeichnet.
-Die besagt, dass das Wissen des Agenten abgeschlossen gegenüber der logischen Konsequenz ist.
-Es besagt, das der Agent alle Konsequenzen seines Wissen weis. Dieser Umstand ist natürlich nicht wahr für menschliches Wissen (vgl. \cite[S.319f]{huth2004logic}).
+Sie besagt, dass das Wissen des Agenten abgeschlossen gegenüber der logischen Konsequenz ist.
+Darauf folgt, dass der Agent alle Konsequenzen seines Wissen weiß. 
+Dieser Umstand ist natürlich nicht wahr für menschliches Wissen \vglHuth{S. 319f}.
 
 
 \paragraph{Festlegung von Attributen mithilfe von $R$}
 \label{festlegung_von_attibuten_mit_R}
-\todo{sicher stellen, das sich dieser Absatz ordentlich in den Textfluss integriert}
 
-Wir haben gesehen, dass wenn man eine Modalität der Logik modelliert, man sich überlegt welche \formelSchemata als valide vorausgesetzt werden sollen.\\
-Im Gegenzug kann man sich auch überlegen wie die \KS aufgebaut sein soll.
+Wir haben gesehen, dass wenn man eine Modalität der Logik modelliert, indem man entscheidet welche \formelSchemata als valide vorausgesetzt werden.
+Im Gegenzug kann man sich auch überlegen wie die \KS aufgebaut sein muss.
 
 Nach den Regeln in \Def{reasoning} besagt die Formel
 \begin{equation*}
@@ -127,13 +130,12 @@ Zur Erinnerung: eine binäre Relation kann die folgenden Eigenschaften besitzen:
 	\item \emph{symmetrisch}: wenn für $\forall x,y \in W, R(x,y)$, $R(y,x)$ folgt
 	\item \emph{seriell}: wenn für jedes $x$ es auch ein $y$ gibt, sodass $R(x,y)$
 	\item \emph{transitiv}: wenn für $\forall x,y,z \in W | R(x,y) R(y,z)$, $R(x,z)$ folgt
-	\item \emph{euklidisch}: 
-	\item \emph{funktional}
-	\item \emph{vorwärts funktional} \todo{ist das die korrekte Übesetzung?}
-	\item \emph{total}
-	\item eine \emph{Äquivalentz-Relation} ist reflexiv, symmetrisch und transitiv
+	\item \emph{euklidisch}: wenn für $\forall x,y,z \in W | R(x,y) R(x,z)$, $R(y,z)$ folgt
+	\item \emph{funktional}: wenn es $\forall x \in W | R(x,y)$ das $y$ eindeutig ist
+	\item \emph{vorwärts linear}: wenn $\forall x,y,z \in W | R(x,y)$ und $R(x,z)$, $R(y,z)$ oder $y=z$ oder $R(z,y)$
+	\item \emph{total}: $\forall x,y \in W$ gilt $R(x,y)$ oder $R(y,x)$
+	\item eine \emph{\EQRef} ist reflexiv, symmetrisch und transitiv
 \end{itemize}
-\todo{fertig machen}
 
 Betrachten wir nun welche Eigenschaften $R$ haben sollte um \emph{Wissen} nach unseren Wünschen zu modellieren.
 
@@ -145,7 +147,7 @@ Oder: Ein Agent $Q$ kann nichts falsches Wissen.
 Mit anderen Worten $x$ darf nichts enthalten was $z$ unmöglich macht, denn wäre dies der Fall gewesen, dann hätte $Q$ dies in $x$ gewusst und folglich auch in $y$.
 Das Hauptargument ist also die \emph{positive Introspektion} \vierFormel \vglHuth{S. 321f}.
 
-Im folgenden Abschnitt wird näher auf die Zusammenhänge zwischen Eigenschaften der $R$ Relation und der Menge an vorausgesetzter \formelSchemata eingegangen. \todo{Absatz in Attribute Absatz verschieben}
+Im folgenden Abschnitt wird näher auf die Zusammenhänge zwischen Eigenschaften der $R$ Relation und der Menge an vorausgesetzter \formelSchemata eingegangen.
 
 
 
