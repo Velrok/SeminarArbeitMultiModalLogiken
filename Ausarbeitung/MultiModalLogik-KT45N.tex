@@ -9,7 +9,7 @@ Der Operator eines Agenten $i$ wird notiert als $K_i$ mit $K$ für \emph{Knowlag
 Wir verwenden weiterhin $p,q,r$ für atomare Terme.
 Die $K_ip$ bedeutet das Agent $i$ die Tatsache $p$ weiß.
 Hier nun eine komplexeres Beispiel einer Formel in $KT45^n$ : $K_1p \wedge K_1 \neg K_2 K_1 p$.
-Sie besagt: Agent 1 weiß $p$, außerdem weiß Agent 1, das Agent 2 nicht weiß, dass er $p$ weiß.
+Sie besagt: Agent 1 weiß $p$, außerdem weiß Agent 1, dass Agent 2 nicht weiß, dass er $p$ weiß.
 Mit $G$ beschreiben wir eine Gruppe von Agenten $G= \{1,2,3,\dots,n\}$.
 Will man nun Aussagen das eine Gruppe $G$ von Agenten einen Umstand $p$ weiß : $K_1 p \wedge K_2 p \wedge \dots K_n p$ benutzt man dafür die Formulierung $E_G p$.
 Es gelden die selben Bindungsstärke der Operatoren wie in der Auflistung \Ref{bindungsstaerke}.
@@ -55,7 +55,7 @@ Es ist aber entsprechend gleichbedeutend mit $\neg K_i \neg, \neg E_G \neg, \neg
 	Ein Model \MMModelDef der \MML $KT45^n$ mit der Menge $\Fancy{A}$ von $n$ Agenten wird beschrieben durch drei Dinge:
 	\begin{enumerate}
 		\item einer Menge $W$ von möglichen Welten
-		\item für jedes $i \in \Fancy{A}$, der Gleichheitsrelation $R_i$ auf $W$ $R_i \subseteq W \times W)$ auch Erreichbarkeitsrealtion gennant und
+		\item für jedes $i \in \Fancy{A}$, der Äquvivalenzsrelation $R_i$ auf $W$ $R_i \subseteq W \times W)$ auch Erreichbarkeitsrealtion gennant und
 		\item der Labeling-Funktion $L: W \rightarrow \Fancy{P}(Atome)$
 	\end{enumerate}
 	\cite[S.336f]{huth2004logic}
@@ -63,7 +63,7 @@ Es ist aber entsprechend gleichbedeutend mit $\neg K_i \neg, \neg E_G \neg, \neg
 
 Vergleicht man diese Definition mit der \Def{model}, aus der \ML so lässt sich folgendes feststellen.
 Es sind nur mehrere Relationen $R_i$, eine für jeden Agenten $i$ definiert.
-Außerdem wird vorausgesetzt, dass $R$ eine Gleichheitsrelation ist, also reflexiv und symmetrisch.\\
+Außerdem wird vorausgesetzt, dass $R$ eine Äquvivalenzsrelation ist, also reflexiv und symmetrisch.\\
 Dieser Umstand wird bei der graphischen Darstellung von $KT45^n$ Modellen ausgenutzt.
 So sind die Kanten mit den Relationen beschriftet für die sie gelten, außerdem gibt es keine Notwendigkeit für Pfeile, weil eine Verbindung durch die Symmetrie-Eigenschaft immer in beide Richtungen besteht.
 Streng genommen müsste auch jede Welt, aufgrund der Transitivität, eine Verbindung auf sich selbst haben, die in jeder Relation definiert ist.
@@ -100,7 +100,7 @@ Es gibt keien Definition für $\Diamond$ weil dies über $\neg K \neg$ ausgedrü
 
 Viele der festgestellen Eingenschaften der \ML gelten auch in der \MML nur jeweils mit Bezug auf die entsprechende Relation $R_i$:
 \begin{enumerate}
-	\item Ein \textbf{Frame} \MMFrameDef besteht aus einer Menge von Welten $W$ und einer Gleichheitsrelation $R_i$ für jedes $i \in \Fancy{A}$.
+	\item Ein \textbf{Frame} \MMFrameDef besteht aus einer Menge von Welten $W$ und einer Äquvivalenzsrelation $R_i$ für jedes $i \in \Fancy{A}$.
 	\item Ein Frame \MMFrameDef erfüllt eine Formel $\phi$ gdw. für jede Labeling-Funktion \LabelFuncDef in jeder Welt $w \in W$, $\Fancy{M}, w \vDash \phi$ gilt, mit \MMModelDef. Dann schreiben wir $\Fancy{F} \vDash \phi$.
 \end{enumerate}
 
@@ -145,21 +145,21 @@ Die Operatoren $E,C,D$ sind boxähnlich weil sie Universallquantoren über die R
 
 Daraus folgt, dass $E_G, D_G, C_G$ das Schema $K$ im Bezug auf $R_{E_G}, R_{D_G}, R_{C_G}$ erfüllen.
 Was ist mit den anderen Schemata $T,4,5$?\\
-Da $R_i$ eine Gleichheitsrelation ist folgt nach \Theo{aehnlichkeitstheorie} und  \Tab{attributesIncludingR} das für jedes $K_i$ gilt:
+Da $R_i$ eine Äquvivalenzsrelation ist folgt nach \Theo{aehnlichkeitstheorie} und  \Tab{attributesIncludingR} das für jedes $K_i$ gilt:
 \begin{itemize}
 	\item $\Four{K_i}{\phi}$ \emph{positive Introspektion}
 	\item $\Five{K_i}{\phi}$ \emph{negative Introspektion}
 	\item $\Truth{K_i}{\phi}$ \emph{Wahrheit}
 \end{itemize}
 
-$R_{D_G}$ erfüllt die die Schemata $T,4,5$, weil sie ebenfalls eine Gleichheitsrelation ist.
+$R_{D_G}$ erfüllt die die Schemata $T,4,5$, weil sie ebenfalls eine Äquvivalenzsrelation ist.
 Die Schemata gelten aber nicht automatisch für $E_G$ und $E_C$.
 $\Four{E_G}{\phi}$ gilt z.B. nicht sonst wäre Allgemeinwissen lediglich, das was jeder weiß.
 $\Five{E_G}{\phi}$ gilt ebenfalls nicht.\\
-Die Ursache für diese Sachverhalte ist die Tatsache, dass $R_{E_G}$ ist nicht notwendigerweise eine Gleichheitsrelation ist, obwohl dies für jedes $R_i$ gilt.\\
+Die Ursache für diese Sachverhalte ist die Tatsache, dass $R_{E_G}$ ist nicht notwendigerweise eine Äquvivalenzsrelation ist, obwohl dies für jedes $R_i$ gilt.\\
 $\Truth{E_G}{\phi}$ ist hingegen der Fall, weil $R_{E_G}$ reflexiv ist.
 Für den Fall $G \neq \emptyset$ ist $E_G \phi$ immer leer, auch wenn $\phi = \bot$, sprich $E_G \bot \rightarrow \emptyset$.\\
-$R_{C_{G}}$ ist eine Gleichheitsrelation, daraus folgt, dass $T,4,5$ gelten, wobei 5 $G \neq \emptyset$ fordert.
+$R_{C_{G}}$ ist eine Äquvivalenzsrelation, daraus folgt, dass $T,4,5$ gelten, wobei 5 $G \neq \emptyset$ fordert.
 
 
 
@@ -175,7 +175,7 @@ $EK_i$ verhält sich wie eine generelle \emph{und}-Elimination und $KE$ wie eine
 Wie auch bei den Regeln zur KT45 kann man sich die Regeln K4, K5, C4 und C5 als eine Art Striktheitsentschärfung für das Importieren und Exportieren von Formeln in bestimme Boxen vorstellen.\\
 Weil K4 es erlaubt um jedes $K_i$ ein weiters $K_i$ zu ergänzen erlaubt es effektiv das unveränderte Importieren von $K_i \phi$ Formeln in $K_i$ Boxen.
 Ähnliches gilt für C5 das es uns erlaubt $\neg C_G$ Formeln in $C_G$ Boxen zu importieren.\\
-Das Öffnen einer Box kann man sich intuitiv als das folgern auf Basis des Wissens des entsprechenden Agenten vorstellen.
+Das Öffnen einer Box kann man sich intuitiv als das Folgern auf Basis des Wissens des entsprechenden Agenten vorstellen.
 Unter dieser Betrachtung ist es ebenfalls intuitiv einleuchtend, dass eine Tatsache $\phi$ nicht einfach in eine Box gebracht werden kann, denn die existent der Tatsache bedeutet nicht gleichzeitig, dass der entsprechende Agent diese auch weiß.\\
 Wir erinnern uns, dass ein Agent nicht falsches wissen kann.
 Daher gilt besondere Sorgfalt mit der Regel $\neg i$.
@@ -192,7 +192,7 @@ Da wir nun eine Definition der Logik $KT45^n$ könnnen wir das Wise Men Rätsel 
 Zur Erinnerung: Der König setzt jeder der drei weisen Männen einen Hut auf, sodass jeder die Hüte der anderen nicht jedoch seinen eigenen sehen kann.
 Es ist allgemein bekannt das es nur 3 rote und 2 weiße Hüte gibt.
 Der König fragt nun jeden der Männer der reihe nach welche Farbe der Hut hat, den der Man trägt.
-Wir gehen davon aus, das sowohl der erste als auch der zwei weise Mann die Aussage machen, dass sie es nicht wissen.
+Wir gehen davon aus, dass sowohl der erste als auch der zwei weise Mann die Aussage machen, dass sie es nicht wissen.
 Es soll nun mithilfe der $KT45^n$ formal gezeigt, dass der dritte Mann dann zwangsläufig weiß, dass er einen roten Hut trägt.
 
 Im Folgenden wird $p_i$ notieren, dass der Mann $i$ einen roten Hut auf hat und 
@@ -216,8 +216,6 @@ Die Menge $\Gamma$ enthält Formeln, die das Allgemeinwissen in $KT45^n$ beschre
 \Eq{min_ein_roter_hut} beschreibt den Umstand, dass mindestens einer der Männer einen roten Hut tragen muss und damit auch das es nicht mehr als zwei weiße geben kann.
 Die \Eq{zweiter_kennt_farbe_von_erster} bis \Eq{zweiter_kennt_farbe_von_letzter} beschreiben, dass jeder die Hutfarbe des anderen weiß, jedoch nicht seine eigenen und das dies allgemein bekannt ist.
 Es ist zu beachten, dass jeweils der positiv wie der negativ Fall festgehalten wird \vglHuth{S. 342f}.
-
-\newline
 
 Die Aussage des ersten Mannes, dass er nicht weiß welche Farbe sein Hut hat lässt sich wie folgt formalisieren:
 \begin{equation*}
@@ -265,7 +263,7 @@ Bei dieser Vorgehensweise handelt es sich um eine schwierige Methode, weil für 
 
 \paragraph{Beweisdiskussion \WMR Schritt 01}
 \underline{Alle Linenverweise beziehen sich auf \Abb{wise_men_01}}.\\
-Die \LNs{1-5} beschreiben die Vorgaben, das Grundwissen, das bereits auf dem Umgangssprachlichen Text extrahier wurde.\\
+Die \LNs{1-5} beschreiben die Vorgaben, dass Grundwissen, dass bereits auf dem Umgangssprachlichen Text extrahier wurde.\\
 Zur Erinnerung: Ziel ist es die Aussage $C(p_2 \vee p_3)$ (Ausschluss der Kombination RWW) nachzuweisen.\\
 Der Beweis beginnt mit der Eröffnung einer $C$ Box in \LN{6}, weil am Schluss die Aussage $p_2 \vee p_3$ ebenfalls Allgemein Wissen sein muss.\\
 In \LN{7} wird begonnen die Aussage durch einen Widerspruchsbeweis zu belegen.\\
@@ -276,7 +274,7 @@ Strickt gesehen wir in \LN{10} mithilfe der $\wedge e$ regeln erst jeder der bei
 Da nun beide Aussagen $\neg p_i, i=\{2,3\}$ gelten können diese mit $\wedge i$ zusammengeführt werden.\\
 In Zeile \LN{15} wir der Aussage ein $K_1$ vorangestellt, weil das Folgern aus sich das Wissen aus $K_1$ abgeschlossen ist.\\
 Danach wird durch das Voranstellen des $K_1$ festgehalten das die Folgerungen nur \emph{nach allem was $K_1$ weiß} wahr sind.\\
-Die \LNs{15-17} zeigen den daraus folgenden Widerspruch an was die Annahme aus \LN{7} widerlegt woraus nach anwenden der De-Morgen-Regel in \LN{18} die gewünschte Aussage bewiesen ist, die, weil alles im Bereich des Allgemeinwissens geführt wurde, ebenfalls zum Allgemeinwissen zählen \underline{muss}.
+Die \LNs{15-17} zeigen den daraus folgenden Widerspruch an was die Annahme aus \LN{7} widerlegt woraus nach anwenden der \deMorganRegeln in \LN{18} die gewünschte Aussage bewiesen ist, die, weil alles im Bereich des Allgemeinwissens geführt wurde, ebenfalls zum Allgemeinwissen zählen \underline{muss}.
 
 
 \begin{figure}[h!t]

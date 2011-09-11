@@ -4,16 +4,17 @@
 \section{Attribute einer Modal-Logik} % (fold)
 \label{sub:attribute_einer_modal_logik}
 Die Attribute einer \ML werden dadurch bestimmt welche Formeln als valide vorausgesetzt werden.
-Alle \NML setzen die Validität der Formel $K$, die Formel für die Logische Konsequentz \vglPriest{S. 75ff}, voraus.
-\NNML sind nicht Teil dieser Arbeit. 
-Der interessierte Leser sein an Priest \citePriest{S. 75ff} verwiesen.
+Alle normalen \ML setzen die Validität der Formel $K$, die Formel für die Logische Konsequentz \vglPriest{S. 75ff}, voraus.
+\NNMLn sind nicht Teil dieser Arbeit. 
+Der interessierte Leser sein an \citePriest{S. 75ff} verwiesen.
 
-Will man eine eigene \ML kreieren ist es wichtig sich genaue Gedanken darüber zu machen, welcher Formeln die als valide voraussetzt, weil das die Eigenschaften der zu modellierenden Wahrheit bestimmt.
+Will man eine eigene \ML kreieren, ist es wichtig sich genaue Gedanken darüber zu machen, welcher Formeln als valide voraussetzt werden, weil das die Eigenschaften der zu modellierenden Wahrheit bestimmt.
 
 Im Folgenden wird erst das für \NML zwingend erforderliche Basisattribut $K$ vorgestellt und danach auf die anderen optionalen Eigenschaften eingegangen.
-Zum Schluss werden ein paar \NML und deren Eigenschaften beschrieben und erklärt warum die gewählten Eigenschaften für die Modalität wünschenswert / wichtig / notwendig sind.
+Zum Schluss werden ein paar \MLn und deren Eigenschaften beschrieben.
+Außerdem wird erklärt warum die gewählten Eigenschaften für die Modalität wünschenswert / wichtig / notwendig sind.
 
-\paragraph{Das Basis Atribute $K$} % (fold)
+\paragraph{Das Basis Attribut $K$} % (fold)
 \label{par:das_basis_atribute_k_} Die Formel $K$ \KFormel besagt, dass es nur normale Welten gibt. Das heißt die Wahrheitsmodulation $\Box$ verhält sich immer gleich im Gegensatz zu \NNML wo es \fachwort{nicht normale} Welten geben kann.
 In nicht normalen Welten ist vereinfacht formuliert alles möglich und nichts notwendig (vgl. \cite[S.75]{Priest:2008}).
 
@@ -38,13 +39,13 @@ Neben der Formel für $K$ gibt es weitere typische Formeln die, sofern sie als v
 	5 & $\Diamond \phi \rightarrow \Box \Diamond \phi$\\
 	\hline
 	\end{tabular}\\
-	\caption{Attribut Bezeichnungen und entsprechende \formelSchemata. \\
-	nach \citeHuth{S. 325}}
+	\caption{Attributbezeichnungen und entsprechende \formelSchemata
+	nach \citeHuth{S. 325}}.
 \end{table}
 \\
 Beim Design der Logik für Notwendigkeit definiert man z.B. die Formel $T$ $\Box \phi \rightarrow \phi$ für alle Welten als zutreffend.
-Den etwas das notwendigerweise \true ist sollte auch einfach \true sein.
-Das selbe gilt für Wissen: Wenn man etwas weiß, dann ist das auch wahr oder anders formuliert: man hat kein falsches Wissen.
+Denn etwas das notwendigerweise \true ist, sollte auch einfach \true sein.
+Dasselbe gilt für Wissen: Wenn man etwas weiß, dann ist das auch wahr oder anders formuliert: man hat kein falsches Wissen.
 Das mag nicht der Realität entsprechen, ist aber eine Idealisierung die für \MAS i.d.R. wünschenswert ist.
 Will man hingegen die Wahrheitsmodalität Glauben modellieren, so wäre es unklug $T$ aufzunehmen.
 Der Glaube zeichnet sich nämlich dadurch aus, dass man auch Dinge glauben kann die \false sind \vglHuth{S. 318ff}.
@@ -84,43 +85,42 @@ Der Glaube zeichnet sich nämlich dadurch aus, dass man auch Dinge glauben kann 
 	\label{tab:wahrheitsModsUndAttr}
 \end{table}
 
-Im Folgenden werden die Gründe für die Voraussetzung verschiedener Eigenschaften für verschiedene Modulationen für Wahrheit kurz angesprochen. Der Fokus liegt auf den Eigenschaften $4$, $5$ und $T$, weil diese in der Modulation von Wissen vorkommen und Bestandteil von \MAS sind.
+Im Folgenden werden die Gründe für die Voraussetzung verschiedener Eigenschaften für verschiedene Modulationen für Wahrheit kurz angesprochen. Der Fokus liegt auf den Eigenschaften $4$, $5$ und $T$, weil diese in der Modulation von Wissen vorkommen und Bestandteil von \MASn sind.
 Eine detaillierter Diskussion findet sich in Huth \cite[S.318f]{huth2004logic}.\\
 \\
-Betrachen wir zunächst wie die Formel \vierFormel und \fuenfFormel in der Modalität \emph{Notwendigkeit} zu interpretieren sind, um einen Eindruck davon zu bekommen wie man \MLFn in einem Modulationskontext setzt.\\
-Sie besagt, dass das was notwendig ist \emph{notwendigerweise} notwendig ist.
-Im Falle von physikalischer Notwendigkeit ist dies z.B. nicht der Fall.
-Denn es würde bedeuten, das die physikalischen Formeln selbst ihre Notwendigkeit fordern würden.
+Betrachtet man zunächst wie die Formel \vierFormel und \fuenfFormel in der Modalität \emph{Notwendigkeit} zu interpretieren sind, um einen Eindruck davon zu bekommen wie man \MLFn in einen Modulationskontext setzt.\\
+Sie besagt, dass das was notwendig ist, \emph{notwendigerweise} notwendig ist.
+Im Fall von physikalischer Notwendigkeit ist dies z.B. nicht der Fall.
+Denn es würde bedeuten, dass die physikalischen Formeln selbst ihre Notwendigkeit fordern würden.
 Für die logische Notwendigkeit ist dies allerdings zutreffend (vgl. \cite[S.318]{huth2004logic}).
 
-Wissen unterscheidet sich vom Gauben nur durch die Voraussetzung $T$ \TFormel.
-Es besagt, das ein Agent zwar Dinge glauben kann die \false sind, aber nur Dinge weiß die auch wirklich \true sind.
+Wissen unterscheidet sich vom Glauben nur durch die Voraussetzung $T$ \TFormel.
+Es besagt, dass ein Agent zwar Dinge glauben kann die \false sind, aber nur Dinge weiß die auch wirklich \true sind.
 Die Formel $4$ \vierFormel nennt man im Kontext des Wissens auch \emph{positive Introspektion}. 
 Wenn ein Agent etwas weiß, dann weiß er, dass er es weiß.
 $5$ \fuenfFormel ist die \emph{negative Introspektion}. Wenn er etwas nicht weiß, dann weiß er auch, dass er es nicht weiß.\\
-Dabei handelt es sich um eine Idealisierte Modulation von Wissen.
+Dabei handelt es sich um eine idealisierte Modulation von Wissen.
 Menschen erfüllen diese Eigenschaften nicht.\\
-Die Formel $K$ \KFormel wird im Kontext des Wissen auch als \emph{logische Allwissenheit} bezeichnet.
+Die Formel $K$ \KFormel wird im Kontext des Wissens auch als \emph{logische Allwissenheit} bezeichnet.
 Sie besagt, dass das Wissen des Agenten abgeschlossen gegenüber der logischen Konsequenz ist.
-Darauf folgt, dass der Agent alle Konsequenzen seines Wissen weiß. 
+Daraus folgt, dass der Agent alle Konsequenzen seines Wissen weiß. 
 Dieser Umstand ist natürlich nicht wahr für menschliches Wissen \vglHuth{S. 319f}.
 
 
 \paragraph{Festlegung von Attributen mithilfe von $R$}
 \label{festlegung_von_attibuten_mit_R}
-
-Wir haben gesehen, dass wenn man eine Modalität der Logik modelliert, indem man entscheidet welche \formelSchemata als valide vorausgesetzt werden.
-Im Gegenzug kann man sich auch überlegen wie die \KS aufgebaut sein muss.
+Es wurde gezeigt, dass man eine \ML entwirft, indem man entscheidet, welche \formelSchemata als valide vorausgesetzt werden.
+Im Gegenzug dazu kann man sich auch überlegen, wie die \KS aufgebaut sein muss.
 
 Nach den Regeln in \Def{reasoning} besagt die Formel
 \begin{equation*}
 	x \Vdash \Box \psi \text{ gdw. }\forall y \in W \text{ gilt } R(x,y)\text{, und } y \Vdash \psi	
 \end{equation*}
-dass $\psi$ \emph{notwendig} ist wenn es in allen irgendwie erreichbaren Welten von $x$ \true ist.\\
+dass $\psi$ \emph{notwendig} ist, wenn es in allen erreichbaren Welten von $x$ \true ist.\\
 Wie genau dieses \emph{irgendwie} zu lesen ist hängt von der zu modellierenden \ML ab.
-Im Falle der \emph{Notwendigkeit} kann man sich überlegen, das etwas \emph{notwendig} ist, wenn es in allen \emph{möglichen} Welten der fall ist.
-Oder anders: basierend auf der Welt $x$ kann man sich \textbf{keine} andere Welt $y$ vorstellen, in der $\psi$ \textbf{nicht} gilt.\\
-Im Falle von \emph{Wissen} für einen Agenten $Q$ beschreibt $R(x,y)$ $y$ die \emph{eigentliche} Welt entsprechend des Wissens in $x$ \vglHuth{S.320f}.
+Im Fall der \emph{Notwendigkeit} kann man sich überlegen, dass etwas \emph{notwendig} ist, wenn es in allen \emph{möglichen} Welten der Fall ist.
+Oder anders: Basierend auf der Welt $x$ kann man sich \textbf{keine} andere Welt $y$ vorstellen, in der $\psi$ \textbf{nicht} gilt.\\
+Im Fall von \emph{Wissen} für einen Agenten $Q$ beschreibt $R(x,y)$ $y$ die \emph{eigentliche} Welt entsprechend des Wissens in $x$ \vglHuth{S.320f}.
 
 Welche Eigenschaften soll $R$ nun also haben um die Intention der Modularität abzubilden?
 
@@ -128,7 +128,7 @@ Zur Erinnerung: eine binäre Relation kann die folgenden Eigenschaften besitzen:
 \begin{itemize}
 	\item \emph{reflexiv}: wenn für $\forall x \in W, R(x,x)$ gilt
 	\item \emph{symmetrisch}: wenn für $\forall x,y \in W, R(x,y)$, $R(y,x)$ folgt
-	\item \emph{seriell}: wenn für jedes $x$ es auch ein $y$ gibt, sodass $R(x,y)$
+	\item \emph{seriell}: wenn für jedes $x$ es auch ein $y$ gibt, sodass $R(x,y)$ gilt
 	\item \emph{transitiv}: wenn für $\forall x,y,z \in W | R(x,y) R(y,z)$, $R(x,z)$ folgt
 	\item \emph{euklidisch}: wenn für $\forall x,y,z \in W | R(x,y) R(x,z)$, $R(y,z)$ folgt
 	\item \emph{funktional}: wenn es $\forall x \in W | R(x,y)$ das $y$ eindeutig ist
@@ -137,17 +137,17 @@ Zur Erinnerung: eine binäre Relation kann die folgenden Eigenschaften besitzen:
 	\item eine \emph{\EQRef} ist reflexiv, symmetrisch und transitiv
 \end{itemize}
 
-Betrachten wir nun welche Eigenschaften $R$ haben sollte um \emph{Wissen} nach unseren Wünschen zu modellieren.
+Betrachtet man nun welche Eigenschaften $R$ haben sollte, um \emph{Wissen} nach unseren Wünschen zu modellieren.
 
-\textbf{Reflexibilität}, würde besagen, dass die aktuelle Welt $x$ die \emph{eigentliche} Welt ist.
-Mit anderen Worten $x$ kann nur Wissen enthalten, das auch wirklich so ist.
+\textbf{Reflexibilität} würde besagen, dass die aktuelle Welt $x$ die \emph{eigentliche} Welt ist.
+Mit anderen Worten $x$ kann nur Wissen enthalten, das auch wirklich \true ist.
 Oder: Ein Agent $Q$ kann nichts falsches Wissen.
 
-\textbf{Transitivität}, würde besagen, dass wenn $y$ möglich ist nach allem was Agent $Q$ in $x$ weiß und $z$ möglich ist nach allem was er in $y$ weiß, dass ist es auch möglich nach allem was er in $x$ weiß.
-Mit anderen Worten $x$ darf nichts enthalten was $z$ unmöglich macht, denn wäre dies der Fall gewesen, dann hätte $Q$ dies in $x$ gewusst und folglich auch in $y$.
+\textbf{Transitivität} würde besagen, dass wenn $\phi$ in der Welt $y$ möglich ist, nach allem was Agent $Q$ in der Welt $x$ weiß \textbf{und} $\phi$ in der Welt $z$ möglich ist nach allem was er in der Welt $y$ weiß, dann ist $\phi$ auch möglich nach allem was er in  in der Welt $x$ weiß.
+Mit anderen Worten darf $x$ nichts enthalten was $z$ unmöglich macht, denn wäre dies der Fall gewesen, hätte $Q$ dies in $x$ wissen müssen und folglich auch in $y$.
 Das Hauptargument ist also die \emph{positive Introspektion} \vierFormel \vglHuth{S. 321f}.
 
-Im folgenden Abschnitt wird näher auf die Zusammenhänge zwischen Eigenschaften der $R$ Relation und der Menge an vorausgesetzter \formelSchemata eingegangen.
+Im folgenden Abschnitt wird näher auf die Zusammenhänge zwischen Eigenschaften der $R$ Relation und der Menge an vorausgesetzten \formelSchemata eingegangen.
 
 
 

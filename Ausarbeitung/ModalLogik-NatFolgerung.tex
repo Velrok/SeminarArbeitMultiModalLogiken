@@ -2,15 +2,15 @@
 
 \section{\ND} % (fold)
 \label{sub:natuerliche_folgerung}
-Natürliche Deduktion ist ein Kalkül um aus einer Menge von aussagen-logischen Formeln andere Formeln abzuleiten.
+Natürliche Deduktion ist ein Kalkül, um aus einer Menge von aussagen-logischen Formeln andere Formeln abzuleiten.
 Dazu gibt es eine Menge von Regeln die hier aufgelistet aber nicht im Detail erklärt werden.
-Eine gute Erklärung der Grundlagen des Systems findet sich in Huth \cite[Kapitel 1.2 (natural deduction)]{huth2004logic} in englischer Sprache.\\
+Eine gute Erklärung der Grundlagen des Systems findet sich in Huth \cite[Kapitel 1.2 (natural deduction)]{huth2004logic}.\\
 \\
-Das System wurde für aussagen-logische Formeln entwickelt. Es lässt sich jedoch erweitern um in der \ML Beweise der Form $\Gamma \vDash_\Menge{L} \psi$ führen zu können.\\
+Das System wurde für aussagen-logische Formeln entwickelt. Es lässt sich jedoch erweitern, um in der \ML Beweise der Form $\Gamma \vDash_\Menge{L} \psi$ führen zu können.\\
 
 \subsection{\ND \AL} % (fold)
 \label{par:natuerliche_deduktion_aussagenlogick}
-Die \ND erlaubt das formelle folgern von Aussagen anhand eines festen Regelsatzes.
+Die \ND erlaubt das formelle Folgern von Aussagen anhand eines festen Regelsatzes.
 Die \Eq{iConjunction} zeigt eine solche Regel.
 
 \begin{equation}
@@ -26,11 +26,11 @@ Jede Regel hat drei Bestandteile:
 	\item Die \underline{Folgerung} lässt sich unter dem Bruchstrich finden.
 	\item Der \underline{Name} oder der Bezeichner wird rechts an die Gleichung angehangen.
 \end{itemize}
-Es lässt sich dabei zwischen Einführungs- (gekenzeichnet durch ein $i$) und Eliminierungsregeln (gekenzeichnet durch ein $e$) unterscheiden.
-Die \Eq{iConjunction} ist also ein Beispiel für eine Einführungsregel.
+Es lässt sich dabei zwischen Einführungs- (gekennzeichnet durch ein $i$) und Eliminierungsregeln (gekennzeichnet durch ein $e$) unterscheiden.
+Die \Eq{iConjunction} ist ein Beispiel für eine Einführungsregel.
 Sie führt die Konjunktion $\phi \wedge \psi$ ein.\\
-Für die Konjunktion gibt es zwei Eliminierungsregeln \Eq{e1Conjunction} und \Eq{e2Conjunction}.
-Die erste extrahiert ersten Teil der Konjunktion, die zweite den zweiten Teil.
+Für die Konjunktion gibt es zwei Eliminierungsregeln, \Eq{e1Conjunction} und \Eq{e2Conjunction}.
+Die erste Gleichung extrahiert den ersten Teil der Konjunktion, die zweite den Zweiten.
 Weil man bei der Erfüllung einer Konjunktion weiß, dass beide Teile gelten müssen ist die Eliminierungsregel einfach.\\
 %
 \begin{equation}
@@ -44,10 +44,10 @@ Weil man bei der Erfüllung einer Konjunktion weiß, dass beide Teile gelten mü
 \end{equation}
 \\
 Die Regeln der Disjunktion sind schwieriger.
-Sie benötigen Annahmen um nachgewiesen zu werden.
+Sie benötigen Annahmen, um nachgewiesen zu werden.
 
-\paragraph{Forumlieren von Annahmen}
-Manchmal ist es notwendig Formeln temporär als gegeben anzunehmen um einen allgemein gültigen Schluss ziehen zu können. Huth \cite[S.11]{huth2004logic} erklärt dies sehr verständlich.\\
+\paragraph{Formulieren von Annahmen}
+Manchmal ist es notwendig Formeln temporär als gegeben anzunehmen, um einen allgemeingültigen Schluss ziehen zu können. Siehe Huth \cite[S.11]{huth2004logic} für eine  ausführlichere Erklärung.\\
 Die Gültigkeit einer solchen temporären Annahme wird durch eine Box um den Teil des entsprechenden Beweises gekennzeichnet.\\
 \begin{equation}
 	\label{eq:iImplication}
@@ -60,8 +60,8 @@ Die Gültigkeit einer solchen temporären Annahme wird durch eine Box um den Tei
 	}
 	{\phi \rightarrow \psi} \rightarrow i
 \end{equation}
-Ein Box kann selbst wieder weitere Boxen enthalten.
-Ein Box kann alle Formeln verwenden die über Annahmen in dieser Box erzeugt wurden und die vor der Box bereits verfügbar waren.
+Eine Box kann selbst wieder weitere Boxen enthalten.
+Ein Box kann alle Formeln verwenden, die über Annahmen in dieser Box erzeugt wurden und die vor der Box bereits verfügbar waren.
 Annahmen dürfen eine Box nicht verlassen. Lediglich die Folgerungen können danach verwendet werden.
 
 \begin{equation}
@@ -88,18 +88,18 @@ Annahmen dürfen eine Box nicht verlassen. Lediglich die Folgerungen können dan
 	\end{array}}
 \end{equation}
 
-Die Sichtbarkeit von Formeln ist sehr wichtig, deswegen hier noch ein Beispiel um dies zu verdeutlichen.\\
-Innerhalb der Box $B_1$ sind alle Formeln der Box $A$ sichtbar die bis dahin deklariert wurden, weil $B_1$ eine Box innerhalb der Box $A$ ist. In diesem Falle ist das die Variable $a_1$.\\
+Die Sichtbarkeit von Formeln ist sehr wichtig, deswegen hier noch ein Beispiel, um dies zu verdeutlichen.\\
+Innerhalb der Box $B_1$ sind alle Formeln der Box $A$ sichtbar, die bis dahin deklariert wurden, weil $B_1$ eine Box innerhalb der Box $A$ ist. In diesem Fall ist das die Variable $a_1$.\\
 Innerhalb der Box $B_2$ sind ebenfalls alle Formeln aus $A$ verfügbar ($a_1$ $a_2$ $f_1$), allerdings \emph{nicht} die aus $B_1$, weil $B_2$ nur innerhalb von $A$ liegt, nicht jedoch innerhalb von $B_1$.
-Weil die Folgerung aus $B_1$ nun teil von $A$ ist kann $B_2$ diese ebenfalls verwenden.\\
+Weil die Folgerung aus $B_1$ nun Teil von $A$ ist, kann $B_2$ diese ebenfalls verwenden.\\
 Die Box $C$ liegt innerhalb von $A$ und $B_2$ und kann damit alle Formeln von $A$ und $B_2$ verwenden ($a_1$ $f_1$ $a_2$ $b_{2_1}$).\\
 
 
 \paragraph{Die Regeln der Disjunktion}
 
-Die Einführenden Regeln der Disjunktion sind einfach.
-Sie erfordern noch nicht den Einsatz von Annahmen.
-Kennt man einen Teil der Aussage kann man den anderen Teil frei wählen, weil man ja schon weiß, dass der erste Teil \true ist und damit die Aussage als ganzes \true sein muss.
+Die einführenden Regeln der Disjunktion sind simpel.
+Sie erfordern nicht den Einsatz von Annahmen.
+Kennt man einen Teil der Aussage, kann man den anderen Teil frei wählen, weil man ja schon weiß, dass der erste Teil \true ist und damit die Aussage als ganzes \true sein muss.
 Die \Eq{i1Disjunction} und die \Eq{i2Disjunction} formalisieren diese Aussagen.\\
 
 \begin{equation}
@@ -112,12 +112,12 @@ Die \Eq{i1Disjunction} und die \Eq{i2Disjunction} formalisieren diese Aussagen.\
 	\frac{\psi}{\phi \vee \psi} \vee i_2
 \end{equation}
 \\
-Die Eliminierungsregeln für die Disjunktion gestallten sich aufwendiger.
-Will man aus der Formel $\phi \vee \psi$ eine Aussage $\chi$ folgern, so muss man zeigen, das $\chi$ gilt egal ob $\phi$ oder $\psi$ der Fall ist. 
-Es wird als erst versucht $\chi$ unter der Annahme von  $\phi$ zu folgern und danach unter der Annahme von $\psi$.
-Nur wenn in beiden Fällen $\chi$ gefolgert werden kann darf $\chi$ danach als gültig angenommen werden kann.
+Die Eliminierungsregeln für die Disjunktion gestalten sich aufwendiger.
+Will man aus der Formel $\phi \vee \psi$ eine Aussage $\chi$ folgern, so muss man zeigen, dass $\chi$ gilt, unabhängig davon ob $\phi$ oder $\psi$ der Fall ist.
+Es wird zuerst versucht, $\chi$ unter der Annahme von  $\phi$ zu folgern und danach unter der Annahme von $\psi$.
+Nur wenn in beiden Fällen $\chi$ gefolgert werden kann, darf $\chi$ danach als gültig angenommen werden.
 Die \Eq{eDisjunction} beschreibt dies formal. 
-Huth \cite[S.16ff]{huth2004logic} beschreibt diese Regeln ausführlicher und führt auch einen Beispielhaften Beweis.
+Huth \cite[S.16ff]{huth2004logic} beschreibt diese Regeln ausführlicher und führt auch einen beispielhaften Beweis.
 
 \begin{equation}
 	\label{eq:eDisjunction}
@@ -133,16 +133,16 @@ Huth \cite[S.16ff]{huth2004logic} beschreibt diese Regeln ausführlicher und fü
 
 \subsection{\ND \ML} % (fold)
 \label{par:natuerliche_deduktion_ml}
-Der direkte Beweis von $\Gamma \vDash_\Menge{L} \psi$ auf Basis der Definition wäre sehr umständlich und auswendig.
-Denn es müsste für jede Mögliche Kripkestruktur die alle Formeln in $\Gamma$ erfüllt und für alle die Welten darin, untersucht werden ob $\psi$ gilt.\\
-Statt dessen kann man die Regeln der \ND erweitern, sodass sie auch in der \ML eingesetzt werden können.\\
+Der direkte Beweis von $\Gamma \vDash_\Menge{L} \psi$ auf Basis der Definition wäre sehr umständlich und aufwendig.
+Es müsste für jede mögliche \KS, die alle Formeln in $\Gamma$ erfüllt und für alle die Welten darin, untersucht werden ob $\psi$ gilt.\\
+Stattdessen kann man die Regeln der \ND erweitern, sodass sie auch in der \ML eingesetzt werden können.\\
 Dafür werden blaue Boxen als neues Syntax-Element eingeführt, siehe \Eq{iBox} und \Eq{eBox}.
-Die blaue Box steht für das \emph{folgern in einer beliebigen erreichbaren Welt}.\\
-Eine blaue Box erlaubt es also die Formel $\phi$ in eine blaue Box zu verwenden wenn es vorher die Formel $\Box \phi$ gab \vglHuth{S. 328ff}.
-Denn $\Box \phi$ besagt, das $\phi$ in \underline{allen} erreichbaren Welten gilt.
+Die blaue Box steht für das \emph{Folgern in einer beliebigen erreichbaren Welt}.\\
+Eine blaue Box erlaubt es die Formel $\phi$ in eine blaue Box zu verwenden wenn es vorher die Formel $\Box \phi$ gab \vglHuth{S. 328ff}.
+Denn $\Box \phi$ besagt, dass $\phi$ in \underline{allen} erreichbaren Welten gilt.
 Wenn man dann also Folgerungen in einer beliebigen Welt vornimmt kann man $\phi$ aus diesem Grund verwenden.
 Ähnliches gilt für gefolgerte Aussagen.
-Hat man in einer blauen Box (einer beliebigen erreichbaren Welt) einen Folgerung für die Aussage $\phi$ gefunden, so kann man danach $\Box \phi$ außerhalb dieser Box verwenden.
+Hat man in einer blauen Box (einer beliebigen erreichbaren Welt) eine Folgerung für die Aussage $\phi$ gefunden, so kann man danach $\Box \phi$ außerhalb dieser Box verwenden.
 Dadurch das keinerlei Annahme über eine konkrete Welt gemacht wurden gilt entsprechen, dass dies $\phi$ für alle erreichbaren Welten gelten muss.
 
 Es gibt keine extra Box für $\Diamond$, weil dies zu $\neg \Box \neg$ äquivalent ist
@@ -164,7 +164,7 @@ Es gibt keine extra Box für $\Diamond$, weil dies zu $\neg \Box \neg$ äquivale
 \paragraph{Extra Regeln für $KT45$} % (fold)
 \label{par:extra_regeln_fuer_kt45_}
 Die Regeln $\Box i$ und $\Box e$ sind für das Folgern in $K$ ausreichend.
-Stärkere Sprachen wie $KT45$ brauchen hingegen weiter Regeln um ihre semantischen Besonderheiten mit einzubeziehen. 
+Stärkere Sprachen wie $KT45$ brauchen hingegen weitere Regeln, um ihre semantischen Besonderheiten mit einzubeziehen. 
 
 \Eq{kt45_deduc_rules} beschreibt die extra Regeln für die \ML $KT45$.
 
@@ -183,9 +183,9 @@ Stärkere Sprachen wie $KT45$ brauchen hingegen weiter Regeln um ihre semantisch
 	\citeHuth{S. 330}
 \end{equation}
 
-Anstatt der Regeln könnte man auch die Restriktionen für das Importieren von Formeln in blaue Boxen lockern.
-Dadurch das $4$ es erlaubt um eine blaue Box eine weiter blaue Box zu zeichnen.
-Daher könnte man sich auch überlegen das es im alg. erlaubt ist Formeln der Form $\Box \phi$ unverändert in blaue Boxen aufzunehmen.\\
+Anstatt der Regeln können auch die Restriktionen für das Importieren von Formeln in blaue Boxen gelockert werden.
+Dadurch das $4$ es erlaubt, um eine blaue Box eine weitere blaue Box zu zeichnen.
+Daher könnte man sich auch überlegen, dass es im Alg. erlaubt ist, Formeln der Form $\Box \phi$ unverändert in blaue Boxen aufzunehmen.\\
 Das Gleiche gilt analog für $5$ und Formeln der Form $\neg \Box \phi$ \vglHuth{S. 330}.
 
 \begin{definition}

@@ -9,40 +9,40 @@ Die \Tab{attributesIncludingR} zeigt einige der wichtigsten dieser \formelSchema
 
 \begin{definition}
 	\label{def:substitution}
-	Sei $\mathds{L}$ eine Menge von Formel-Schemata der Modal Logik und $\Gamma \cup {\psi}$ eine Menge von modal logischen Formeln.
+	Sei $\mathds{L}$ eine Menge von Formel-Schemata der \ML und $\Gamma \cup {\psi}$ eine Menge von modal logischen Formeln.
 	
 	\begin{itemize}
 		\item Die Menge $\Gamma$ ist abgeschlossen gegenüber der Substitution von Instanzen gdw.  $\psi \in \Gamma$. 
 		Dann gilt auch, dass jede Substitutionsinstanz von $\psi$ auch in $\Gamma$ ist.
 		\item Sei $\mathds{L}_c$ die kleinste Menge die alle Instanzen von $\mathds{L}$ enthält.
-		\item Aus $\Gamma$ folgt semantisch $\psi$ in $\mathds{L}$ gdw. alle Modelle, deren Frame $\mathds{L}$ erfüllt und alle Welten $x$ in diesem Modell, $x$ erfüllt $\Gamma$, gilt.
+		\item Aus $\Gamma$ folgt semantisch $\psi$ in $\mathds{L}$ gdw. alle Modelle, deren Frame $\mathds{L}$ erfüllt und alle Welten $x$ in diesem Modell gilt, $x$ erfüllt $\Gamma$.
 		In diesem Fall sagen wir $\Gamma \vDash_{\mathds{L}} \psi$ gilt.
 	\end{itemize}
 	\cite[S.326]{huth2004logic}
 \end{definition}
 
-Bei der \ML $KT45$ handelt es sich um eine wohl bekannte Logik zur Modellierung von Wissen.
+Bei der \ML $KT45$ handelt es sich um eine bekannte Logik zur Modellierung von Wissen.
 Sie wird in der Literatur auch mit $S$ bezeichnet.
-Die Formel $\Box \phi$ bezeichnet also dass ein Agent $Q$ die Tatsache $\phi$ weiß.
+Die Formel $\Box \phi$ bezeichnet dass ein Agent $Q$ die Tatsache $\phi$ weiß.
 Die Menge der vorausgesetzten \formelSchemata ist $\Menge{L} = \{T, 4, 5\}$.\\
-\textbf{T} bedeutet in diesem Zusammenhang, dass nur Dinge gewusst werden können die auch \true sind.\\
-\textbf{4} \emph{Positive Introspektion} bedeutet, dass wenn man etwas weiß, dann weiß man, das man es weiß.
-\textbf{5} \emph{Negative Introspektion} bedeute, dass wenn man etwas nicht weiß, dann weiß man, das man es nicht weiß.
+\textbf{T} bedeutet in diesem Zusammenhang, dass nur Dinge gewusst werden können, die auch \true sind.\\
+\textbf{4} \emph{Positive Introspektion} bedeutet, dass wenn man etwas weiß, dann weiß man, dass man es weiß.
+\textbf{5} \emph{Negative Introspektion} bedeutet, dass wenn man etwas nicht weiß, dann weiß man, dass man es nicht weiß.
 \textbf{K} \emph{Logische Allwissenheit} bedeutet, dass dem Agenten alle möglichen Folgerungen aus seinem Wissen ebenfalls bekannt sind.
 
 Es ist wichtig anzumerken, dass es sich hierbei um eine stark idealisierte Modellierung von Wissen handelt.
 Auf menschliches Wissen treffen diese Eigenschaften \underline{nicht} zu.
-Nicht einmal alle Agenten-System erfüllen all diese Eigenschaften. \citeHuth{S. 326f}
+Nicht einmal alle Agenten-Systeme erfüllen all diese Eigenschaften. \citeHuth{S. 326f}
 
 
 \begin{fact}
-	Eine Relation ist reflexiv, transitiv und euklidisch gdw. sie reflexiv, transitiv und symmetrisch ist, es sich also um eine Gleichheits-Relation handelt. \citeHuth{S.327}
+	Eine Relation ist reflexiv, transitiv und euklidisch gdw. sie reflexiv, transitiv und symmetrisch ist, es sich also um eine Äquvivalenzs-Relation handelt. \citeHuth{S.327}
 \end{fact}
 
 Die \ML $KT45$ ist simpler als $K$, weil weniger sich tatsächlich unterscheidende Aussagen möglich sind.
 
 \begin{theorem}
-	Jede Folge von modal Operatoren und Negationen in $KT45$ ist gleichbedeutend zu einer der folgenden Kombinationen: $-$, $\Box$, $\Diamond$, $\neg$, $\neg \Box$ und $\neg \Diamond$, wobei $-$ bedeutet, dass keien modal Operator und keine Negation verwendet wird. \citeHuth{S. 327}
+	Jede Folge von Modal-Operatoren und Negationen in $KT45$ ist gleichbedeutend zu einer der folgenden Kombinationen: $-$, $\Box$, $\Diamond$, $\neg$, $\neg \Box$ und $\neg \Diamond$, wobei $-$ bedeutet, dass kein Modal-Operator und keine Negation verwendet wird. \citeHuth{S. 327}
 \end{theorem}
 
 
