@@ -7,18 +7,18 @@ Die \MML $Kt45^n$ ist eine Verallgemeinerung der \ML $KT45$, in der Hinsicht als
 Jeder Agent einer Menge \AgentSetDef hat seine eigene Relation $R_i$ auf $W$.
 Der Operator eines Agenten $i$ wird notiert als $K_i$ mit $K$ für \emph{Knowlage} (Wissen).
 Wir verwenden weiterhin $p,q,r$ für atomare Terme.
-Die $K_ip$ bedeutet das Agent $i$ die Tatsache $p$ weis.
+Die $K_ip$ bedeutet das Agent $i$ die Tatsache $p$ weiß.
 Hier nun eine komplexeres Beispiel einer Formel in $KT45^n$ : $K_1p \wedge K_1 \neg K_2 K_1 p$.
-Sie besagt: Agent 1 weis $p$, außerdem weis Agent 1, das Agent 2 nicht weis, dass er $p$ weis.
+Sie besagt: Agent 1 weiß $p$, außerdem weiß Agent 1, das Agent 2 nicht weiß, dass er $p$ weiß.
 Mit $G$ beschreiben wir eine Gruppe von Agenten $G= \{1,2,3,\dots,n\}$.
-Will man nun Aussagen das eine Gruppe $G$ von Agenten einen Umstand $p$ weis : $K_1 p \wedge K_2 p \wedge \dots K_n p$ benutzt man dafür die Formulierung $E_G p$.
+Will man nun Aussagen das eine Gruppe $G$ von Agenten einen Umstand $p$ weiß : $K_1 p \wedge K_2 p \wedge \dots K_n p$ benutzt man dafür die Formulierung $E_G p$.
 Es gelden die selben Bindungsstärke der Operatoren wie in der Auflistung \Ref{bindungsstaerke}.
 Wobei $K_i$ wie der $\Box$-Operator behandelt wird.
 \citeHuth{S.335ff}
 
 
 Bei erster Betrachtung mag man annehmen, dass eine Tatsache $\phi$ nicht bekannter sein kann als $E_G \phi$.
-$E_G E_G \phi$ stellt jedoch mehr Wissen dar als $E_G \phi$, denn es besagt nicht nur das jeder etwas weis, sondern auch das jeder weis, dass es jeder weis.
+$E_G E_G \phi$ stellt jedoch mehr Wissen dar als $E_G \phi$, denn es besagt nicht nur das jeder etwas weiß, sondern auch das jeder weiß, dass es jeder weiß.
 Genauso stellt $E_G E_G E_G \phi$ wiederum noch mehr Wissen dar, denn jeder Weis, dass alle etwas wissen und \emph{das} ist wiederum bekannt.
 Dies lässt sich ins unendliche fortsetzen $E_G E_G \dots \phi$.
 Da es aber nur möglich ist finite Aussagen zu machen, für diesen Umstand des Allgemeinwissens ein extra Operator $C_G$ eingeführt und über seine Semantik definiert.
@@ -176,7 +176,7 @@ Wie auch bei den Regeln zur KT45 kann man sich die Regeln K4, K5, C4 und C5 als 
 Weil K4 es erlaubt um jedes $K_i$ ein weiters $K_i$ zu ergänzen erlaubt es effektiv das unveränderte Importieren von $K_i \phi$ Formeln in $K_i$ Boxen.
 Ähnliches gilt für C5 das es uns erlaubt $\neg C_G$ Formeln in $C_G$ Boxen zu importieren.\\
 Das Öffnen einer Box kann man sich intuitiv als das folgern auf Basis des Wissens des entsprechenden Agenten vorstellen.
-Unter dieser Betrachtung ist es ebenfalls intuitiv einleuchtend, dass eine Tatsache $\phi$ nicht einfach in eine Box gebracht werden kann, denn die existent der Tatsache bedeutet nicht gleichzeitig, dass der entsprechende Agent diese auch weis.\\
+Unter dieser Betrachtung ist es ebenfalls intuitiv einleuchtend, dass eine Tatsache $\phi$ nicht einfach in eine Box gebracht werden kann, denn die existent der Tatsache bedeutet nicht gleichzeitig, dass der entsprechende Agent diese auch weiß.\\
 Wir erinnern uns, dass ein Agent nicht falsches wissen kann.
 Daher gilt besondere Sorgfalt mit der Regel $\neg i$.
 Sie darf nicht angewendet werden, wenn eine der verwendeten Annahmen außerhalb der Box existiert.\\
@@ -219,7 +219,7 @@ Es ist zu beachten, dass jeweils der positiv wie der negativ Fall festgehalten w
 
 \newline
 
-Die Aussage des ersten Mannes, dass er nicht weis welche Farbe sein Hut hat lässt sich wie folgt formalisieren:
+Die Aussage des ersten Mannes, dass er nicht weiß welche Farbe sein Hut hat lässt sich wie folgt formalisieren:
 \begin{equation*}
 	C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1)
 \end{equation*}
@@ -246,15 +246,15 @@ Wissen hat, in unserem idealisierten System, die Eigenschaft sich anzuhäufen un
 Negative Wissensaussagen der form $\neg K \phi$ können also im zeitlichen Verlauf ihre Gültigkeit verlieren \vglHuth{S. 342f}.
 Erneut: $KT45^n$ kennt keine zeitlichen Zusammenhänge.\\\\
 
-Um den Beweis des wise men Rätsels zu führen, der einen zeitlichen aspekt fordert, werden wir uns durch Schrittweise beweisen behelfen indem wir jeweils den Wissensstand vor einer Ankündigung betrachten.
-Die Lösung des wise men Rätsels benötigt folglich zwei Schritte \vglHuth{S. 342f}.
+Um den Beweis des \WMRs zu führen, der einen zeitlichen aspekt fordert, werden wir uns durch Schrittweise beweisen behelfen indem wir jeweils den Wissensstand vor einer Ankündigung betrachten.
+Die Lösung des \WMRs benötigt folglich zwei Schritte \vglHuth{S. 342f}.
 
 Informel konnte die Kombination RWW nach der ersten Ankündigung ausgeschlossen werden.
 Damit wird also $p_1 \vee p_2 \vee p_3$ zu $p_2 \vee p_3$.\\
 Im ersten Schritt soll genau dies nun aus dem anfänglichen Wissen gefolgert werden:
 $\Gamma, C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1), \Vdash C(p_2 \vee p_3)$
 weil $p_2 \vee p_3$ eine positive Formulierung ist, bleibt sie auch in späteren Schnitten gültig.\\
-Schritt zwei kann nun das in Schritt~1 gefolgerte Wissen nutzen um die Aussage das der dritte Mann weis, dass er einen roten Hut trägt zu folgern:
+Schritt zwei kann nun das in Schritt~1 gefolgerte Wissen nutzen um die Aussage das der dritte Mann weiß, dass er einen roten Hut trägt zu folgern:
 $\Gamma, C(p_2 \vee p_3), C(\neg K_1 p_1 \wedge \neg K_1 \neg p_1), \Vdash K_3 p_3$.\\\\
 
 Bei dieser Vorgehensweise handelt es sich um eine schwierige Methode, weil für jeden Schritt \emph{positives} Wissen gefunden werden muss, dass zusätzlich auch noch zielführend ist für den eigentlichen zu beweisenden Schluss.\\\\
@@ -275,7 +275,7 @@ Die \LNs{10-12} wurden ein wenig abgekürzt.
 Strickt gesehen wir in \LN{10} mithilfe der $\wedge e$ regeln erst jeder der beiden Teile einzeln extrahiert und mit begin der $K_1$ Box in \LN{11} das $K_1$ eliminiert.
 Da nun beide Aussagen $\neg p_i, i=\{2,3\}$ gelten können diese mit $\wedge i$ zusammengeführt werden.\\
 In Zeile \LN{15} wir der Aussage ein $K_1$ vorangestellt, weil das Folgern aus sich das Wissen aus $K_1$ abgeschlossen ist.\\
-Danach wird durch das Voranstellen des $K_1$ festgehalten das die Folgerungen nur \emph{nach allem was $K_1$ weis} wahr sind.\\
+Danach wird durch das Voranstellen des $K_1$ festgehalten das die Folgerungen nur \emph{nach allem was $K_1$ weiß} wahr sind.\\
 Die \LNs{15-17} zeigen den daraus folgenden Widerspruch an was die Annahme aus \LN{7} widerlegt woraus nach anwenden der De-Morgen-Regel in \LN{18} die gewünschte Aussage bewiesen ist, die, weil alles im Bereich des Allgemeinwissens geführt wurde, ebenfalls zum Allgemeinwissen zählen \underline{muss}.
 
 
@@ -335,7 +335,7 @@ Die \LNs{15-17} zeigen den daraus folgenden Widerspruch an was die Annahme aus \
 		}
 	}
 	\end{equation*}
-	\caption{Schritt 01 des three wise men Rätsels \\ Quelle: \citeHuth{S. 345}}
+	\caption{Schritt 01 des three \WMRs \\ Quelle: \citeHuth{S. 345}}
 	\label{fig:wise_men_01}
 \end{figure}
 
@@ -408,7 +408,7 @@ In \LN{16} formuliert beschreibt, dass, da $\neg K_2 p_2$ zum Allgemeinwissen ge
 		}
 	}
 	\end{equation*}
-	\caption{Schritt 02 des three wise men Rätsels \\ Quelle: \citeHuth{S. 346}}
+	\caption{Schritt 02 des three \WMRs \\ Quelle: \citeHuth{S. 346}}
 	\label{fig:wise_men_02}
 \end{figure}
 

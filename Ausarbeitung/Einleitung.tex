@@ -6,22 +6,24 @@
 \paragraph{Wahrheits-Modi} % (fold)
 \label{par:wahrheits_modi}
 
-Die Aussagenlogik und Prädikatenlogik kennen nur eine Art von Wahr oder Falsch. Im realen Leben unterscheiden wir jedoch ganz intuitiv zwischen einer Vielzahl von unterschiedlichen Wahrheiten.
-Die Aussage \emph{"Frau Merkel ist die Bundeskanzlerin der BRD"} ist \textbf{im Moment} wahr es kann sich jedoch bei der nächsten Wahl ändern.
+Sowohl die Aussagenlogik als auch die Prädikatenlogik kennen nur eine Art von Wahr oder Falsch. 
+Im realen Leben unterscheiden wir jedoch ganz intuitiv zwischen einer Vielzahl von unterschiedlichen Wahrheiten.
+Die Aussage \emph{"Frau Merkel ist die Bundeskanzlerin der BRD"} ist \textbf{im Moment} wahr, kann sich jedoch bei der nächsten Wahl ändern.
 Die Aussage \emph{"Die Erde hat einen Mond"} ist jetzt wahr und wird mit an Sicherheit grenzender Wahrscheinlichkeit auch in Zukunft wahr sein. 
-Sie ist aber nicht notwendiger Weise Wahr, denn es hätten ja auch 2 oder 3 Monde sein können.
-Ein Beispiel für eine notwendigerweise wahre Aussage ist \emph{''ein Junggeselle ist unverheiratet''}. Den ein Junggestellen ist per Definition unverheiratet, es ist genau diese Eigenschaft, die ihn zum Junggestellen macht. \vglHuth{S. 306}.
+Sie ist aber nicht notwendigerweise Wahr, denn es hätten ja auch 2 oder 3 Monde sein können.
+Ein Beispiel für eine notwendigerweise wahre Aussage ist \emph{''ein Junggeselle ist unverheiratet''}. 
+Den ein Junggestelle ist per Definition unverheiratet; es ist genau diese Eigenschaft, die ihn zum Junggestellen macht \vglHuth{S. 306}.
 
 % paragraph wahrheits_modi (end)
 
 \paragraph{Anwendungsfelder} % (fold)
 \label{par:anwendungsfelder}
 
-In der Informatik ist Schlussfolgern über verschiedene Arten der Wahrheit nützlich in Bereichen wie \emph{Model Checking} und \emph{AI (Artificial Intelligence)}. \\
-Im Model Checking kommen vor allem Temporal Logiken zum Einsatz, um Wahrheitsaussagen zu unterschiedlichen Zeiten im Programmablauf treffen zu können. \\
+In der Informatik ist das Schlussfolgern über verschiedene Arten der Wahrheit nützlich in Bereichen wie \emph{Model Checking} und \emph{AI (Artificial Intelligence)}. \\
+Im Model Checking kommen vor allem Temporal-Logiken zum Einsatz, um Wahrheitsaussagen zu unterschiedlichen Zeiten im Programmablauf, treffen zu können. \\
 Im Bereich der AI, werden \MMLn in Multi-Agent-Systemen verwendet. 
-In solche Systeme sind die Agenten in der Lage Schlussfolgerungen, nicht nur aus dem eigenen Wissen, sondern auch aus dem Wissen über das Wissen anderer Agenten zu ziehen.\\
-Einfache Logiken modellieren nur eine Modalität von Wahrheit, z.B. notwendigerweise wahr, komplizierte Logiken modellieren auch mehrere, z.B. wahr nach allem was Agent $i$ weiß, für $ 0 < i < k$ \vglHuth{S.306f}.\\
+In solchen Systemen sind die Agenten in der Lage Schlussfolgerungen nicht nur aus dem eigenen Wissen, sondern auch aus dem Wissen über das Wissen anderer Agenten zu ziehen.\\
+Einfache Logiken modellieren nur eine Modalität von Wahrheit, z.B. notwendigerweise wahr. Komplizierte Logiken modellieren auch mehrere Arten von Wahrheit, z.B. wahr nach allem was Agent $i$ weiß, für $ 0 < i < k$ \vglHuth{S.306f}.\\
 
 % paragraph anwendungsfelder (end)
 
@@ -32,10 +34,12 @@ Diese Arbeit ist in zwei Bestandteile aufgeteilt.
 
 Kapitel \ref{sec:modal_logic} beschäftigt sich mit den Grundlagen von \ML. 
 Es erklärt Syntax, Semantik, die Modellierung in Form von \KSn und die \PW Semantik.\\
-Es werden wichtige Eigenschaften von \ML aufgeführt und erklärt, sowie der Zusammenhang zwischen der Relation $R$ im \KM und den vorher beschriebenen Eigenschaften verdeutlicht, bekannt als \emph{Ähnlichkeitstheorie}.
-Am Ende wird das Thema anhand der Modal-Logik $KT45$ (für Wissen) konkretisiert.
+Es werden wichtige Eigenschaften der \ML aufgeführt und erklärt sowie der Zusammenhang zwischen der Relation $R$ im \KM und den vorher beschriebenen Eigenschaften verdeutlicht. 
+Diese Zusammenhänge sind bekannt als \emph{Ähnlichkeitstheorie}.
+Am Ende wird das Thema anhand der \ML $KT45$ (für Wissen) konkretisiert.
 
-Kapitel \ref{sec:multi_modal_logic} erklärt \MMLn, als \MLn die mehr als nur eine Modalität vereinen. Das Kapitel beginnt mit der Darstellung des \WMR. 
+Kapitel \ref{sec:multi_modal_logic} erklärt \MMLn, als Logiken die mehr als nur eine Modalität vereinen.
+Das Kapitel beginnt mit der Darstellung des \WMR. 
 Anhand dieses Beispiels wird die Verallgemeinerung der \ML $KT45$ verdeutlicht und zur Anwendung gebracht um das Rätsel formal zu lösen.
 Im Zuge dieser Lösung wird genauer auf die \MML $KT45^n$ eingegangen und deren Unterschiede und Erweiterungen im Vergleich zur Logik $KT45$ erklärt.
 
